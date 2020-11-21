@@ -1,7 +1,11 @@
 package sample;
 
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
@@ -16,38 +20,56 @@ public class Controller {
     private ImageView logo3;
     @FXML
     private ImageView sRing2;
-    public void rotate() throws IOException {
-        RotateTransition rotate = new RotateTransition();
+    @FXML
+    private Button exitB;
+    @FXML
+    private Button newGameB;
+    @FXML
+    private Button leaderBoardB;
+    @FXML
+    private Button loadGameB;
+    DropShadow shadow = new DropShadow();
+    private static final String IDLE_BUTTON_STYLE1 = "-fx-background-color: purple;";
+    private static final String IDLE_BUTTON_STYLE2 = "-fx-background-color: white;";
+    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;";
+    public void rot(ImageView imv, int mul){
+        RotateTransition rotate = new RotateTransition(Duration.millis(3000));
         rotate.setAxis(Rotate.Z_AXIS);
-        rotate.setByAngle(360);
-        rotate.setCycleCount(500);
-        rotate.setDuration(Duration.millis(1000));
-        rotate.setAutoReverse(true);
-        rotate.setNode(sRing1);
+        rotate.setByAngle(360*mul);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        //rotate.setAutoReverse(true);
+        rotate.setNode(imv);
         rotate.play();
-        RotateTransition rotate1 = new RotateTransition();
-        rotate1.setAxis(Rotate.Z_AXIS);
-        rotate1.setByAngle(-360);
-        rotate1.setCycleCount(500);
-        rotate1.setDuration(Duration.millis(1000));
-        rotate1.setAutoReverse(true);
-        rotate1.setNode(sRing2);
-        rotate1.play();
-        RotateTransition rotate2 = new RotateTransition();
-        rotate2.setAxis(Rotate.Z_AXIS);
-        rotate2.setByAngle(360);
-        rotate2.setCycleCount(500);
-        rotate2.setDuration(Duration.millis(1000));
-        rotate2.setAutoReverse(true);
-        rotate2.setNode(logo2);
-        rotate2.play();
-        RotateTransition rotate3 = new RotateTransition();
-        rotate3.setAxis(Rotate.Z_AXIS);
-        rotate3.setByAngle(-360);
-        rotate3.setCycleCount(500);
-        rotate3.setDuration(Duration.millis(1000));
-        rotate3.setAutoReverse(true);
-        rotate3.setNode(logo3);
-        rotate3.play();
+    }
+    public void rotate() throws IOException {
+        rot(sRing1,1);
+        rot(sRing2,-1);
+        rot(logo2,1);
+        rot(logo3,-1);
+    }
+    public void highlightOn_e() throws IOException {
+        exitB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
+    }
+    public void highlightOff_e() throws IOException {
+        exitB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
+    }
+    public void highlightOn_l() throws IOException {
+        leaderBoardB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
+    }
+    public void highlightOff_l() throws IOException {
+        leaderBoardB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
+    }
+    public void highlightOn_n() throws IOException {
+        newGameB.setStyle("-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: a0a3e0 ;");
+    }
+    public void highlightOff_n() throws IOException {
+        newGameB.setStyle("-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: white;");
+    }
+    public void highlightOn_load() throws IOException {
+        loadGameB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0;");
+    }
+    public void highlightOff_load() throws IOException {
+        loadGameB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
     }
 }

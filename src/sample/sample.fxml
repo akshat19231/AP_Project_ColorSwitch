@@ -4,7 +4,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Region?>
 
 <AnchorPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="669.0" prefWidth="620.0" style="-fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
@@ -38,7 +37,15 @@
             <Image url="@../assets/rings_preview_rev_1.png" />
          </image>
       </ImageView>
-      <Button fx:id="LeaderboardB" layoutX="125.0" layoutY="498.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="loadGameB" layoutX="293.0" layoutY="498.0" mnemonicParsing="false" onMouseEntered="#highlightOn_load" onMouseExited="#highlightOff_load" prefHeight="52.0" prefWidth="55.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/loadg_preview_rev_1.png" />
+               </image></ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="leaderBoardB" layoutX="125.0" layoutY="498.0" mnemonicParsing="false" onMouseEntered="#highlightOn_l" onMouseExited="#highlightOff_l" prefHeight="52.0" prefWidth="52.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -46,7 +53,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="exitB" layoutX="454.0" layoutY="498.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="55.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="exitB" layoutX="454.0" layoutY="498.0" mnemonicParsing="false" onMouseEntered="#highlightOn_e" onMouseExited="#highlightOff_e" prefHeight="52.0" prefWidth="55.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -54,7 +61,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="newGameB" layoutX="281.0" layoutY="294.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="80.0" style="-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: white;">
+      <Button fx:id="newGameB" layoutX="281.0" layoutY="294.0" mnemonicParsing="false" onMouseEntered="#highlightOn_n" onMouseExited="#highlightOff_n" prefHeight="81.0" prefWidth="80.0" style="-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: white;">
          <graphic>
             <ImageView fitHeight="44.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: 1.56; -fx-scale-y: 1.56;">
                <image>
@@ -63,14 +70,5 @@
             </ImageView>
          </graphic>
       </Button>
-      <Region layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
-      <Region layoutX="420.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
-      <Region layoutX="32.0" layoutY="254.0" prefHeight="180.0" prefWidth="136.0" />
-      <Region layoutX="470.0" layoutY="254.0" prefHeight="180.0" prefWidth="136.0" />
-      <Region layoutX="225.0" layoutY="498.0" prefHeight="129.0" prefWidth="192.0" />
-      <Region layoutX="14.0" layoutY="495.0" prefHeight="129.0" prefWidth="90.0" />
-      <Region layoutX="518.0" layoutY="497.0" prefHeight="129.0" prefWidth="90.0" />
-      <Region layoutX="240.0" layoutY="152.0" prefHeight="32.0" prefWidth="161.0" />
-      <Region layoutX="241.0" layoutY="14.0" prefHeight="32.0" prefWidth="161.0" />
    </children>
 </AnchorPane>
