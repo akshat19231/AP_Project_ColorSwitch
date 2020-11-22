@@ -2,8 +2,13 @@ package sample;
 
 import javafx.animation.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -19,14 +24,37 @@ public class gamePlayController {
     private Arc arc4;
     @FXML
     private Circle ball;
+    @FXML
+    private Button backB;
     private Ball main_ball;
-    public void init() throws IOException {
+    private Stage ps;
+    private Parent root;
+    private FXMLLoader loader;
+
+    public void init(Stage s, Parent p, FXMLLoader fml) throws IOException {
         //ball.setLayoutY(ball.getLayoutY() - 3);
+        this.ps=s;
+        this.root=p;
+        this.loader=fml;
         this.main_ball=new Ball(0,ball.getLayoutX(),ball.getLayoutY());
         setRotate(arc1);
         setRotate(arc2);
         setRotate(arc3);
         setRotate(arc4);
+    }
+    public void pauseGame(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("pause.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        pauseController myCon=(pauseController) (loader.getController());
+        myCon.init(this.ps, this.root, this.loader);
+        //this.ps.setTitle("Color Switch");
+        Scene main1=this.ps.getScene();
+        main1.setRoot(root);
     }
     public void handleClick(){
         this.main_ball.vy=500;
@@ -69,6 +97,12 @@ public class gamePlayController {
        animation.setCycleCount(Animation.INDEFINITE);
        animation.play();
    }
+    public void highlight_On() throws IOException {
+        backB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
+    }
+    public void highlight_Off() throws IOException {
+        backB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
+    }
 
 
 }

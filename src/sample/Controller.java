@@ -62,9 +62,9 @@ public class Controller {
         }
         loadScreen myCon=(loadScreen)(loader.getController());
         myCon.init(this.ps);
-        this.ps.setTitle("Color Switch");
-        Scene main1=new Scene(root);
-        this.ps.setScene(main1);
+        //this.ps.setTitle("Color Switch");
+        Scene main1=this.ps.getScene();
+        main1.setRoot(root);
     }
     public void newGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
@@ -75,7 +75,7 @@ public class Controller {
             e.printStackTrace();
         }
         gamePlayController myCon=(gamePlayController)(loader.getController());
-        myCon.init();
+        myCon.init(this.ps, root, loader);
         this.ps.setTitle("Color Switch");
         Scene main1=new Scene(root);
         this.ps.setScene(main1);

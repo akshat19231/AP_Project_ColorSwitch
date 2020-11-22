@@ -11,9 +11,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("pause.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
-        pauseController myCon=(pauseController) (loader.getController());
+        Controller myCon=(Controller) (loader.getController());
         myCon.init(primaryStage);
         primaryStage.setTitle("Color Switch");
         Scene main1=new Scene(root);

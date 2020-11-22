@@ -40,9 +40,9 @@ public class loadScreen {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.ps.setTitle("Color Switch");
-        Scene main1=new Scene(root);
-        this.ps.setScene(main1);
+        //this.ps.setTitle("Color Switch");
+        Scene main1=this.ps.getScene();
+        main1.setRoot(root);
     }
     public void highlightOn_b() throws IOException {
         backB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");

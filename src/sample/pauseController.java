@@ -1,6 +1,9 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -16,11 +19,20 @@ public class pauseController {
     @FXML
     private Button lb3;
     private Stage ps;
-    public void init(Stage s){
+    private Parent root;
+    private FXMLLoader loader;
+    public void init(Stage s, Parent p, FXMLLoader fml){
         this.ps=s;
+        this.root=p;
+        this.loader=fml;
     }
-    public void goBack(){
+    public void goBack() throws IOException {
 
+        gamePlayController myCon=(gamePlayController)(this.loader.getController());
+        myCon.init(this.ps, this.root, this.loader);
+        this.ps.setTitle("Color Switch");
+        Scene main1=new Scene(this.root);
+        this.ps.setScene(main1);
     }
     public void highlightOn_b() throws IOException {
         backB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");

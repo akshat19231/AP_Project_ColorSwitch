@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -21,6 +22,15 @@
             <Arc fx:id="arc4" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="270.0" stroke="#00c8ff" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
             <Arc fx:id="arc3" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="180.0" stroke="#440580" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
             <Arc fx:id="arc1" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" stroke="#f70578" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
+            <Button  fx:id="backB" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#pauseGame" onMouseEntered="#highlight_On" onMouseExited="#highlight_Off" prefHeight="43.0" prefWidth="47.0" style="-fx-background-color: purple; -fx-background-radius: 100px;">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/pause_preview_rev_1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
    </children>
