@@ -15,7 +15,7 @@
                     </font>
                 </Text>
             </graphic></Button>
-        <Button fx:id="lb2" layoutX="111.0" layoutY="375.0" mnemonicParsing="false" onMouseEntered="#highlightOn_2" onMouseExited="#highlightOff_2" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
+        <Button fx:id="lb2" layoutX="111.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#quitToMain" onMouseEntered="#highlightOn_2" onMouseExited="#highlightOff_2" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
             <graphic>
                 <Text fx:id="t5" strokeType="OUTSIDE" strokeWidth="0.0" text="Quit to Main Menu">
                     <font>

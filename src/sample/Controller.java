@@ -3,6 +3,7 @@ package sample;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -79,6 +80,9 @@ public class Controller {
         this.ps.setTitle("Color Switch");
         Scene main1=new Scene(root);
         this.ps.setScene(main1);
+    }
+    public void quitGame() throws IOException{
+        Platform.exit();
     }
     public void highlightOn_e() throws IOException {
         exitB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");

@@ -53,7 +53,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="exitB" layoutX="454.0" layoutY="498.0" mnemonicParsing="false" onMouseEntered="#highlightOn_e" onMouseExited="#highlightOff_e" prefHeight="52.0" prefWidth="55.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="exitB" layoutX="454.0" layoutY="498.0" mnemonicParsing="false" onMouseClicked="#quitGame" onMouseEntered="#highlightOn_e" onMouseExited="#highlightOff_e" prefHeight="52.0" prefWidth="55.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -61,7 +61,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="newGameB" layoutX="281.0" layoutY="294.0" onMouseClicked="#newGame" mnemonicParsing="false" onMouseEntered="#highlightOn_n" onMouseExited="#highlightOff_n" prefHeight="81.0" prefWidth="80.0" style="-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: white;">
+      <Button fx:id="newGameB" layoutX="281.0" layoutY="294.0" mnemonicParsing="false" onMouseClicked="#newGame" onMouseEntered="#highlightOn_n" onMouseExited="#highlightOff_n" prefHeight="81.0" prefWidth="80.0" style="-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: white;">
          <graphic>
             <ImageView fitHeight="44.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: 1.56; -fx-scale-y: 1.56;">
                <image>

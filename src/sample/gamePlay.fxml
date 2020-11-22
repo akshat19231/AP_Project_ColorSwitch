@@ -22,7 +22,7 @@
             <Arc fx:id="arc4" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="270.0" stroke="#00c8ff" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
             <Arc fx:id="arc3" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="180.0" stroke="#440580" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
             <Arc fx:id="arc1" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" stroke="#f70578" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
-            <Button  fx:id="backB" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#pauseGame" onMouseEntered="#highlight_On" onMouseExited="#highlight_Off" prefHeight="43.0" prefWidth="47.0" style="-fx-background-color: purple; -fx-background-radius: 100px;">
+            <Button fx:id="backB" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#pauseGame" onMouseEntered="#highlight_On" onMouseExited="#highlight_Off" prefHeight="43.0" prefWidth="47.0" style="-fx-background-color: purple; -fx-background-radius: 100px;">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -31,6 +31,15 @@
                   </ImageView>
                </graphic>
             </Button>
+            <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="298.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/star_preview_rev_1.png" />
+               </image>
+            </ImageView>
+            <Arc fill="#00c8ff" layoutX="311.0" layoutY="184.0" length="90.0" radiusX="20.0" radiusY="20.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#f70578" layoutX="311.0" layoutY="184.0" length="90.0" radiusX="20.0" radiusY="20.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#440580" layoutX="311.0" layoutY="184.0" length="90.0" radiusX="20.0" radiusY="20.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#f0f505" layoutX="311.0" layoutY="184.0" length="90.0" radiusX="20.0" radiusY="20.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
          </children>
       </Pane>
    </children>

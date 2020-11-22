@@ -30,6 +30,7 @@ public class gamePlayController {
     private Stage ps;
     private Parent root;
     private FXMLLoader loader;
+    private stars Star;
 
     public void init(Stage s, Parent p, FXMLLoader fml) throws IOException {
         //ball.setLayoutY(ball.getLayoutY() - 3);
