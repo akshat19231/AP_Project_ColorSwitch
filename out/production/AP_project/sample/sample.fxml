@@ -37,7 +37,7 @@
             <Image url="@../assets/rings_preview_rev_1.png" />
          </image>
       </ImageView>
-      <Button fx:id="loadGameB" layoutX="293.0" layoutY="498.0" mnemonicParsing="false" onMouseEntered="#highlightOn_load" onMouseExited="#highlightOff_load" prefHeight="52.0" prefWidth="55.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="loadGameB" layoutX="293.0" layoutY="498.0" mnemonicParsing="false" onMouseClicked="#handleClick" onMouseEntered="#highlightOn_load" onMouseExited="#highlightOff_load" prefHeight="52.0" prefWidth="55.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>

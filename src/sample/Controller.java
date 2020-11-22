@@ -4,10 +4,14 @@ import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -28,10 +32,8 @@ public class Controller {
     private Button leaderBoardB;
     @FXML
     private Button loadGameB;
+    private Stage ps;
     DropShadow shadow = new DropShadow();
-    private static final String IDLE_BUTTON_STYLE1 = "-fx-background-color: purple;";
-    private static final String IDLE_BUTTON_STYLE2 = "-fx-background-color: white;";
-    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;";
     public void rot(ImageView imv, int mul){
         RotateTransition rotate = new RotateTransition(Duration.millis(3000));
         rotate.setAxis(Rotate.Z_AXIS);
@@ -42,11 +44,26 @@ public class Controller {
         rotate.setNode(imv);
         rotate.play();
     }
-    public void rotate() throws IOException {
+    public void init(Stage s) throws IOException {
+        this.ps=s;
         rot(sRing1,1);
         rot(sRing2,-1);
         rot(logo2,1);
         rot(logo3,-1);
+    }
+    public void handleClick(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("load.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        loadScreen myCon=(loadScreen)(loader.getController());
+        myCon.init(this.ps);
+        this.ps.setTitle("Color Switch");
+        Scene main1=new Scene(root);
+        this.ps.setScene(main1);
     }
     public void highlightOn_e() throws IOException {
         exitB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
