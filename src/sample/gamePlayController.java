@@ -66,7 +66,7 @@ public class gamePlayController {
             long old_time=-1;
             @Override
             public void handle(long now) {
-                if(ba.vy<=0 && (ba.posy<=ba.floor+5 && ba.posy>=ba.floor-5)){
+                if(ba.vy<=0 && (ba.posy>=ba.floor)){
                     System.out.println("returned!");
                     ba.vy=0;
 
@@ -80,11 +80,11 @@ public class gamePlayController {
                 }
                 double tDiff=(double)(now - old_time)/1000000000;
                 old_time=now;
-                b.setTranslateY(b.getTranslateY() - (ba.vy*tDiff - (1500*tDiff*tDiff)/2));
-                b.setLayoutY(b.getLayoutY() - ((ba.vy * tDiff) - ((1500 * tDiff * tDiff) / 2)));
+                b.setTranslateY(b.getTranslateY() - (ba.vy*tDiff - (1000*tDiff*tDiff)/2));
+                b.setLayoutY(b.getLayoutY() - ((ba.vy * tDiff) - ((1000 * tDiff * tDiff) / 2)));
                 ba.posy=(int)b.getLayoutY();
                 System.out.println(ba.posy);
-                ba.vy= (int) (ba.vy - 1500*tDiff);
+                ba.vy= (int) (ba.vy - 1000*tDiff);
             }
         };
         timer.start();
