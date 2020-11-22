@@ -7,20 +7,20 @@
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#init" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gamePlayController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleClick" prefHeight="669.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gamePlayController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="-2.0" pickOnBounds="true">
+            <ImageView fitHeight="669.0" fitWidth="627.0" layoutX="-2.0" pickOnBounds="true">
                <image>
                   <Image url="@../assets/bg4.png" />
                </image>
             </ImageView>
-            <Circle fx:id="ball" fill="#00c8ff" layoutX="300.0" layoutY="340.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
-            <Arc fx:id="arc2" centerX="303.0" centerY="144.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="90.0" stroke="#f0f505" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
-            <Arc fx:id="arc4" centerX="303.0" centerY="144.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="270.0" stroke="#00c8ff" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
-            <Arc fx:id="arc3" centerX="303.0" centerY="144.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="180.0" stroke="#440580" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
-            <Arc fx:id="arc1" centerX="303.0" centerY="144.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" stroke="#f70578" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
+            <Circle fx:id="ball" fill="#00c8ff" layoutX="310.0" layoutY="566.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+            <Arc fx:id="arc2" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="90.0" stroke="#f0f505" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
+            <Arc fx:id="arc4" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="270.0" stroke="#00c8ff" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
+            <Arc fx:id="arc3" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="180.0" stroke="#440580" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
+            <Arc fx:id="arc1" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" stroke="#f70578" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
          </children>
       </Pane>
    </children>

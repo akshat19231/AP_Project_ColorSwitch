@@ -44,6 +44,7 @@ public class Controller {
         rotate.setNode(imv);
         rotate.play();
     }
+
     public void init(Stage s) throws IOException {
         this.ps=s;
         rot(sRing1,1);
@@ -61,6 +62,20 @@ public class Controller {
         }
         loadScreen myCon=(loadScreen)(loader.getController());
         myCon.init(this.ps);
+        this.ps.setTitle("Color Switch");
+        Scene main1=new Scene(root);
+        this.ps.setScene(main1);
+    }
+    public void newGame() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        gamePlayController myCon=(gamePlayController)(loader.getController());
+        myCon.init();
         this.ps.setTitle("Color Switch");
         Scene main1=new Scene(root);
         this.ps.setScene(main1);

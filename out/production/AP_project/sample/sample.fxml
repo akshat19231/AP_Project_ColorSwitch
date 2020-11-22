@@ -61,7 +61,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="newGameB" layoutX="281.0" layoutY="294.0" mnemonicParsing="false" onMouseEntered="#highlightOn_n" onMouseExited="#highlightOff_n" prefHeight="81.0" prefWidth="80.0" style="-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: white;">
+      <Button fx:id="newGameB" layoutX="281.0" layoutY="294.0" onMouseClicked="#newGame" mnemonicParsing="false" onMouseEntered="#highlightOn_n" onMouseExited="#highlightOff_n" prefHeight="81.0" prefWidth="80.0" style="-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: white;">
          <graphic>
             <ImageView fitHeight="44.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: 1.56; -fx-scale-y: 1.56;">
                <image>
