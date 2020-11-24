@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Arc?>
+
+<AnchorPane fx:id="circO1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Arc fx:id="arc2" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="90.0" stroke="#f0f505" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
+      <Arc fx:id="arc4" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="270.0" stroke="#00c8ff" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
+      <Arc fx:id="arc3" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" startAngle="180.0" stroke="#440580" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
+      <Arc fx:id="arc1" centerX="312.0" centerY="275.0" fill="DODGERBLUE" length="90.0" radiusX="50.0" radiusY="50.0" stroke="#f70578" strokeLineCap="BUTT" strokeMiterLimit="0.0" strokeWidth="10.0" style="-fx-fill: null;" />
+   </children>
+</AnchorPane>

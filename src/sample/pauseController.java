@@ -29,10 +29,29 @@ public class pauseController {
     public void goBack() throws IOException {
 
         gamePlayController myCon=(gamePlayController)(this.loader.getController());
-        myCon.init(this.ps, this.root, this.loader);
+        //myCon.init(this.ps, this.root, this.loader);
         this.ps.setTitle("Color Switch");
         Scene main1=new Scene(this.root);
         this.ps.setScene(main1);
+    }
+    public void quitToMain() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Controller myCon=(Controller)(loader.getController());
+        try {
+            myCon.init(this.ps);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //this.ps.setTitle("Color Switch");
+        Scene main1=this.ps.getScene();
+        main1.setRoot(root);
     }
     public void highlightOn_b() throws IOException {
         backB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");

@@ -11,6 +11,7 @@ public class Ball {
         this.posy=y;
         this.floor=y;
     }
+    public void setImage(){}
     public void update(){
 
     }
