@@ -20,6 +20,7 @@ public class Main extends Application {
         primaryStage.setScene(main1);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
+
     }
 
 

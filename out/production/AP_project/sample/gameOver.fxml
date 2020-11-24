@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gameOverController">
+   <children>
+      <Pane layoutX="7.0" layoutY="60.0" prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #2A3132;">
+         <children>
+            <ImageView fitHeight="54.0" fitWidth="225.0" layoutX="135.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Score_preview_rev_1.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="367.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+               <font>
+                  <Font name="Broadway" size="37.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Button layoutX="150.0" layoutY="217.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="307.0" style="-fx-background-radius: 30px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%);">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+         <graphic>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Resume(5 Stars) ?" wrappingWidth="184.5185546875">
+               <font>
+                  <Font name="Broadway" size="19.0" />
+               </font>
+            </Text>
+         </graphic>
+      </Button>
+      <Button layoutX="270.0" layoutY="297.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="68.0" style="-fx-background-radius: 30px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%);">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/restart_preview_rev_2.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="77.0" fitWidth="86.0" layoutX="271.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/3stars_preview_rev_1.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="293.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+         <font>
+            <Font name="Broadway" size="25.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

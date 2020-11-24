@@ -29,7 +29,7 @@ public class pauseController {
     public void goBack() throws IOException {
 
         gamePlayController myCon=(gamePlayController)(this.loader.getController());
-        myCon.init(this.ps, this.root, this.loader);
+        //myCon.init(this.ps, this.root, this.loader);
         this.ps.setTitle("Color Switch");
         Scene main1=new Scene(this.root);
         this.ps.setScene(main1);

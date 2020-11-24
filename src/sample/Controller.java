@@ -6,16 +6,23 @@ import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Arc;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 public class Controller {
     @FXML
     private ImageView sRing1;
@@ -67,14 +74,34 @@ public class Controller {
         Scene main1=this.ps.getScene();
         main1.setRoot(root);
     }
+    public Node getObs() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("circularObs.fxml"));
+        AnchorPane root = loader.load();
+        Group newRoot=new Group();
+        ArrayList<Node> toAdd = new ArrayList<>();
+        for( Node node: root.getChildren()) {
+
+            if( node instanceof Arc) {
+                System.out.println( "yay");
+                toAdd.add(node);
+            }
+
+        }
+        newRoot.getChildren().addAll(toAdd);
+        return newRoot;
+    }
     public void newGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
-        Parent root = null;
+        StackPane root = null;
         try {
             root = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Group grp = (Group)getObs();
+
+        assert root != null;
+        root.getChildren().add(grp);
         gamePlayController myCon=(gamePlayController)(loader.getController());
         myCon.init(this.ps, root, loader);
         this.ps.setTitle("Color Switch");
