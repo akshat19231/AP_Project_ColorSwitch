@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gamePlayController">
+    <children>
+        <Pane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <ImageView fitHeight="669.0" fitWidth="627.0" layoutX="-2.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@../assets/bg4.png" />
+                    </image>
+                </ImageView>
+                <Circle fx:id="ball" fill="#00c8ff" layoutX="312.0" layoutY="569.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                <Button fx:id="backB" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#pauseGame" onMouseEntered="#highlight_On" onMouseExited="#highlight_Off" prefHeight="43.0" prefWidth="47.0" style="-fx-background-color: purple; -fx-background-radius: 100px;">
+                    <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/pause_preview_rev_1.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <ImageView fitHeight="16.0" fitWidth="22.0" layoutX="304.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/star_preview_rev_1.png" />
+                    </image>
+                </ImageView>
+                <Arc fill="#00c8ff" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                <Arc fill="#f70578" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                <Arc fill="#440580" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                <Arc fill="#f0f505" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                <Line fx:id="l3" endX="-18.0" layoutX="371.0" layoutY="302.0" startX="-100.0" stroke="AQUA" strokeLineCap="ROUND" strokeWidth="20.0" />
+                <Line fx:id="l2" endX="-63.333343505859375" endY="-80.33331298828125" layoutX="371.0" layoutY="301.0" startX="-100.0" stroke="#f70578" strokeLineCap="ROUND" strokeWidth="20.0" />
+                <Line fx:id="l1" endX="-146.99996948242188" endY="-80.66665649414062" layoutX="456.0" layoutY="301.0" startX="-103.66665649414062" startY="0.66668701171875" stroke="#f0f505" strokeLineCap="ROUND" strokeWidth="20.0" />
+            </children>
+        </Pane>
+    </children>
+</StackPane>
