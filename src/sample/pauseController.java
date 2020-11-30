@@ -28,24 +28,20 @@ public class pauseController {
     }
     public void goBack() throws IOException {
 
-//        gamePlayController myCon=(gamePlayController)(this.loader.getController());
-//        myCon.init(this.ps, this.root, this.loader);
-
-
         Scene main1=this.ps.getScene();
-        this.root.requestFocus();
         main1.setRoot(this.root);
+        this.root.requestFocus();
     }
     public void quitToMain() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = null;
         try {
-            root = loader.load();
+            root = loader1.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Controller myCon=(Controller)(loader.getController());
+        Controller myCon=(Controller)(loader1.getController());
         try {
             myCon.init(this.ps);
         } catch (IOException e) {

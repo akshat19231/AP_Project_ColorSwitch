@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -23,6 +24,16 @@ import java.util.ArrayList;
 public class gamePlayController {
     @FXML
     public Circle ball;
+    @FXML
+    public Circle c;
+    @FXML
+    public Line l1;
+    @FXML
+    public Line l2;
+    @FXML
+    public Line l3;
+    @FXML
+    public Line l4;
     @FXML
     private Button backB;
     public Ball main_ball;
@@ -48,6 +59,10 @@ public class gamePlayController {
         System.out.println((int)arr.size());
         ArrayList <Node> toBeAdded= new ArrayList<Node>();
         int mul=1;
+//        Group gg=new Group();
+//        gg.getChildren().addAll(l1,l2,l3,l4,c);
+//        rotateLine(gg);
+//        toBeAdded.add(gg);
         for(int i=0;i<arr.size();i++){
             this.obs1.add(arr.get(i));
             toBeAdded.add(arr.get(i).getGroup());
@@ -77,17 +92,9 @@ public class gamePlayController {
                 ((Pane) ((StackPane)this.root).getChildren().get(j)).getChildren().addAll(toBeAdded);
             }
         }
+
     }
-    public void moveObs(double dist){
-        for(int i=0;i<this.obs1.size();i++) {
-            if (obs1.get(i) instanceof CircleObs) {
-                ((CircleObs) this.obs1.get(i)).moveDown(dist);
-            }else{
-                ((squareObs) this.obs1.get(i)).moveDown(dist);
-            }
-            RefreshObs(i);
-        }
-    }
+
     public void RefreshObs(int idx){
         //System.out.println(o.getPosY());
         if(obs1.get(idx).getPosY()>=799){
@@ -109,6 +116,16 @@ public class gamePlayController {
         };
         timer.start();
     }
+    public void moveObs(double dist){
+        for(int i=0;i<this.obs1.size();i++) {
+            if (obs1.get(i) instanceof CircleObs) {
+                ((CircleObs) this.obs1.get(i)).moveDown(dist);
+            }else{
+                ((squareObs) this.obs1.get(i)).moveDown(dist);
+            }
+            RefreshObs(i);
+        }
+    }
     public void animateBall(){
         double curY=this.ball.getLayoutY();
         if(curY>=this.main_ball.floor && this.main_ball.vy<=0) {
@@ -117,13 +134,16 @@ public class gamePlayController {
         }
         double dist=(this.main_ball.vy * tDiff) - ((2000 * tDiff * tDiff) / 2);
         double ballCurY=this.ball.getLayoutY();
-        if(ballCurY<334.5 && this.main_ball.vy>=0){
-            this.moveObs(dist);
+        if(ballCurY-dist<340 ){
+            this.moveObs(340-ballCurY+dist);
             //return;
+            this.ball.setLayoutY(340);
+        }else {
+            this.ball.setLayoutY(this.ball.getLayoutY() - ((this.main_ball.vy * tDiff) - ((2000 * tDiff * tDiff) / 2)));
+
         }
-        this.ball.setLayoutY(this.ball.getLayoutY() - ((this.main_ball.vy * tDiff) - ((2000 * tDiff * tDiff) / 2)));
-        this.main_ball.posy=(int)this.ball.getLayoutY();
-        this.main_ball.vy= (int) (this.main_ball.vy - 2000*tDiff);
+        this.main_ball.posy = (int) this.ball.getLayoutY();
+        this.main_ball.vy = (int) (this.main_ball.vy - 2000 * tDiff);
     }
     public void pauseGame(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pause.fxml"));
