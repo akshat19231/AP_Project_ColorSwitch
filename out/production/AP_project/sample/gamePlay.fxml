@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gamePlayController">
    <children>
@@ -37,11 +36,6 @@
             <Arc fill="#f70578" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
             <Arc fill="#440580" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
             <Arc fill="#f0f505" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Line fx:id="l4" endX="-18.0" layoutX="200.0" layoutY="331.0" startX="-100.0" stroke="RED" strokeLineCap="ROUND" strokeWidth="20.0" />
-            <Line fx:id="l3" endX="-18.0" layoutX="323.0" layoutY="331.0" startX="-100.0" stroke="RED" strokeLineCap="ROUND" strokeWidth="20.0" />
-            <Line fx:id="l2" endX="-100.0" endY="-82.0" layoutX="303.0" layoutY="310.0" startX="-100.0" stroke="RED" strokeLineCap="ROUND" strokeWidth="20.0" />
-            <Line fx:id="l1" endX="-100.0" endY="-82.0" layoutX="303.0" layoutY="433.0" startX="-100.0" stroke="RED" strokeLineCap="ROUND" strokeWidth="20.0" />
-            <Circle fx:id="c" fill="DODGERBLUE" layoutX="203.0" layoutY="331.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </children>

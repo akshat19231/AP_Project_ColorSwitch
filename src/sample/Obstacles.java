@@ -17,6 +17,7 @@ public abstract class Obstacles extends gameElements {
         this.type=type;
     }
     public abstract double getPosY();
+
     public abstract Group getGroup();
 
     public void checkGameOver(){

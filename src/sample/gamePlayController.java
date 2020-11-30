@@ -100,7 +100,7 @@ public class gamePlayController {
         if(obs1.get(idx).getPosY()>=799){
             System.out.println(obs1.get(idx).getPosY());
             System.out.println("refreshed");
-            obs1.get(idx).moveDown(-1300.0);
+            obs1.get(idx).moveDown(-1600.0);
         }
     }
 
@@ -118,11 +118,9 @@ public class gamePlayController {
     }
     public void moveObs(double dist){
         for(int i=0;i<this.obs1.size();i++) {
-            if (obs1.get(i) instanceof CircleObs) {
-                ((CircleObs) this.obs1.get(i)).moveDown(dist);
-            }else{
-                ((squareObs) this.obs1.get(i)).moveDown(dist);
-            }
+
+                 this.obs1.get(i).moveDown(dist);
+
             RefreshObs(i);
         }
     }

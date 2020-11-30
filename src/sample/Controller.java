@@ -84,6 +84,9 @@ public class Controller {
         squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98);
         sq1.makeObs();
         ar.add(sq1);
+        CrossObs co1=new CrossObs(0,1200,0,0,0,0,0);
+        co1.makeObs();
+        ar.add(co1);
     }
     public void newGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
