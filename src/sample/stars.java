@@ -1,7 +1,7 @@
 package sample;
 
 public class stars extends gameElements{
-    public stars(Double x, Double y) {
+    public stars(int x, int y) {
         super(x, y);
     }
 }

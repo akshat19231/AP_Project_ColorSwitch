@@ -6,16 +6,13 @@ import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Arc;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -74,21 +71,19 @@ public class Controller {
         Scene main1=this.ps.getScene();
         main1.setRoot(root);
     }
-    public Node getObs() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("circularObs.fxml"));
-        AnchorPane root = loader.load();
-        Group newRoot=new Group();
-        ArrayList<Node> toAdd = new ArrayList<>();
-        for( Node node: root.getChildren()) {
-
-            if( node instanceof Arc) {
-                System.out.println( "yay");
-                toAdd.add(node);
-            }
-
-        }
-        newRoot.getChildren().addAll(toAdd);
-        return newRoot;
+    public void getObs(ArrayList<Obstacles> ar) throws IOException {
+        CircleObs crO=new CircleObs(0,800,0,0,0,0,1);
+        crO.makeObs(75);
+        ar.add(crO);
+        CircleObs crO1=new CircleObs(0,400,0,0,0,0,1);
+        crO1.makeObs(100);
+        ar.add(crO1);
+//        CircleObs crO2=new CircleObs(0,400,0,0,0,0,1);
+//        crO2.makeObs(75);
+//        ar.add(crO2);
+        squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98);
+        sq1.makeObs();
+        ar.add(sq1);
     }
     public void newGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
@@ -98,15 +93,40 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Group grp = (Group)getObs();
-
+        ArrayList <Obstacles> obs1=new ArrayList<>();
+        getObs(obs1);
         assert root != null;
-        root.getChildren().add(grp);
+
+
+
         gamePlayController myCon=(gamePlayController)(loader.getController());
-        myCon.init(this.ps, root, loader);
+        myCon.init(this.ps, root, loader, obs1);
         this.ps.setTitle("Color Switch");
         Scene main1=new Scene(root);
+        setKeyFunctions(main1, myCon);
         this.ps.setScene(main1);
+        root.requestFocus();
+        myCon.startGame();
+    }
+    private void setKeyFunctions(Scene scene, gamePlayController Con) {
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.SPACE) {
+                setOnUserInput(scene, Con);
+            }
+        });
+
+//        scene.setOnMousePressed(e -> {
+//            setOnUserInput(scene, Con);
+//        });
+    }
+
+    private void setOnUserInput(Scene scene, gamePlayController c) {
+        System.out.println("bruh");
+//        if(!c.CLICKED){
+//            System.out.println("clicked!!!");
+//        }
+        //c.CLICKED=true;
+        c.main_ball.vy=500;
     }
     public void quitGame() throws IOException{
         Platform.exit();
