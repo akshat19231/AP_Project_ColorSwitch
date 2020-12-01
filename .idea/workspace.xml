@@ -29,6 +29,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AP_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AP_project.iml" afterDir="false" />
@@ -58,6 +59,9 @@
       <change beforePath="$PROJECT_DIR$/src/sample/squareObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/squareObs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/stars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/stars.java" afterDir="false" />
     </list>
+=======
+    <list default="true" id="e0c4f9ce-1d31-4607-b1ba-2ed37a029097" name="Default Changelist" comment="" />
+>>>>>>> ba0f159fb1076973a851212daf28a674159cb559
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,7 +249,22 @@
       </method>
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
@@ -277,12 +296,12 @@
                   </entry>
                 </map>
               </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -309,6 +328,10 @@
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state x="488" y="366" key="#com.intellij.ide.util.TreeClassChooserDialog/78.0.1842.1080@78.0.1842.1080" timestamp="1606724064271" />
+    <state x="490" y="231" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1606761320904">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="490" y="231" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1606761320904" />
     <state x="598" y="379" key="FileChooserDialogImpl" timestamp="1606746803106">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
