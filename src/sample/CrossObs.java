@@ -2,8 +2,10 @@ package sample;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 
@@ -14,6 +16,7 @@ public class CrossObs extends Obstacles{
     private Line l4;
     private Circle c;
     private Group cross;
+    private boolean collided;
     public CrossObs(double x, double y, int a, int b, int c, int d, int type) {
         super(x, y, a, b, c, d, type);
         this.l1=new Line();
@@ -69,6 +72,23 @@ public class CrossObs extends Obstacles{
 
     @Override
     public Boolean collisionCheck(Circle c) {
+
+        ArrayList<Line> arcArrayList=new ArrayList<Line>();
+        arcArrayList.add(this.l1);
+        arcArrayList.add(this.l2);
+        arcArrayList.add(this.l3);
+        arcArrayList.add(this.l4);
+        for(int i=0;i<4;i++){
+            Shape intersect= Shape.intersect(c,arcArrayList.get(i));
+            if (intersect.getBoundsInLocal().getWidth() != -1 ) {
+                if(!(c.getFill().toString().equals(arcArrayList.get(i).getStroke().toString()))) {
+                    System.out.println("Collision");
+                    System.exit(0);
+                    collided = true;
+                    return true;
+                }
+            }
+        }
         return false;
     }
 

@@ -2,8 +2,10 @@ package sample;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 
@@ -14,6 +16,7 @@ public class CircleObs extends Obstacles {
     private Arc arc4;
     private Group ring;
     private double centre;
+    private boolean collided;
 
     public CircleObs(double x, double y, int a, int b, int c, int d, int type) {
 
@@ -23,6 +26,7 @@ public class CircleObs extends Obstacles {
         this.arc3=new Arc();
         this.arc4=new Arc();
         this.ring= new Group();
+
     }
 
     public double getCentre() {
@@ -70,6 +74,23 @@ public class CircleObs extends Obstacles {
 
     @Override
     public Boolean collisionCheck(Circle c) {
+
+        ArrayList<Arc> arcArrayList=new ArrayList<Arc>();
+        arcArrayList.add(this.arc1);
+        arcArrayList.add(this.arc2);
+        arcArrayList.add(this.arc3);
+        arcArrayList.add(this.arc4);
+        for(int i=0;i<4;i++){
+            Shape intersect= Shape.intersect(c,arcArrayList.get(i));
+            if ( intersect.getBoundsInLocal().getWidth() != -1) {
+                if(!(c.getFill().equals(arcArrayList.get(i).getStroke()))) {
+                    System.out.println("Collision");
+                    System.exit(0);
+                    collided = true;
+                    return true;
+                }
+            }
+        }
         return false;
     }
 

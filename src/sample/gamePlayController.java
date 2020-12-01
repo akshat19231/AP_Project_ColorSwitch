@@ -99,10 +99,12 @@ public class gamePlayController {
     public void regCollisionCheck(){
         ArrayList<gameElements> tobeRemoved=new ArrayList<gameElements>();
         for(int i=0;i<this.obs1.size();i++) {
-            if(obs1.get(i) instanceof wheel){
+            if((obs1.get(i) instanceof wheel) ||obs1.get(i) instanceof stars){
                 if(obs1.get(i).collisionCheck(this.ball)){
                     tobeRemoved.add(obs1.get(i));
                 }
+            }else{
+                obs1.get(i).collisionCheck(this.ball);
             }
         }
         for(int i=0;i<tobeRemoved.size();i++) {

@@ -3,11 +3,13 @@ package sample;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 public class stars extends gameElements{
     private ImageView img;
     private Group g;
+    private boolean collided;
     public stars(int x, int y) {
         super(x, y);
         this.img=new ImageView();
@@ -26,7 +28,6 @@ public class stars extends gameElements{
         this.img.setScaleY(1);
         this.img.setScaleZ(1);
         this.img.setOpacity(1);
-
         this.g.getChildren().add(this.img);
     }
     @Override
@@ -36,6 +37,12 @@ public class stars extends gameElements{
 
     @Override
     public Boolean collisionCheck(Circle c) {
+        if(collided) return false;
+        if (this.img.getBoundsInParent().intersects(c.getBoundsInParent())) {
+            System.out.println("Collision");
+            collided=true;
+            return true;
+        }
         return false;
     }
 

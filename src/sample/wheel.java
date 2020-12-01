@@ -71,7 +71,12 @@ public class wheel extends gameElements{
         for(int i=0;i<4;i++){
             if (arcArrayList.get(i).getBoundsInParent().intersects(c.getBoundsInParent())) {
                 System.out.println("Collision");
-                c.setFill(Paint.valueOf(this.getRandomColor()));
+                Paint curColor=c.getFill();
+                Paint cr=Paint.valueOf(this.getRandomColor());
+                while(cr.equals(curColor)){
+                    cr=Paint.valueOf(this.getRandomColor());
+                }
+                c.setFill(cr);
                 collided=true;
                 return true;
             }

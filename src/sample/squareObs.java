@@ -1,8 +1,11 @@
 package sample;
 
 import javafx.scene.Group;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 
@@ -15,6 +18,7 @@ public class squareObs extends Obstacles{
     private double centre;
     private double len1;
     private double len2;
+    private boolean collided;
 
     public squareObs(double x, double y, int a, int b, int c, int d, int type, int size1, int size2) {
 
@@ -77,6 +81,7 @@ public class squareObs extends Obstacles{
             line.setRotate(15);
             line.setStartY(line.getStartY()+20);
         }
+        line.setFill(Paint.valueOf(color));
         line.setStyle( "-fx-stroke : "+ color + "; -fx-stroke-width : 20" + "; -fx-stroke-type : CENTERED" + "; -fx-stroke-line-cap : ROUND" + "; -fx-stroke-line-join : MITER");
     }
     public double getPosY(){
@@ -85,6 +90,22 @@ public class squareObs extends Obstacles{
 
     @Override
     public Boolean collisionCheck(Circle c) {
+        ArrayList<Line> arcArrayList=new ArrayList<Line>();
+        arcArrayList.add(this.line1);
+        arcArrayList.add(this.line2);
+        arcArrayList.add(this.line3);
+        arcArrayList.add(this.line4);
+        for(int i=0;i<4;i++){
+            Shape intersect= Shape.intersect(c,arcArrayList.get(i));
+            if (intersect.getBoundsInLocal().getWidth() != -1 ) {
+                if(!(c.getFill().toString().equals(arcArrayList.get(i).getFill().toString()))) {
+                    System.out.println("Collision");
+                    System.exit(0);
+                    collided = true;
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
