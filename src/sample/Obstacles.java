@@ -16,7 +16,7 @@ public abstract class Obstacles extends gameElements {
         this.colors.add(d);
         this.type=type;
     }
-    public abstract double getPosY();
+
 
     public abstract Group getGroup();
 
@@ -24,6 +24,4 @@ public abstract class Obstacles extends gameElements {
 
     }
 
-
-    public abstract void moveDown(double i);
 }

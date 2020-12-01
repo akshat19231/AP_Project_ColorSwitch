@@ -43,16 +43,16 @@ public class gamePlayController {
     private stars Star;
     private AnimationTimer timer;
     private GraphicsContext gc, ballGC;
-    private ArrayList<Obstacles> obs1;
+    private ArrayList<gameElements> obs1;
     private long old_time;
     private double tDiff;
     public boolean CLICKED;
 
-    public void init(Stage s, Parent p, FXMLLoader fml, ArrayList<Obstacles> arr) throws IOException {
+    public void init(Stage s, Parent p, FXMLLoader fml, ArrayList<gameElements> arr) throws IOException {
         ball.setLayoutY(ball.getLayoutY() - 3);
         this.ps=s;
         this.root=p;
-        this.obs1=new ArrayList<Obstacles>();
+        this.obs1=new ArrayList<gameElements>();
         this.loader=fml;
         this.timer=null;
         this.main_ball=new Ball(0, 310,600);
@@ -78,6 +78,8 @@ public class gamePlayController {
                     mul = 1;
                 }
             }else{
+                if(obs1.get(i) instanceof stars)
+                    continue;
                 rotateLine((Group)toBeAdded.get(toBeAdded.size()-1));
                 if (mul == 1) {
                     mul = -1;
@@ -94,12 +96,27 @@ public class gamePlayController {
         }
 
     }
-
+    public void regCollisionCheck(){
+        ArrayList<gameElements> tobeRemoved=new ArrayList<gameElements>();
+        for(int i=0;i<this.obs1.size();i++) {
+            if(obs1.get(i) instanceof wheel){
+                if(obs1.get(i).collisionCheck(this.ball)){
+                    tobeRemoved.add(obs1.get(i));
+                }
+            }
+        }
+        for(int i=0;i<tobeRemoved.size();i++) {
+            for (int j = 0; j < ((StackPane) this.root).getChildren().size(); j++) {
+                if (((StackPane) this.root).getChildren().get(j) instanceof Pane) {
+                    ((Pane) ((StackPane) this.root).getChildren().get(j)).getChildren().remove(tobeRemoved.get(i).getGroup());
+                }
+            }
+        }
+    }
     public void RefreshObs(int idx){
-        //System.out.println(o.getPosY());
         if(obs1.get(idx).getPosY()>=799){
-            System.out.println(obs1.get(idx).getPosY());
-            System.out.println("refreshed");
+            //System.out.println(obs1.get(idx).getPosY());
+            //System.out.println("refreshed");
             obs1.get(idx).moveDown(-1600.0);
         }
     }
@@ -112,15 +129,14 @@ public class gamePlayController {
                 tDiff=(double)(now - old_time)/1000000000;
                 old_time=now;
                 animateBall();
+                regCollisionCheck();
             }
         };
         timer.start();
     }
     public void moveObs(double dist){
         for(int i=0;i<this.obs1.size();i++) {
-
-                 this.obs1.get(i).moveDown(dist);
-
+            this.obs1.get(i).moveDown(dist);
             RefreshObs(i);
         }
     }
@@ -134,7 +150,6 @@ public class gamePlayController {
         double ballCurY=this.ball.getLayoutY();
         if(ballCurY-dist<340 ){
             this.moveObs(340-ballCurY+dist);
-            //return;
             this.ball.setLayoutY(340);
         }else {
             this.ball.setLayoutY(this.ball.getLayoutY() - ((this.main_ball.vy * tDiff) - ((2000 * tDiff * tDiff) / 2)));

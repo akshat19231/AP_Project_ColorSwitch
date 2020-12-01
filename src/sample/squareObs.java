@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.Group;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
@@ -81,6 +82,12 @@ public class squareObs extends Obstacles{
     public double getPosY(){
         return this.line1.getLayoutY();
     }
+
+    @Override
+    public Boolean collisionCheck(Circle c) {
+        return false;
+    }
+
     public Group getGroup(){
         return this.rect;
     }

@@ -68,6 +68,11 @@ public class CrossObs extends Obstacles{
     }
 
     @Override
+    public Boolean collisionCheck(Circle c) {
+        return false;
+    }
+
+    @Override
     public Group getGroup() {
         return this.cross;
     }

@@ -71,7 +71,7 @@ public class Controller {
         Scene main1=this.ps.getScene();
         main1.setRoot(root);
     }
-    public void getObs(ArrayList<Obstacles> ar) throws IOException {
+    public void getObs(ArrayList<gameElements> ar) throws IOException {
         CircleObs crO=new CircleObs(0,800,0,0,0,0,1);
         crO.makeObs(75);
         ar.add(crO);
@@ -87,6 +87,16 @@ public class Controller {
         CrossObs co1=new CrossObs(0,1200,0,0,0,0,0);
         co1.makeObs();
         ar.add(co1);
+        int offset=0;
+        for(int i=0;i<4;i++){
+            wheel w=new wheel(0,offset);
+            w.makeObs();
+            ar.add(w);
+            stars s=new stars(0,offset);
+            s.makeObs();
+            ar.add(s);
+            offset+=400;
+        }
     }
     public void newGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
@@ -96,7 +106,7 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ArrayList <Obstacles> obs1=new ArrayList<>();
+        ArrayList <gameElements> obs1=new ArrayList<>();
         getObs(obs1);
         assert root != null;
 
@@ -124,7 +134,7 @@ public class Controller {
     }
 
     private void setOnUserInput(Scene scene, gamePlayController c) {
-        System.out.println("bruh");
+        //System.out.println("bruh");
 //        if(!c.CLICKED){
 //            System.out.println("clicked!!!");
 //        }

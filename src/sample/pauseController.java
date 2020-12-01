@@ -21,10 +21,12 @@ public class pauseController {
     private Stage ps;
     private Parent root;
     private FXMLLoader loader;
+
     public void init(Stage s, Parent p, FXMLLoader fml){
         this.ps=s;
         this.root=p;
         this.loader=fml;
+
     }
     public void goBack() throws IOException {
 

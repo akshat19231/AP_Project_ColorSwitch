@@ -5,7 +5,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gamePlayController">
@@ -27,15 +26,6 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ImageView fitHeight="16.0" fitWidth="22.0" layoutX="304.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/star_preview_rev_1.png" />
-               </image>
-            </ImageView>
-            <Arc fill="#00c8ff" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fill="#f70578" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fill="#440580" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fill="#f0f505" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
          </children>
       </Pane>
    </children>

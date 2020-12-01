@@ -3,6 +3,7 @@ package sample;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 
@@ -66,6 +67,12 @@ public class CircleObs extends Obstacles {
     public double getPosY(){
         return this.arc1.getLayoutY();
     }
+
+    @Override
+    public Boolean collisionCheck(Circle c) {
+        return false;
+    }
+
     public Group getGroup(){
         return this.ring;
     }
