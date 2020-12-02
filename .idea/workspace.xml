@@ -3,31 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8f1855b8-3b88-49a6-a990-75b60d0772ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Ball.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/CircleObs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/CircleObs.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/CrossObs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/CrossObs.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Obstacles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Obstacles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Parent1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Parent1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gameElements.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gameElements.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gameOverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gameOverController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/loadScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/loadScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/squareObs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/squareObs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/stars.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/stars.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/wheel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/wheel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/CircleObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/CircleObs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/CrossObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/CrossObs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/gamePlay.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/gamePlay.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/gamePlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/gamePlayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/squareObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/squareObs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/stars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/stars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/wheel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,21 +55,21 @@
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state x="0" y="195" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/78.0.1842.1080@78.0.1842.1080" timestamp="1606846151006" />
-    <state width="875" height="297" key="GridCell.Tab.0.bottom" timestamp="1606865018037">
+    <state width="875" height="295" key="GridCell.Tab.0.bottom" timestamp="1606935749561">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state width="875" height="297" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1606865018037" />
-    <state width="875" height="297" key="GridCell.Tab.0.center" timestamp="1606865018037">
+    <state width="875" height="295" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1606935749561" />
+    <state width="875" height="295" key="GridCell.Tab.0.center" timestamp="1606935749561">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state width="875" height="297" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1606865018037" />
-    <state width="875" height="297" key="GridCell.Tab.0.left" timestamp="1606865018037">
+    <state width="875" height="295" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1606935749561" />
+    <state width="875" height="295" key="GridCell.Tab.0.left" timestamp="1606935749561">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state width="875" height="297" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1606865018037" />
-    <state width="875" height="297" key="GridCell.Tab.0.right" timestamp="1606865018037">
+    <state width="875" height="295" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1606935749561" />
+    <state width="875" height="295" key="GridCell.Tab.0.right" timestamp="1606935749561">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state width="875" height="297" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1606865018037" />
+    <state width="875" height="295" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1606935749561" />
   </component>
 </project>

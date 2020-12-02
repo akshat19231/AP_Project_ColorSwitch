@@ -99,6 +99,10 @@ public class Controller {
         }
     }
     public void newGame() throws IOException {
+        Game g1=new Game(1);
+        Player p1=new Player("Jishnu");
+        g1.setPlayer(p1);
+        p1.setMyGame(g1);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
         StackPane root = null;
         try {
@@ -107,13 +111,10 @@ public class Controller {
             e.printStackTrace();
         }
         ArrayList <gameElements> obs1=new ArrayList<>();
-        getObs(obs1);
+//        getObs(obs1);
         assert root != null;
-
-
-
         gamePlayController myCon=(gamePlayController)(loader.getController());
-        myCon.init(this.ps, root, loader, obs1);
+        myCon.init(this.ps, root, loader, obs1,g1);
         this.ps.setTitle("Color Switch");
         Scene main1=new Scene(root);
         setKeyFunctions(main1, myCon);
@@ -127,10 +128,6 @@ public class Controller {
                 setOnUserInput(scene, Con);
             }
         });
-
-//        scene.setOnMousePressed(e -> {
-//            setOnUserInput(scene, Con);
-//        });
     }
 
     private void setOnUserInput(Scene scene, gamePlayController c) {
@@ -139,7 +136,7 @@ public class Controller {
 //            System.out.println("clicked!!!");
 //        }
         //c.CLICKED=true;
-        c.main_ball.vy=500;
+        c.getGame().getMain_ball().vy=500;
     }
     public void quitGame() throws IOException{
         Platform.exit();
