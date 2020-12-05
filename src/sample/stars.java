@@ -14,12 +14,13 @@ public class stars extends gameElements{
         super(x, y);
         this.img=new ImageView();
         this.g=new Group();
+        this.collided=false;
 
     }
     public void makeObs(){
         this.img.setImage(new Image(getClass().getResourceAsStream("/assets/star_preview_rev_1.png")));
         this.img.setLayoutX(302);
-        this.img.setLayoutY(260+this.getY());
+        this.img.setLayoutY(260-this.getY());
         this.img.setX(0);
         this.img.setY(0);
         this.img.setFitHeight(18);
@@ -45,7 +46,9 @@ public class stars extends gameElements{
         }
         return false;
     }
-
+    public void refresh(){
+        this.collided=false;
+    }
     @Override
     public Group getGroup() {
         return this.g;
@@ -54,5 +57,10 @@ public class stars extends gameElements{
     @Override
     public void moveDown(double i) {
         this.img.setLayoutY(this.img.getLayoutY() + i);
+    }
+
+    @Override
+    public void print() {
+
     }
 }

@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,18 +22,23 @@ public class pauseController {
     private Stage ps;
     private Parent root;
     private FXMLLoader loader;
-
-    public void init(Stage s, Parent p, FXMLLoader fml){
+    private AnimationTimer timer;
+    private Game g;
+    public void init(Stage s, Parent p, FXMLLoader fml, AnimationTimer timer, Game g){
         this.ps=s;
         this.root=p;
         this.loader=fml;
+        this.timer=timer;
+        this.g=g;
 
     }
     public void goBack() throws IOException {
-
+        this.g.setOld_time(System.nanoTime());
         Scene main1=this.ps.getScene();
         main1.setRoot(this.root);
+        this.timer.start();
         this.root.requestFocus();
+
     }
     public void quitToMain() throws IOException {
 

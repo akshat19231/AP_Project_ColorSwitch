@@ -81,7 +81,7 @@ public class Controller {
 //        CircleObs crO2=new CircleObs(0,400,0,0,0,0,1);
 //        crO2.makeObs(75);
 //        ar.add(crO2);
-        squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98);
+        squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98,0);
         sq1.makeObs();
         ar.add(sq1);
         CrossObs co1=new CrossObs(0,1200,0,0,0,0,0);
@@ -114,7 +114,7 @@ public class Controller {
 //        getObs(obs1);
         assert root != null;
         gamePlayController myCon=(gamePlayController)(loader.getController());
-        myCon.init(this.ps, root, loader, obs1,g1);
+        myCon.init(this.ps, root, loader,g1);
         this.ps.setTitle("Color Switch");
         Scene main1=new Scene(root);
         setKeyFunctions(main1, myCon);

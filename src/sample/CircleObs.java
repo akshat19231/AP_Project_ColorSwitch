@@ -25,6 +25,7 @@ public class CircleObs extends Obstacles {
         this.arc2=new Arc();
         this.arc3=new Arc();
         this.arc4=new Arc();
+        this.centre=275;
         this.ring= new Group();
 
     }
@@ -71,7 +72,12 @@ public class CircleObs extends Obstacles {
     public double getPosY(){
         return this.arc1.getLayoutY();
     }
-
+    public void print(){
+        System.out.println(this.arc1.getLayoutY());
+        System.out.println(this.arc2.getLayoutY());
+        System.out.println(this.arc3.getLayoutY());
+        System.out.println(this.arc4.getLayoutY());
+    }
     @Override
     public Boolean collisionCheck(Circle c) {
 
@@ -84,14 +90,17 @@ public class CircleObs extends Obstacles {
             Shape intersect= Shape.intersect(c,arcArrayList.get(i));
             if ( intersect.getBoundsInLocal().getWidth() != -1) {
                 if(!(c.getFill().equals(arcArrayList.get(i).getStroke()))) {
-                    System.out.println("Collision");
-                    System.exit(0);
+//                    System.out.println("Collision");
                     collided = true;
                     return true;
                 }
             }
         }
         return false;
+    }
+    @Override
+    public void refresh() {
+
     }
 
     public Group getGroup(){

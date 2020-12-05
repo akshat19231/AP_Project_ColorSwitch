@@ -10,6 +10,9 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Random;
 
 public class Game {
     private Player player;
@@ -25,13 +28,15 @@ public class Game {
     private long old_time;
     private double tDiff;
     public boolean CLICKED;
-    private ArrayList<gameElements> ar;
+    private LinkedList<gameElements> ar;
+    public LinkedList <gameElements> obsQ;
 
     public Game(int idx){
         this.GameId=idx;
         this.level=1;
         this.score=0;
-        this.ar=new ArrayList<gameElements>();
+        this.ar=new LinkedList<gameElements>();
+        this.obsQ=new LinkedList<gameElements>();
     }
 
     public void setMain_ball(Ball main_ball) {
@@ -85,6 +90,9 @@ public class Game {
     public gameElements getObs(int idx){
         return this.ar.get(idx);
     }
+    public gameElements getObsQ(int idx){
+        return this.obsQ.get(idx);
+    }
     public Player getPlayer(){
         return this.player;
     }
@@ -92,31 +100,80 @@ public class Game {
         this.score++;
         this.level++;
     }
-    public void initialiseObs(){
-        CircleObs crO=new CircleObs(0,800,0,0,0,0,1);
-        crO.makeObs(75);
-        this.ar.add(crO);
-        CircleObs crO1=new CircleObs(0,400,0,0,0,0,1);
-        crO1.makeObs(100);
-        this.ar.add(crO1);
-//        CircleObs crO2=new CircleObs(0,400,0,0,0,0,1);
-//        crO2.makeObs(75);
-//        ar.add(crO2);
-        squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98);
-        sq1.makeObs();
-        this.ar.add(sq1);
-        CrossObs co1=new CrossObs(0,1200,0,0,0,0,0);
-        co1.makeObs();
-        this.ar.add(co1);
-        int offset=0;
-        for(int i=0;i<4;i++){
-            wheel w=new wheel(0,offset);
-            w.makeObs();
-            this.ar.add(w);
-            stars s=new stars(0,offset);
-            s.makeObs();
-            this.ar.add(s);
-            offset+=400;
+    public void removeQ(){
+        this.obsQ.remove(0);
+    }
+    public void remove(gameElements g){
+        this.ar.remove(g);
+    }
+    public void add(gameElements g){
+        this.ar.add(g);
+    }
+    public int getScore(){
+        return this.score;
+    }
+    public int getLevel(){
+        return this.level;
+    }
+    public int getSizeQ(){
+        return this.obsQ.size();
+    }
+    public void useStars(){
+        this.score = this.score - 5;
+    }
+    public int update(double pos){
+        Random random = new Random();
+        int index = random.nextInt(4);
+
+        if(index==0){
+            CircleObs crO=new CircleObs(0,pos,0,0,0,0,1);
+            crO.makeObs(75);
+            obsQ.add(crO);
+            return 1;
+        }else if(index==1){
+            squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98, pos);
+            sq1.makeObs();
+            obsQ.add(sq1);
+            return 1;
+        }else if(index==2){
+            CrossObs co1=new CrossObs(0,pos,0,0,0,0,0);
+            co1.makeObs();
+            obsQ.add(co1);
+            return 1;
+        }else{
+            squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98, pos);
+            sq1.makeObs();
+            obsQ.add(sq1);
+            return 1;
         }
+    }
+    public void initialiseObs(){
+        CircleObs crO=new CircleObs(0,1000,0,0,0,0,1);
+        crO.makeObs(75);
+        wheel w1=new wheel(0,1000);
+        w1.makeObs();
+        stars s1=new stars(0,1000);
+        s1.makeObs();
+        squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98, 0);
+        sq1.makeObs();
+        wheel w2=new wheel(0,0);
+        w2.makeObs();
+        stars s2=new stars(0,0);
+        s2.makeObs();
+        CrossObs co1=new CrossObs(0,500,0,0,0,0,0);
+        co1.makeObs();
+        wheel w3=new wheel(0,500);
+        w3.makeObs();
+        stars s3=new stars(0,500);
+        s3.makeObs();
+        this.obsQ.add(sq1);
+        this.ar.add(w2);
+        this.ar.add(s2);
+        this.obsQ.add(co1);
+        this.ar.add(w3);
+        this.ar.add(s3);
+        this.obsQ.add(crO);
+        this.ar.add(w1);
+        this.ar.add(s1);
     }
 }

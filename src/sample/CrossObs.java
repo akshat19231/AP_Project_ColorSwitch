@@ -65,6 +65,12 @@ public class CrossObs extends Obstacles{
         l.setStyle("-fx-stroke : "+color + "; -fx-stroke-width : 20" + "; -fx-stroke-type : CENTERED" + "; -fx-stroke-line-cap : ROUND" + "; -fx-stroke-line-join : MITER");
 
     }
+
+    @Override
+    public void refresh() {
+
+    }
+
     @Override
     public double getPosY(){
         return this.l1.getLayoutY();
@@ -82,14 +88,19 @@ public class CrossObs extends Obstacles{
             Shape intersect= Shape.intersect(c,arcArrayList.get(i));
             if (intersect.getBoundsInLocal().getWidth() != -1 ) {
                 if(!(c.getFill().toString().equals(arcArrayList.get(i).getStroke().toString()))) {
-                    System.out.println("Collision");
-                    System.exit(0);
+//                    System.out.println("Collision");
                     collided = true;
                     return true;
                 }
             }
         }
         return false;
+    }
+    public void print(){
+        System.out.println(this.l1.getLayoutY());
+        System.out.println(this.l2.getLayoutY());
+        System.out.println(this.l3.getLayoutY());
+        System.out.println(this.l4.getLayoutY());
     }
 
     @Override

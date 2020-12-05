@@ -6,16 +6,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gamePlayController">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0">
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;">
          <children>
-            <ImageView fitHeight="669.0" fitWidth="627.0" layoutX="-2.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../assets/bg4.png" />
-               </image>
-            </ImageView>
             <Circle fx:id="ball" fill="#00c8ff" layoutX="312.0" layoutY="569.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
             <Button fx:id="backB" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#pauseGame" onMouseEntered="#highlight_On" onMouseExited="#highlight_Off" prefHeight="43.0" prefWidth="47.0" style="-fx-background-color: purple; -fx-background-radius: 100px;">
                <graphic>
@@ -26,6 +23,11 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Text fx:id="scoreBoard" fill="WHITE" layoutX="31.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="34.0">
+               <font>
+                  <Font name="System Bold" size="60.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

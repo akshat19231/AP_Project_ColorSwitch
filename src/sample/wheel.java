@@ -32,6 +32,11 @@ public class wheel extends gameElements{
         this.arc4.setLayoutY(this.arc1.getLayoutY() + y);
     }
 
+    @Override
+    public void print() {
+
+    }
+
     public void makeObs(){
         getArc(10,arc1, 0, "#f70578");
         getArc(10,arc2, 90, "#f0f505");
@@ -70,7 +75,7 @@ public class wheel extends gameElements{
         arcArrayList.add(this.arc4);
         for(int i=0;i<4;i++){
             if (arcArrayList.get(i).getBoundsInParent().intersects(c.getBoundsInParent())) {
-                System.out.println("Collision");
+                //System.out.println("Collision");
                 Paint curColor=c.getFill();
                 Paint cr=Paint.valueOf(this.getRandomColor());
                 while(cr.equals(curColor)){
@@ -82,6 +87,9 @@ public class wheel extends gameElements{
             }
         }
         return false;
+    }
+    public void refresh(){
+        this.collided=false;
     }
 
     public Group getGroup(){

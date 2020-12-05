@@ -19,8 +19,9 @@ public class squareObs extends Obstacles{
     private double len1;
     private double len2;
     private boolean collided;
+    private double offset;
 
-    public squareObs(double x, double y, int a, int b, int c, int d, int type, int size1, int size2) {
+    public squareObs(double x, double y, int a, int b, int c, int d, int type, int size1, int size2, double offset) {
 
         super(x, y, a, b, c, d, type);
         this.line1=new Line();
@@ -30,6 +31,7 @@ public class squareObs extends Obstacles{
         this.rect= new Group();
         this.len1=size1;
         this.len2=size2;
+        this.offset=offset;
 
     }
 
@@ -44,7 +46,12 @@ public class squareObs extends Obstacles{
         this.line4.setLayoutY(this.line4.getLayoutY() + y);
         this.centre+=y;
     }
-
+    public void print(){
+        System.out.println(this.line1.getLayoutY());
+        System.out.println(this.line2.getLayoutY());
+        System.out.println(this.line3.getLayoutY());
+        System.out.println(this.line4.getLayoutY());
+    }
     public void makeObs(){
         getLine(line1, -3, 0, 123, "#f70578", 1, 0, 386,328, 2);
         getLine(line2, 123,-114, 123, "#f0f505",1,0, 240, 324, 3);
@@ -66,7 +73,7 @@ public class squareObs extends Obstacles{
         line.setStartX(x);
         line.setStartY(y);
         line.setLayoutX(lx);
-        line.setLayoutY(ly);
+        line.setLayoutY(ly-this.offset);
         if(angle==1){
             line.setRotate(15);
             line.setEndY(line.getEndY()-20);
@@ -87,7 +94,10 @@ public class squareObs extends Obstacles{
     public double getPosY(){
         return this.line1.getLayoutY();
     }
+    @Override
+    public void refresh() {
 
+    }
     @Override
     public Boolean collisionCheck(Circle c) {
         ArrayList<Line> arcArrayList=new ArrayList<Line>();
@@ -99,8 +109,7 @@ public class squareObs extends Obstacles{
             Shape intersect= Shape.intersect(c,arcArrayList.get(i));
             if (intersect.getBoundsInLocal().getWidth() != -1 ) {
                 if(!(c.getFill().toString().equals(arcArrayList.get(i).getFill().toString()))) {
-                    System.out.println("Collision");
-                    System.exit(0);
+//                    System.out.println("Collision");
                     collided = true;
                     return true;
                 }

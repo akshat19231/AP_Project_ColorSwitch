@@ -24,6 +24,7 @@ public abstract class gameElements {
         int index = random.nextInt(this.colors.size());
         return this.colors.get(index);
     }
+    public abstract void refresh();
     public abstract double getPosY();
     public double getX(){
         return posx;
@@ -34,4 +35,6 @@ public abstract class gameElements {
     public abstract Boolean collisionCheck(Circle c);
     public abstract Group getGroup();
     public abstract void moveDown(double i);
+
+    public abstract void print();
 }
