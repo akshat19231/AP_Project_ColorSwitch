@@ -13,8 +13,10 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -71,6 +73,7 @@ public class Controller {
         Scene main1=this.ps.getScene();
         main1.setRoot(root);
     }
+
     public void getObs(ArrayList<gameElements> ar) throws IOException {
         CircleObs crO=new CircleObs(0,800,0,0,0,0,1);
         crO.makeObs(75);
@@ -98,7 +101,7 @@ public class Controller {
             offset+=400;
         }
     }
-    public void newGame() throws IOException {
+    public void reDirect(){
         Game g1=new Game(1);
         Player p1=new Player("Jishnu");
         g1.setPlayer(p1);
@@ -114,13 +117,36 @@ public class Controller {
 //        getObs(obs1);
         assert root != null;
         gamePlayController myCon=(gamePlayController)(loader.getController());
-        myCon.init(this.ps, root, loader,g1);
+        try {
+            myCon.init(this.ps, root, loader,g1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         this.ps.setTitle("Color Switch");
         Scene main1=new Scene(root);
         setKeyFunctions(main1, myCon);
         this.ps.setScene(main1);
         root.requestFocus();
         myCon.startGame();
+    }
+    public void newGame() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("newGame.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene newScene = new Scene(root);
+        newScene.setFill(Color.TRANSPARENT);
+        newGameController myCon=(newGameController)(loader.getController());
+        myCon.init();
+        Stage newStage=new Stage(StageStyle.TRANSPARENT);
+        newStage.initOwner(this.ps);
+        newStage.setScene(newScene);
+        newStage.showAndWait();
+        if(myCon.giveState())
+            this.reDirect();
     }
     private void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {

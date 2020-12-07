@@ -147,6 +147,9 @@ public class Game implements Comparable<Game>{
             return 1;
         }
     }
+    public void reset(){
+
+    }
     public void initialiseObs(){
         CircleObs crO=new CircleObs(0,1000,0,0,0,0,1);
         crO.makeObs(75);

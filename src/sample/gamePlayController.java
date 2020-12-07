@@ -26,8 +26,8 @@ import java.util.Queue;
 import java.util.Random;
 
 public class gamePlayController {
-    @FXML
-    public Circle ball;
+//    @FXML
+//    public Circle ball;
     @FXML
     public Circle c;
     @FXML
@@ -46,17 +46,17 @@ public class gamePlayController {
     public void init(Stage s, Parent p, FXMLLoader fml, Game g) throws IOException {
         this.game=g;
         this.game.initialiseObs();
-        ball.setLayoutY(ball.getLayoutY() - 3);
         this.game.setPs(s);
         this.game.setRoot(p);
         this.game.setLoader(fml);
         this.game.setTimer(null);
         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
         this.game.setMain_ball(new Ball(0, 310,600));
+        this.game.getMain_ball().getCircle().setLayoutY(this.game.getMain_ball().getCircle().getLayoutY() - 3);
         ArrayList <Node> toBeAdded= new ArrayList<Node>();
+        toBeAdded.add(this.game.getMain_ball().getCircle());
         int mul=1;
         for(int i=0;i<this.game.getSize();i++){
-//            this.obs1.add(arr.get(i));
             toBeAdded.add(this.game.getObs(i).getGroup());
             if(this.game.getObs(i) instanceof CircleObs) {
                 ArrayList<Arc> getArcs = ((CircleObs) this.game.getObs(i)).getArcforRotation();
@@ -80,7 +80,6 @@ public class gamePlayController {
             }
         }
         for(int i=0;i<this.game.getSizeQ();i++){
-//            this.obs1.add(arr.get(i));
             toBeAdded.add(this.game.getObsQ(i).getGroup());
             if(this.game.getObsQ(i) instanceof CircleObs) {
                 ArrayList<Arc> getArcs = ((CircleObs) this.game.getObsQ(i)).getArcforRotation();
@@ -128,14 +127,14 @@ public class gamePlayController {
 //                }
 //            }else{
         for(int i=0;i<this.game.getSizeQ();i++) {
-            if(this.game.getObsQ(i).collisionCheck(this.ball)){
+            if(this.game.getObsQ(i).collisionCheck(this.game.getMain_ball().getCircle())){
                 this.GameOver();
             }
         }
 
         for(int i=0;i<this.game.getSize();i++) {
             if ((this.game.getObs(i) instanceof wheel) || this.game.getObs(i) instanceof stars) {
-                if (this.game.getObs(i).collisionCheck(this.ball)) {
+                if (this.game.getObs(i).collisionCheck(this.game.getMain_ball().getCircle())) {
                     if (this.game.getObs(i) instanceof stars) {
                         this.updateScore();
                         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
@@ -258,21 +257,21 @@ public class gamePlayController {
         fun(this.game);
     }
     public void animateBall(){
-        double curY=this.ball.getLayoutY();
+        double curY=this.game.getMain_ball().getCircle().getLayoutY();
         if(curY>=this.game.getMain_ball().floor && this.game.getMain_ball().vy<=0) {
             this.game.getMain_ball().vy=0;
             return;
         }
         double dist=(this.game.getMain_ball().vy * this.game.getDiff()) - ((2000 * this.game.getDiff() * this.game.getDiff()) / 2);
-        double ballCurY=this.ball.getLayoutY();
+        double ballCurY=this.game.getMain_ball().getCircle().getLayoutY();
         if(ballCurY-dist<340 ){
             this.moveObs(340-ballCurY+dist);
-            this.ball.setLayoutY(340);
+            this.game.getMain_ball().getCircle().setLayoutY(340);
         }else {
-            this.ball.setLayoutY(this.ball.getLayoutY() - ((this.game.getMain_ball().vy * this.game.getDiff()) - ((2000 * this.game.getDiff() * this.game.getDiff()) / 2)));
+            this.game.getMain_ball().getCircle().setLayoutY(this.game.getMain_ball().getCircle().getLayoutY() - ((this.game.getMain_ball().vy * this.game.getDiff()) - ((2000 * this.game.getDiff() * this.game.getDiff()) / 2)));
 
         }
-        this.game.getMain_ball().posy = (int) this.ball.getLayoutY();
+        this.game.getMain_ball().posy = (int) this.game.getMain_ball().getCircle().getLayoutY();
         this.game.getMain_ball().vy = (int) (this.game.getMain_ball().vy - 2000 * this.game.getDiff());
     }
     public void pauseGame(){
@@ -285,7 +284,7 @@ public class gamePlayController {
             e.printStackTrace();
         }
         pauseController myCon=(pauseController) (loader.getController());
-        myCon.init(this.game.getPs(), this.game.getRoot(), this.game.getLoader(), this.game.getTimer(), this.game);
+        myCon.init(this.game);
         Scene main1=this.game.getPs().getScene();
         main1.setRoot(root1);
     }

@@ -1,0 +1,115 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8f1855b8-3b88-49a6-a990-75b60d0772ef\" name=\"Default Changelist\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/CircleObs.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/CircleObs.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/Controller.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/Controller.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/CrossObs.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/CrossObs.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/Game.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/Game.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/Obstacles.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/Obstacles.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/gameElements.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/gameElements.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/gamePlay.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/gamePlay.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/squareObs.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/squareObs.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/stars.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/stars.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/AP_project/sample/wheel.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/AP_project/sample/wheel.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/CircleObs.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/CircleObs.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/Controller.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/Controller.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/CrossObs.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/CrossObs.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/Game.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/Game.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/Obstacles.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/Obstacles.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/circularObs.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/circularObs.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/gameElements.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/gameElements.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/gameOver.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/gameOver.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/gameOverController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/gameOverController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/gamePlay.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/gamePlay.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/gamePlayController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/gamePlayController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/pauseController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/pauseController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/squareObs.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/squareObs.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/stars.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/stars.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/sample/wheel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/sample/wheel.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1l4AdBRMX2gNDqoFXBwrSvtDhKG\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"sample.Main\" />\r\n      <module name=\"AP_project\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"--module-path &quot;C:\\Users\\user\\Downloads\\javafx-sdk-15.0.1\\lib&quot; --add-modules=javafx.controls,javafx.fxml\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8f1855b8-3b88-49a6-a990-75b60d0772ef\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1606846075797</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1606846075797</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"0\" y=\"195\" width=\"1092\" height=\"714\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1606946302230\">\r\n      <screen x=\"78\" y=\"0\" width=\"1842\" height=\"1080\" />\r\n    </state>\r\n    <state x=\"0\" y=\"195\" width=\"1092\" height=\"714\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/78.0.1842.1080@78.0.1842.1080\" timestamp=\"1606946302230\" />\r\n    <state x=\"382\" y=\"246\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1607172220822\">\r\n      <screen x=\"78\" y=\"0\" width=\"1842\" height=\"1080\" />\r\n    </state>\r\n    <state x=\"382\" y=\"246\" key=\"#com.intellij.ide.util.MemberChooser/78.0.1842.1080@78.0.1842.1080\" timestamp=\"1607172220822\" />\r\n    <state width=\"875\" height=\"135\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1607198854567\">\r\n      <screen x=\"78\" y=\"0\" width=\"1842\" height=\"1080\" />\r\n    </state>\r\n    <state width=\"875\" height=\"135\" key=\"GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080\" timestamp=\"1607198854567\" />\r\n    <state width=\"875\" height=\"135\" key=\"GridCell.Tab.0.center\" timestamp=\"1607198854567\">\r\n      <screen x=\"78\" y=\"0\" width=\"1842\" height=\"1080\" />\r\n    </state>\r\n    <state width=\"875\" height=\"135\" key=\"GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080\" timestamp=\"1607198854567\" />\r\n    <state width=\"875\" height=\"135\" key=\"GridCell.Tab.0.left\" timestamp=\"1607198854567\">\r\n      <screen x=\"78\" y=\"0\" width=\"1842\" height=\"1080\" />\r\n    </state>\r\n    <state width=\"875\" height=\"135\" key=\"GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080\" timestamp=\"1607198854567\" />\r\n    <state width=\"875\" height=\"135\" key=\"GridCell.Tab.0.right\" timestamp=\"1607198854567\">\r\n      <screen x=\"78\" y=\"0\" width=\"1842\" height=\"1080\" />\r\n    </state>\r\n    <state width=\"875\" height=\"135\" key=\"GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080\" timestamp=\"1607198854567\" />\r\n    <state x=\"282\" y=\"131\" key=\"SettingsEditor\" timestamp=\"1606946542808\">\r\n      <screen x=\"78\" y=\"0\" width=\"1842\" height=\"1080\" />\r\n    </state>\r\n    <state x=\"282\" y=\"131\" key=\"SettingsEditor/78.0.1842.1080@78.0.1842.1080\" timestamp=\"1606946542808\" />\r\n    <state x=\"278\" y=\"254\" key=\"run.anything.popup\" timestamp=\"1607177217452\">\r\n      <screen x=\"78\" y=\"0\" width=\"1842\" height=\"1080\" />\r\n    </state>\r\n    <state x=\"278\" y=\"254\" key=\"run.anything.popup/78.0.1842.1080@78.0.1842.1080\" timestamp=\"1607177217452\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision b241961496d3e8895f0d94c0bd58c8fef87b661d)
++++ .idea/workspace.xml	(date 1607371805417)
+@@ -3,39 +3,30 @@
+   <component name="ChangeListManager">
+     <list default="true" id="8f1855b8-3b88-49a6-a990-75b60d0772ef" name="Default Changelist" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/CircleObs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/CircleObs.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Controller.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/CrossObs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/CrossObs.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Game.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Obstacles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Obstacles.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gameElements.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gameElements.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlay.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlay.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/squareObs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/squareObs.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/stars.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/stars.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/wheel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/wheel.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/CircleObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/CircleObs.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/sample/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Ball.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/CrossObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/CrossObs.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/sample/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Game.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/Obstacles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Obstacles.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/circularObs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/circularObs.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/gameElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/gameElements.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/gameOver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/gameOver.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/gameOverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/gameOverController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/sample/gamePlay.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/gamePlay.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/sample/gamePlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/gamePlayController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/sample/pauseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/pauseController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/squareObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/squareObs.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/stars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/stars.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample/wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/wheel.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/sample/triangleObs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/triangleObs.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="FxmlFile" />
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -81,22 +72,22 @@
+       <screen x="78" y="0" width="1842" height="1080" />
+     </state>
+     <state x="382" y="246" key="#com.intellij.ide.util.MemberChooser/78.0.1842.1080@78.0.1842.1080" timestamp="1607172220822" />
+-    <state width="875" height="135" key="GridCell.Tab.0.bottom" timestamp="1607198854567">
++    <state width="1187" height="133" key="GridCell.Tab.0.bottom" timestamp="1607371607097">
+       <screen x="78" y="0" width="1842" height="1080" />
+     </state>
+-    <state width="875" height="135" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1607198854567" />
+-    <state width="875" height="135" key="GridCell.Tab.0.center" timestamp="1607198854567">
++    <state width="1187" height="133" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1607371607097" />
++    <state width="1187" height="133" key="GridCell.Tab.0.center" timestamp="1607371607097">
+       <screen x="78" y="0" width="1842" height="1080" />
+     </state>
+-    <state width="875" height="135" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1607198854567" />
+-    <state width="875" height="135" key="GridCell.Tab.0.left" timestamp="1607198854567">
++    <state width="1187" height="133" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1607371607097" />
++    <state width="1187" height="133" key="GridCell.Tab.0.left" timestamp="1607371607097">
+       <screen x="78" y="0" width="1842" height="1080" />
+     </state>
+-    <state width="875" height="135" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1607198854567" />
+-    <state width="875" height="135" key="GridCell.Tab.0.right" timestamp="1607198854567">
++    <state width="1187" height="133" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1607371607097" />
++    <state width="1187" height="133" key="GridCell.Tab.0.right" timestamp="1607371607097">
+       <screen x="78" y="0" width="1842" height="1080" />
+     </state>
+-    <state width="875" height="135" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1607198854567" />
++    <state width="1187" height="133" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1607371607097" />
+     <state x="282" y="131" key="SettingsEditor" timestamp="1606946542808">
+       <screen x="78" y="0" width="1842" height="1080" />
+     </state>
+Index: src/sample/gamePlay.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.Pane?>\r\n<?import javafx.scene.layout.StackPane?>\r\n<?import javafx.scene.shape.Circle?>\r\n<?import javafx.scene.text.Font?>\r\n<?import javafx.scene.text.Text?>\r\n\r\n<StackPane maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"669.0\" prefWidth=\"620.0\" xmlns=\"http://javafx.com/javafx/11.0.1\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"sample.gamePlayController\">\r\n   <children>\r\n      <Pane prefHeight=\"200.0\" prefWidth=\"200.0\" style=\"-fx-background-color: black;\">\r\n         <children>\r\n            <Circle fx:id=\"ball\" fill=\"#00c8ff\" layoutX=\"312.0\" layoutY=\"569.0\" radius=\"9.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" />\r\n            <Button fx:id=\"backB\" layoutX=\"23.0\" layoutY=\"20.0\" mnemonicParsing=\"false\" onMouseClicked=\"#pauseGame\" onMouseEntered=\"#highlight_On\" onMouseExited=\"#highlight_Off\" prefHeight=\"43.0\" prefWidth=\"47.0\" style=\"-fx-background-color: purple; -fx-background-radius: 100px;\">\r\n               <graphic>\r\n                  <ImageView fitHeight=\"34.0\" fitWidth=\"35.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n                     <image>\r\n                        <Image url=\"@../assets/pause_preview_rev_1.png\" />\r\n                     </image>\r\n                  </ImageView>\r\n               </graphic>\r\n            </Button>\r\n            <Text fx:id=\"scoreBoard\" fill=\"WHITE\" layoutX=\"31.0\" layoutY=\"128.0\" strokeType=\"OUTSIDE\" strokeWidth=\"0.0\" wrappingWidth=\"34.0\">\r\n               <font>\r\n                  <Font name=\"System Bold\" size=\"60.0\" />\r\n               </font>\r\n            </Text>\r\n         </children>\r\n      </Pane>\r\n   </children>\r\n</StackPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/sample/gamePlay.fxml	(revision b241961496d3e8895f0d94c0bd58c8fef87b661d)
++++ src/sample/gamePlay.fxml	(date 1607364604155)
+@@ -5,7 +5,6 @@
+ <?import javafx.scene.image.ImageView?>
+ <?import javafx.scene.layout.Pane?>
+ <?import javafx.scene.layout.StackPane?>
+-<?import javafx.scene.shape.Circle?>
+ <?import javafx.scene.text.Font?>
+ <?import javafx.scene.text.Text?>
+ 
+@@ -13,7 +12,6 @@
+    <children>
+       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;">
+          <children>
+-            <Circle fx:id="ball" fill="#00c8ff" layoutX="312.0" layoutY="569.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+             <Button fx:id="backB" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#pauseGame" onMouseEntered="#highlight_On" onMouseExited="#highlight_Off" prefHeight="43.0" prefWidth="47.0" style="-fx-background-color: purple; -fx-background-radius: 100px;">
+                <graphic>
+                   <ImageView fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">

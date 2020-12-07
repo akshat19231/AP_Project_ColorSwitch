@@ -39,9 +39,9 @@
                 <Arc fill="#f70578" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
                 <Arc fill="#440580" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
                 <Arc fill="#f0f505" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-                <Line fx:id="l3" endX="-18.0" layoutX="371.0" layoutY="302.0" startX="-100.0" stroke="AQUA" strokeLineCap="ROUND" strokeWidth="20.0" />
-                <Line fx:id="l2" endX="-63.333343505859375" endY="-80.33331298828125" layoutX="371.0" layoutY="301.0" startX="-100.0" stroke="#f70578" strokeLineCap="ROUND" strokeWidth="20.0" />
-                <Line fx:id="l1" endX="-146.99996948242188" endY="-80.66665649414062" layoutX="456.0" layoutY="301.0" startX="-103.66665649414062" startY="0.66668701171875" stroke="#f0f505" strokeLineCap="ROUND" strokeWidth="20.0" />
+                <Line fx:id="l3" endX="14.0" layoutX="375.0" layoutY="325.0" startX="-138.0" stroke="AQUA" strokeLineCap="ROUND" strokeWidth="20.0" />
+                <Line fx:id="l2" endX="-46.0" endY="-106.0" layoutX="357.0" layoutY="291.0" startX="-122.0" startY="29.0" stroke="#f70578" strokeLineCap="ROUND" strokeWidth="20.0" />
+                <Line fx:id="l1" endX="-166.0" endY="-105.0" layoutX="479.0" layoutY="291.0" startX="-88.0" startY="30.0" stroke="#f0f505" strokeLineCap="ROUND" strokeWidth="20.0" />
             </children>
         </Pane>
     </children>

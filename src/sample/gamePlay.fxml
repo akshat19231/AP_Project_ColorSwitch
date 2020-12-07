@@ -5,7 +5,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -13,7 +12,6 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;">
          <children>
-            <Circle fx:id="ball" fill="#00c8ff" layoutX="312.0" layoutY="569.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
             <Button fx:id="backB" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#pauseGame" onMouseEntered="#highlight_On" onMouseExited="#highlight_Off" prefHeight="43.0" prefWidth="47.0" style="-fx-background-color: purple; -fx-background-radius: 100px;">
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">

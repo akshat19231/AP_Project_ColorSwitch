@@ -1,0 +1,34 @@
+<changelist name="Uncommitted_changes_before_Update_at_12_8_2020_1_42_AM_[Default_Changelist]1" date="1607371980939" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_8_2020_1_42_AM_[Default_Changelist]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 12/8/2020 1:42 AM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/AP_project/sample/pauseController.class" />
+    <option name="AFTER_PATH" value="out/production/AP_project/sample/pauseController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_8_2020_1_42_AM_[Default_Changelist]1/pauseController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/AP_project/sample/Game.class" />
+    <option name="AFTER_PATH" value="out/production/AP_project/sample/Game.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_8_2020_1_42_AM_[Default_Changelist]1/Game.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/AP_project/sample/gamePlayController$1.class" />
+    <option name="AFTER_PATH" value="out/production/AP_project/sample/gamePlayController$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_8_2020_1_42_AM_[Default_Changelist]1/gamePlayController$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/AP_project/sample/gamePlayController.class" />
+    <option name="AFTER_PATH" value="out/production/AP_project/sample/gamePlayController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_8_2020_1_42_AM_[Default_Changelist]1/gamePlayController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/AP_project/sample/Controller.class" />
+    <option name="AFTER_PATH" value="out/production/AP_project/sample/Controller.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_8_2020_1_42_AM_[Default_Changelist]1/Controller.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/AP_project/sample/Ball.class" />
+    <option name="AFTER_PATH" value="out/production/AP_project/sample/Ball.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_8_2020_1_42_AM_[Default_Changelist]1/Ball.class" />
+  </binary>
+</changelist>

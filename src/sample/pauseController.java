@@ -24,13 +24,12 @@ public class pauseController {
     private FXMLLoader loader;
     private AnimationTimer timer;
     private Game g;
-    public void init(Stage s, Parent p, FXMLLoader fml, AnimationTimer timer, Game g){
-        this.ps=s;
-        this.root=p;
-        this.loader=fml;
-        this.timer=timer;
+    public void init( Game g){
         this.g=g;
-
+        this.ps=this.g.getPs();
+        this.root=this.g.getRoot();
+        this.loader=this.g.getLoader();
+        this.timer=this.g.getTimer();
     }
     public void goBack() throws IOException {
         this.g.setOld_time(System.nanoTime());
