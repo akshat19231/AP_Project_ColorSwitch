@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 
-public class Game {
+public class Game implements Comparable<Game>{
     private Player player;
     private int level;
     private int GameId;
@@ -175,5 +175,15 @@ public class Game {
         this.obsQ.add(crO);
         this.ar.add(w1);
         this.ar.add(s1);
+    }
+    @Override
+    public int compareTo(sample.Game game){
+        if(this.getScore() > game.getScore()){
+            return -1;
+        }
+        if(this.getScore() == game.getScore()){
+            return 0;
+        }
+        return 1;
     }
 }
