@@ -1,3 +1,4 @@
+
 package sample;
 
 import java.util.*;
@@ -22,4 +23,3 @@ public class Leaderboard{
         return games;
     }
 }
-

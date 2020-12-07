@@ -2,85 +2,90 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f1855b8-3b88-49a6-a990-75b60d0772ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hs_err_pid15044.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid3044.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid7360.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/replay_pid7360.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/3stars_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/Score_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/3stars_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/Score_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/backB_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/bg2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/bg3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/bg4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/button-15368_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/checkpb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/checkpb1-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/checkpb1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/cs_logo_text_dk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/cs_logo_text_dk_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/exiticon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/exiticon_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/infinity.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/infinity_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/leader_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/loadg_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/pause_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/restart_preview_rev_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/rings_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/single_ring_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/assets/star_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/backB_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/bg2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/bg3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/bg4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/button-15368_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/checkpb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/checkpb1-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/checkpb1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/cs_logo_text_dk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/cs_logo_text_dk_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/exiticon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/exiticon_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/infinity.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/infinity_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/leader_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/loadg_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/pause_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/restart_preview_rev_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/rings_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Ball.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/CircleObs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Controller.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/CrossObs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Game.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Obstacles.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Parent1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Player.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/TriangleObs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gameElements.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gameOverController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/load.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/loadScreen.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/pause.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/squareObs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/squareObs.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/stars.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/triangleObs.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/sample/wheel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/single_ring_preview_rev_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/AP_project/star_preview_rev_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/3stars_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/Score_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/3stars_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/Score_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/backB_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/bg2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/bg3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/bg4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/button-15368_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/checkpb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/checkpb1-removebg-preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/checkpb1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/cs_logo_text_dk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/cs_logo_text_dk_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/exiticon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/exiticon_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/infinity.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/infinity_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/leader_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/loadg_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/pause_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/restart_preview_rev_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/rings_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/single_ring_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/star_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/backB_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/bg2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/bg3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/bg4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/button-15368_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/checkpb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/checkpb1-removebg-preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/checkpb1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/cs_logo_text_dk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/cs_logo_text_dk_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/exiticon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/exiticon_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/infinity.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/infinity_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/leader_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/loadg_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/pause_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/restart_preview_rev_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/rings_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Ball.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/CircleObs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/CrossObs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Obstacles.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Parent1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/TriangleObs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gameElements.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gameOverController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/load.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/loadScreen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/pause.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid15044.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid3044.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid7360.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP_project/assets/homeb_preview_rev_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP_project/homeb_preview_rev_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/circularObs.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gameOver.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlay.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/squareObs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/squareObs.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/stars.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/triangleObs.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/wheel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/single_ring_preview_rev_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/star_preview_rev_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/replay_pid7360.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Leaderboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Leaderboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
@@ -147,29 +152,42 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="96" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1607357889939" />
-    <state x="0" y="195" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606946302230">
-      <screen x="78" y="0" width="1842" height="1080" />
+    <state x="164" y="83" width="782" height="530" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607360181107">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="164" y="83" width="782" height="530" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1607360181107" />
     <state x="0" y="195" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/78.0.1842.1080@78.0.1842.1080" timestamp="1606946302230" />
     <state x="382" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1607172220822">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state x="382" y="246" key="#com.intellij.ide.util.MemberChooser/78.0.1842.1080@78.0.1842.1080" timestamp="1607172220822" />
-    <state width="875" height="135" key="GridCell.Tab.0.bottom" timestamp="1607198854567">
-      <screen x="78" y="0" width="1842" height="1080" />
+    <state x="286" y="133" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1607360122212">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="286" y="133" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1607360122212" />
+    <state x="221" y="210" key="FileChooserDialogImpl" timestamp="1607360144430">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="221" y="210" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1607360144430" />
+    <state width="1222" height="160" key="GridCell.Tab.0.bottom" timestamp="1607361728149">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1222" height="160" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1607361728149" />
     <state width="875" height="135" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1607198854567" />
-    <state width="875" height="135" key="GridCell.Tab.0.center" timestamp="1607198854567">
-      <screen x="78" y="0" width="1842" height="1080" />
+    <state width="1222" height="160" key="GridCell.Tab.0.center" timestamp="1607361728148">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1222" height="160" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1607361728148" />
     <state width="875" height="135" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1607198854567" />
-    <state width="875" height="135" key="GridCell.Tab.0.left" timestamp="1607198854567">
-      <screen x="78" y="0" width="1842" height="1080" />
+    <state width="1222" height="160" key="GridCell.Tab.0.left" timestamp="1607361728147">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1222" height="160" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1607361728147" />
     <state width="875" height="135" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1607198854567" />
-    <state width="875" height="135" key="GridCell.Tab.0.right" timestamp="1607198854567">
-      <screen x="78" y="0" width="1842" height="1080" />
+    <state width="1222" height="160" key="GridCell.Tab.0.right" timestamp="1607361728148">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1222" height="160" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1607361728148" />
     <state width="875" height="135" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1607198854567" />
     <state x="282" y="131" key="SettingsEditor" timestamp="1606946542808">
       <screen x="78" y="0" width="1842" height="1080" />
