@@ -53,6 +53,7 @@ public class gamePlayController {
         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
         this.game.setMain_ball(new Ball(0, 310,600));
         this.game.getMain_ball().getCircle().setLayoutY(this.game.getMain_ball().getCircle().getLayoutY() - 3);
+        this.game.getMain_ball().setCurY();
         ArrayList <Node> toBeAdded= new ArrayList<Node>();
         toBeAdded.add(this.game.getMain_ball().getCircle());
         int mul=1;
@@ -110,6 +111,71 @@ public class gamePlayController {
         }
 
     }
+    public void loadGame(Stage s, Parent p, FXMLLoader fml, Game g) throws IOException {
+        this.game=g;
+        this.game.setPs(s);
+        this.game.setRoot(p);
+        this.game.setLoader(fml);
+        this.game.setTimer(null);
+        this.game.main_ball.setUp();
+        this.game.setupObs();
+        this.scoreBoard.setText(Integer.toString(this.game.getScore()));
+        ArrayList <Node> toBeAdded= new ArrayList<Node>();
+        toBeAdded.add(this.game.getMain_ball().getCircle());
+        int mul=1;
+        for(int i=0;i<this.game.getSize();i++){
+            toBeAdded.add(this.game.getObs(i).getGroup());
+            if(this.game.getObs(i) instanceof CircleObs) {
+                ArrayList<Arc> getArcs = ((CircleObs) this.game.getObs(i)).getArcforRotation();
+                for (int j = 0; j < 4; j++) {
+                    setRotate(getArcs.get(j), mul);
+                }
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
+            }else{
+                if(this.game.getObs(i) instanceof stars)
+                    continue;
+                rotateLine((Group)toBeAdded.get(toBeAdded.size()-1));
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
+            }
+        }
+        for(int i=0;i<this.game.getSizeQ();i++){
+            toBeAdded.add(this.game.getObsQ(i).getGroup());
+            if(this.game.getObsQ(i) instanceof CircleObs) {
+                ArrayList<Arc> getArcs = ((CircleObs) this.game.getObsQ(i)).getArcforRotation();
+                for (int j = 0; j < 4; j++) {
+                    setRotate(getArcs.get(j), mul);
+                }
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
+            }else{
+                if(this.game.getObsQ(i) instanceof stars)
+                    continue;
+                rotateLine((Group)toBeAdded.get(toBeAdded.size()-1));
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
+            }
+        }
+        assert this.game.getRoot() != null;
+        for(int j = 0; j<((StackPane)this.game.getRoot()).getChildren().size(); j++){
+            if(((StackPane)this.game.getRoot()).getChildren().get(j) instanceof Pane){
+                ((Pane) ((StackPane)this.game.getRoot()).getChildren().get(j)).getChildren().addAll(toBeAdded);
+            }
+        }
+    }
     public Game getGame(){
         return this.game;
     }
@@ -154,17 +220,6 @@ public class gamePlayController {
         }
     }
     public void RefreshObs(int idx){
-//        if(this.game.getObs(idx).getPosY()>=799){
-//            this.game.getObs(idx).moveDown(-1600.0);
-//            if((this.game.getObs(idx) instanceof wheel) ||this.game.getObs(idx) instanceof stars){
-//                this.game.getObs(idx).refresh();
-//                for (int j = 0; j < ((StackPane) this.game.getRoot()).getChildren().size(); j++) {
-//                    if (((StackPane) this.game.getRoot()).getChildren().get(j) instanceof Pane) {
-//                        ((Pane) ((StackPane) this.game.getRoot()).getChildren().get(j)).getChildren().add(this.game.getObs(idx).getGroup());
-//                    }
-//                }
-//            }
-//        }
 
     }
 
@@ -209,21 +264,6 @@ public class gamePlayController {
                     }else{
                         rotateLine(g.getObsQ(g.getSizeQ()-1).getGroup());
                     }
-//                    if(ret==2){
-//                        ((Pane) ((StackPane) g.getRoot()).getChildren().get(j)).getChildren().add(g.getObsQ(g.getSizeQ()-2).getGroup());
-//                        if(g.getObsQ(g.getSizeQ()-2) instanceof  CircleObs){
-//                            ArrayList<Arc> getArcs = ((CircleObs) g.getObsQ(g.getSizeQ()-2)).getArcforRotation();
-//                            for (int k = 0; k < 4; k++) {
-//                                try {
-//                                    setRotate(getArcs.get(k), 1);
-//                                } catch (IOException e) {
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//                        }else{
-//                            rotateLine(g.getObsQ(g.getSizeQ()-2).getGroup());
-//                        }
-//                    }
                 }
             }
         }
@@ -273,6 +313,7 @@ public class gamePlayController {
         }
         this.game.getMain_ball().posy = (int) this.game.getMain_ball().getCircle().getLayoutY();
         this.game.getMain_ball().vy = (int) (this.game.getMain_ball().vy - 2000 * this.game.getDiff());
+        this.game.getMain_ball().setCurY();
     }
     public void pauseGame(){
         this.game.getTimer().stop();

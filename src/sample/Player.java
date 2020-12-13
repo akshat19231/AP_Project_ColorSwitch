@@ -1,6 +1,8 @@
 package sample;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
     private Game myGame;
     private String Username;
     public Player(String s){
@@ -8,5 +10,8 @@ public class Player {
     }
     public void setMyGame(Game g){
         this.myGame=g;
+    }
+    public String getUname(){
+        return this.Username;
     }
 }

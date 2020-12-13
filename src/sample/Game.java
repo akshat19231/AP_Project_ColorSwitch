@@ -9,27 +9,29 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 
-public class Game implements Comparable<Game>{
+public class Game implements Comparable<Game> , Serializable {
     private Player player;
     private int level;
     private int GameId;
     private int score;
     public Ball main_ball;
-    private Stage ps;
-    private Parent root;
-    private FXMLLoader loader;
+    private transient Stage ps;
+    private transient Parent root;
+    private transient FXMLLoader loader;
     private stars Star;
-    private AnimationTimer timer;
+    private transient AnimationTimer timer;
     private long old_time;
     private double tDiff;
     public boolean CLICKED;
     private LinkedList<gameElements> ar;
     public LinkedList <gameElements> obsQ;
+    private App app;
 
     public Game(int idx){
         this.GameId=idx;
@@ -38,7 +40,12 @@ public class Game implements Comparable<Game>{
         this.ar=new LinkedList<gameElements>();
         this.obsQ=new LinkedList<gameElements>();
     }
-
+    public void setApp(App a){
+        this.app=a;
+    }
+    public App getApp(){
+        return this.app;
+    }
     public void setMain_ball(Ball main_ball) {
         this.main_ball = main_ball;
     }
@@ -145,6 +152,14 @@ public class Game implements Comparable<Game>{
             sq1.makeObs();
             obsQ.add(sq1);
             return 1;
+        }
+    }
+    public void setupObs(){
+        for(int i=0;i<ar.size();i++){
+            this.ar.get(i).setUp();
+        }
+        for(int i=0;i<obsQ.size();i++){
+            this.obsQ.get(i).refresh();
         }
     }
     public void reset(){

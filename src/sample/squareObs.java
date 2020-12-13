@@ -10,16 +10,17 @@ import javafx.scene.shape.Shape;
 import java.util.ArrayList;
 
 public class squareObs extends Obstacles{
-    private Line line1;
-    private Line line2;
-    private Line line3;
-    private Line line4;
-    private Group rect;
+    private transient Line line1;
+    private transient Line line2;
+    private transient Line line3;
+    private transient Line line4;
+    private transient Group rect;
     private double centre;
     private double len1;
     private double len2;
     private boolean collided;
     private double offset;
+    private double y1,y2,y3,y4;
 
     public squareObs(double x, double y, int a, int b, int c, int d, int type, int size1, int size2, double offset) {
 
@@ -32,6 +33,10 @@ public class squareObs extends Obstacles{
         this.len1=size1;
         this.len2=size2;
         this.offset=offset;
+        this.y1=328-this.offset;
+        this.y2=324-this.offset;
+        this.y3=328-this.offset;
+        this.y4=329-this.offset;
 
     }
 
@@ -45,6 +50,10 @@ public class squareObs extends Obstacles{
         this.line3.setLayoutY(this.line3.getLayoutY() + y);
         this.line4.setLayoutY(this.line4.getLayoutY() + y);
         this.centre+=y;
+        this.y1=this.line1.getLayoutY();
+        this.y2=this.line2.getLayoutY();
+        this.y3=this.line3.getLayoutY();
+        this.y4=this.line4.getLayoutY();
     }
     public void print(){
         System.out.println(this.line1.getLayoutY());
@@ -57,6 +66,18 @@ public class squareObs extends Obstacles{
         getLine(line2, 123,-114, 123, "#f0f505",1,0, 240, 324, 3);
         getLine(line3, -100,-0, 98,"#440580",0,1, 340, 328, 1);
         getLine(line4, -100,-21, 98, "#00c8ff",0,1,483, 329, 4);
+        rect.getChildren().addAll(line1,line2,line3,line4);
+    }
+    public void setObs(){
+        this.line1=new Line();
+        this.line2=new Line();
+        this.line3=new Line();
+        this.line4=new Line();
+        this.rect= new Group();
+        setLine(line1, -3, 0, 123, "#f70578", 1, 0, 386,328, 2, this.y1);
+        setLine(line2, 123,-114, 123, "#f0f505",1,0, 240, 324, 3, this.y2);
+        setLine(line3, -100,-0, 98,"#440580",0,1, 340, 328, 1, this.y3);
+        setLine(line4, -100,-21, 98, "#00c8ff",0,1,483, 329, 4, this.y4);
         rect.getChildren().addAll(line1,line2,line3,line4);
     }
     public ArrayList<Line> getLineforRotation(){
@@ -91,13 +112,44 @@ public class squareObs extends Obstacles{
         line.setFill(Paint.valueOf(color));
         line.setStyle( "-fx-stroke : "+ color + "; -fx-stroke-width : 20" + "; -fx-stroke-type : CENTERED" + "; -fx-stroke-line-cap : ROUND" + "; -fx-stroke-line-join : MITER");
     }
+    public void setLine( Line line, double x, double y, int size, String color, int type1, int type2, double lx, double ly, int angle, double cur){
+        line.setEndX(x-size*type1);
+        line.setEndY(y-size*type2);
+        line.setStartX(x);
+        line.setStartY(y);
+        line.setLayoutX(lx);
+        line.setLayoutY(ly-this.offset);
+        line.setLayoutY(cur);
+        if(angle==1){
+            line.setRotate(15);
+            line.setEndY(line.getEndY()-20);
+        }
+        else if(angle==2){
+            line.setLayoutX(line.getLayoutX()+(Math.tan(15)*(double)49) +10);
+
+        }else if(angle==3){
+            line.setLayoutX(line.getLayoutX()-(Math.tan(15)*(double)49) -10);
+
+        }else if(angle==4){
+            line.setRotate(15);
+            line.setStartY(line.getStartY()+20);
+        }
+        line.setFill(Paint.valueOf(color));
+        line.setStyle( "-fx-stroke : "+ color + "; -fx-stroke-width : 20" + "; -fx-stroke-type : CENTERED" + "; -fx-stroke-line-cap : ROUND" + "; -fx-stroke-line-join : MITER");
+    }
     public double getPosY(){
         return this.line1.getLayoutY();
     }
     @Override
     public void refresh() {
+        this.setObs();
+    }
+
+    @Override
+    public void setUp() {
 
     }
+
     @Override
     public Boolean collisionCheck(Circle c) {
         ArrayList<Line> arcArrayList=new ArrayList<Line>();

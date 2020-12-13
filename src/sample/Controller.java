@@ -40,7 +40,7 @@ public class Controller {
     @FXML
     private Button loadGameB;
     private Stage ps;
-    DropShadow shadow = new DropShadow();
+    private App curApp;
     public void rot(ImageView imv, int mul){
         RotateTransition rotate = new RotateTransition(Duration.millis(3000));
         rotate.setAxis(Rotate.Z_AXIS);
@@ -52,7 +52,8 @@ public class Controller {
         rotate.play();
     }
 
-    public void init(Stage s) throws IOException {
+    public void init(Stage s, App app) throws IOException {
+        this.curApp=app;
         this.ps=s;
         rot(sRing1,1);
         rot(sRing2,-1);
@@ -68,44 +69,18 @@ public class Controller {
             e.printStackTrace();
         }
         loadScreen myCon=(loadScreen)(loader.getController());
-        myCon.init(this.ps);
+        myCon.init(this.ps, this.ps.getScene().getRoot(), this.curApp);
         //this.ps.setTitle("Color Switch");
         Scene main1=this.ps.getScene();
         main1.setRoot(root);
     }
-
-    public void getObs(ArrayList<gameElements> ar) throws IOException {
-        CircleObs crO=new CircleObs(0,800,0,0,0,0,1);
-        crO.makeObs(75);
-        ar.add(crO);
-        CircleObs crO1=new CircleObs(0,400,0,0,0,0,1);
-        crO1.makeObs(100);
-        ar.add(crO1);
-//        CircleObs crO2=new CircleObs(0,400,0,0,0,0,1);
-//        crO2.makeObs(75);
-//        ar.add(crO2);
-        squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98,0);
-        sq1.makeObs();
-        ar.add(sq1);
-        CrossObs co1=new CrossObs(0,1200,0,0,0,0,0);
-        co1.makeObs();
-        ar.add(co1);
-        int offset=0;
-        for(int i=0;i<4;i++){
-            wheel w=new wheel(0,offset);
-            w.makeObs();
-            ar.add(w);
-            stars s=new stars(0,offset);
-            s.makeObs();
-            ar.add(s);
-            offset+=400;
-        }
-    }
-    public void reDirect(){
+    public void reDirect(String un) throws IOException {
         Game g1=new Game(1);
-        Player p1=new Player("Jishnu");
+        Player p1=new Player(un);
         g1.setPlayer(p1);
         p1.setMyGame(g1);
+        g1.setApp(this.curApp);
+        this.curApp.addGame(g1);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
         StackPane root = null;
         try {
@@ -113,8 +88,6 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ArrayList <gameElements> obs1=new ArrayList<>();
-//        getObs(obs1);
         assert root != null;
         gamePlayController myCon=(gamePlayController)(loader.getController());
         try {
@@ -145,8 +118,9 @@ public class Controller {
         newStage.initOwner(this.ps);
         newStage.setScene(newScene);
         newStage.showAndWait();
-        if(myCon.giveState())
-            this.reDirect();
+        if(myCon.giveState()) {
+            this.reDirect(myCon.getUsername());
+        }
     }
     private void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
@@ -157,11 +131,6 @@ public class Controller {
     }
 
     private void setOnUserInput(Scene scene, gamePlayController c) {
-        //System.out.println("bruh");
-//        if(!c.CLICKED){
-//            System.out.println("clicked!!!");
-//        }
-        //c.CLICKED=true;
         c.getGame().getMain_ball().vy=500;
     }
     public void quitGame() throws IOException{

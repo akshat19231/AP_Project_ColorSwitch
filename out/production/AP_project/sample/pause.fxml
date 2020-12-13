@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="620.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pauseController">
     <children>
-        <Button fx:id="lb3" layoutX="111.0" layoutY="268.0" mnemonicParsing="false" onMouseEntered="#highlightOn_3" onMouseExited="#highlightOff_3" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
+        <Button fx:id="lb3" layoutX="111.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#saveGame" onMouseEntered="#highlightOn_3" onMouseExited="#highlightOff_3" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
             <graphic>
                 <Text fx:id="t3" strokeType="OUTSIDE" strokeWidth="0.0" text="Save Game">
                     <font>

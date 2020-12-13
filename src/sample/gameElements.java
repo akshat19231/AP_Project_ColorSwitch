@@ -3,10 +3,11 @@ package sample;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public abstract class gameElements {
+public abstract class gameElements implements Serializable {
     double posx;
     double posy;
     private ArrayList<String> colors;
@@ -25,6 +26,7 @@ public abstract class gameElements {
         return this.colors.get(index);
     }
     public abstract void refresh();
+    public abstract void setUp();
     public abstract double getPosY();
     public double getX(){
         return posx;
