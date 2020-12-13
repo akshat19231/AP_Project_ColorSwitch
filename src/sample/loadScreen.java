@@ -5,9 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class loadScreen {
     @FXML
@@ -23,26 +29,60 @@ public class loadScreen {
     @FXML
     private Button lb5;
     private Stage ps;
-    public void init(Stage s){
+    private Parent root;
+    private App app;
+    public void init(Stage s, Parent p, App app){
         this.ps=s;
+        this.root=p;
+        this.app=app;
+        ArrayList<Button> buttons=new ArrayList<Button>();
+        buttons.add(lb1);
+        buttons.add(lb2);
+        buttons.add(lb3);
+        buttons.add(lb4);
+        buttons.add(lb5);
+        Iterator<HashMap.Entry<String, Game>> itr = this.app.getGameMap().entrySet().iterator();
+        int i=0;
+        while(itr.hasNext())
+        {
+            Map.Entry<String, Game> entry = itr.next();
+            buttons.get(i).setText(entry.getKey());
+            i++;
+        }
     }
-    public void handleClick(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
-        Parent root = null;
+    public void loadGame() throws IOException {
+        Game g1=app.getGame(lb1.getText());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
+        StackPane root = null;
         try {
             root = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Controller myCon=(Controller)(loader.getController());
-        try {
-            myCon.init(this.ps);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //this.ps.setTitle("Color Switch");
+        assert root != null;
+        gamePlayController myCon=(gamePlayController)(loader.getController());
+        myCon.loadGame(this.ps, root, loader,g1);
+        this.ps.setTitle("Color Switch");
+        Scene main1=new Scene(root);
+        setKeyFunctions(main1, myCon);
+        this.ps.setScene(main1);
+        root.requestFocus();
+        myCon.startGame();
+    }
+    private void setKeyFunctions(Scene scene, gamePlayController Con) {
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.SPACE) {
+                setOnUserInput(scene, Con);
+            }
+        });
+    }
+
+    private void setOnUserInput(Scene scene, gamePlayController c) {
+        c.getGame().getMain_ball().vy=500;
+    }
+    public void handleClick(){
         Scene main1=this.ps.getScene();
-        main1.setRoot(root);
+        main1.setRoot(this.root);
     }
     public void highlightOn_b() throws IOException {
         backB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");

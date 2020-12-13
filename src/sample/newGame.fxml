@@ -13,7 +13,10 @@
    <children>
       <Pane layoutX="102.0" layoutY="157.0" prefHeight="135.0" prefWidth="448.0" style="-fx-background-color: #444C5C; -fx-background-radius: 20px;">
          <children>
-            <TextField fx:id="textInput" layoutX="64.0" layoutY="42.0" prefHeight="26.0" prefWidth="321.0" />
+            <TextField fx:id="textInput" alignment="CENTER" layoutX="64.0" layoutY="42.0" prefHeight="26.0" prefWidth="321.0" promptText="Username">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></TextField>
             <Text fill="WHITE" layoutX="121.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Username" wrappingWidth="208.4140625">
                <font>
                   <Font name="System Bold" size="28.0" />

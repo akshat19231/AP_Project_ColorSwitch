@@ -48,7 +48,7 @@ public class gameOverController {
         }
         Controller myCon=(Controller)(loader1.getController());
         try {
-            myCon.init(this.g.getPs());
+            myCon.init(this.g.getPs(),this.g.getApp());
         } catch (IOException e) {
             e.printStackTrace();
         }

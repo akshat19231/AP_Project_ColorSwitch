@@ -10,13 +10,15 @@ import javafx.scene.shape.Shape;
 import java.util.ArrayList;
 
 public class CircleObs extends Obstacles {
-    private Arc arc1;
-    private Arc arc2;
-    private Arc arc3;
-    private Arc arc4;
-    private Group ring;
+    private transient Arc arc1;
+    private transient Arc arc2;
+    private transient Arc arc3;
+    private transient Arc arc4;
+    private transient Group ring;
     private double centre;
     private boolean collided;
+    private int radius;
+
 
     public CircleObs(double x, double y, int a, int b, int c, int d, int type) {
 
@@ -25,7 +27,7 @@ public class CircleObs extends Obstacles {
         this.arc2=new Arc();
         this.arc3=new Arc();
         this.arc4=new Arc();
-        this.centre=275;
+        this.centre=0-this.getY();
         this.ring= new Group();
 
     }
@@ -42,10 +44,24 @@ public class CircleObs extends Obstacles {
     }
 
     public void makeObs(int r){
+        this.radius=r;
         getArc(r,arc1, 0, "#f70578");
         getArc(r,arc2, 90, "#f0f505");
         getArc(r,arc3, 180, "#440580");
         getArc(r,arc4, 270, "#00c8ff");
+        ring.getChildren().addAll(arc1,arc2,arc3,arc4);
+    }
+
+    public void setObs(int r){
+        this.arc1=new Arc();
+        this.arc2=new Arc();
+        this.arc3=new Arc();
+        this.arc4=new Arc();
+        this.ring= new Group();
+        setArc(r,arc1, 0, "#f70578");
+        setArc(r,arc2, 90, "#f0f505");
+        setArc(r,arc3, 180, "#440580");
+        setArc(r,arc4, 270, "#00c8ff");
         ring.getChildren().addAll(arc1,arc2,arc3,arc4);
     }
     public ArrayList<Arc> getArcforRotation(){
@@ -56,11 +72,26 @@ public class CircleObs extends Obstacles {
         arcArrayList.add(this.arc4);
         return arcArrayList;
     }
+
     public void getArc(int r, Arc arc, int angle, String color){
         arc.setCenterX(312);
         arc.setCenterY(275);
         arc.setLayoutX(0-this.getX());
         arc.setLayoutY(0-this.getY());
+        arc.setRadiusX(r);
+        arc.setRadiusY(r);
+        arc.setStartAngle(angle);
+        arc.setLength(90);
+        arc.setFill(Color.BLUE);
+        arc.setStyle("-fx-fill: NULL" + "; -fx-stroke : "+color + "; -fx-stroke-width : 10" + "; -fx-stroke-type : CENTERED" + "; -fx-stroke-line-cap : BUTT" + "; -fx-stroke-line-join : MITER");
+
+    }
+    public void setArc(int r, Arc arc, int angle, String color){
+        arc.setCenterX(312);
+        arc.setCenterY(275);
+        arc.setLayoutX(0-this.getX());
+        arc.setLayoutY(0-this.getY());
+        arc.setLayoutY(this.centre);
         arc.setRadiusX(r);
         arc.setRadiusY(r);
         arc.setStartAngle(angle);
@@ -100,6 +131,11 @@ public class CircleObs extends Obstacles {
     }
     @Override
     public void refresh() {
+        this.setObs(this.radius);
+    }
+
+    @Override
+    public void setUp() {
 
     }
 

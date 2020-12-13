@@ -39,6 +39,10 @@ public class pauseController {
         this.root.requestFocus();
 
     }
+    public void saveGame() throws IOException {
+        Main.serialize();
+        quitToMain();
+    }
     public void quitToMain() throws IOException {
 
         FXMLLoader loader1 = new FXMLLoader(getClass().getResource("sample.fxml"));
@@ -50,7 +54,7 @@ public class pauseController {
         }
         Controller myCon=(Controller)(loader1.getController());
         try {
-            myCon.init(this.ps);
+            myCon.init(this.ps, this.g.getApp());
         } catch (IOException e) {
             e.printStackTrace();
         }
