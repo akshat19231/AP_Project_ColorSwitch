@@ -11,6 +11,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
@@ -43,13 +44,18 @@ public class gamePlayController {
     @FXML
     private Text scoreBoard;
     private Game game;
-    public void init(Stage s, Parent p, FXMLLoader fml, Game g) throws IOException {
+    private App app;
+    private ArrayList <smallBalls> animationBalls;
+    public void init(Stage s, Parent p, FXMLLoader fml, Game g, App app) throws IOException {
         this.game=g;
+        this.animationBalls=new ArrayList<smallBalls>();
         this.game.initialiseObs();
         this.game.setPs(s);
         this.game.setRoot(p);
         this.game.setLoader(fml);
         this.game.setTimer(null);
+        this.game.setSmallTimer(null);
+        this.app=app;
         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
         this.game.setMain_ball(new Ball(0, 310,600));
         this.game.getMain_ball().getCircle().setLayoutY(this.game.getMain_ball().getCircle().getLayoutY() - 3);
@@ -111,14 +117,17 @@ public class gamePlayController {
         }
 
     }
-    public void loadGame(Stage s, Parent p, FXMLLoader fml, Game g) throws IOException {
+    public void loadGame(Stage s, Parent p, FXMLLoader fml, Game g, App app1) throws IOException {
         this.game=g;
+        this.animationBalls=new ArrayList<smallBalls>();
         this.game.setPs(s);
         this.game.setRoot(p);
         this.game.setLoader(fml);
         this.game.setTimer(null);
+        this.game.setSmallTimer(null);
         this.game.main_ball.setUp();
         this.game.setupObs();
+        this.app=app1;
         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
         ArrayList <Node> toBeAdded= new ArrayList<Node>();
         toBeAdded.add(this.game.getMain_ball().getCircle());
@@ -180,18 +189,8 @@ public class gamePlayController {
         return this.game;
     }
 
-    public void regCollisionCheck(){
+    public void regCollisionCheck() throws InterruptedException {
         ArrayList<gameElements> tobeRemoved=new ArrayList<gameElements>();
-
-//            if((this.game.getObs(i) instanceof wheel) ||this.game.getObs(i) instanceof stars){
-//                if(this.game.getObs(i).collisionCheck(this.ball)){
-//                    if(this.game.getObs(i) instanceof stars) {
-//                        this.updateScore();
-//                        this.scoreBoard.setText(Integer.toString(this.game.getScore()));
-//                    }
-//                    tobeRemoved.add(this.game.getObs(i));
-//                }
-//            }else{
         for(int i=0;i<this.game.getSizeQ();i++) {
             if(this.game.getObsQ(i).collisionCheck(this.game.getMain_ball().getCircle())){
                 this.GameOver();
@@ -277,7 +276,11 @@ public class gamePlayController {
                 g.settDiff((double)(now - g.getOld_time())/1000000000);
                 g.setOld_time(now);
                 animateBall();
-                regCollisionCheck();
+                try {
+                    regCollisionCheck();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
             }
         });
@@ -315,6 +318,18 @@ public class gamePlayController {
         this.game.getMain_ball().vy = (int) (this.game.getMain_ball().vy - 2000 * this.game.getDiff());
         this.game.getMain_ball().setCurY();
     }
+    public void animateSmallBall(smallBalls sb){
+        double curY=sb.getCircle().getLayoutY();
+        double dist1=(sb.vy * this.game.getDiff()) - ((2000 * this.game.getDiff() * this.game.getDiff()) / 2);
+        double dist2=(sb.vx * this.game.getDiff() );
+        double ballCurY=sb.getCircle().getLayoutY();
+        sb.getCircle().setLayoutY(sb.getCircle().getLayoutY() - dist1);
+        sb.getCircle().setLayoutX(sb.getCircle().getLayoutX() - dist2);
+        sb.posy = (int)sb.getCircle().getLayoutY();
+        sb.posx = (int)sb.getCircle().getLayoutX();
+        sb.vy = (int) (sb.vy - 2000 * this.game.getDiff());
+        sb.setCurY();
+    }
     public void pauseGame(){
         this.game.getTimer().stop();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pause.fxml"));
@@ -329,8 +344,29 @@ public class gamePlayController {
         Scene main1=this.game.getPs().getScene();
         main1.setRoot(root1);
     }
-    public void GameOver(){
+    public void GameOver() throws InterruptedException {
         this.game.getTimer().stop();
+        this.collisionAnimation();
+        for(int i=0;i<this.animationBalls.size();i++) {
+            for (int j = 0; j < ((StackPane) this.game.getRoot()).getChildren().size(); j++) {
+                if (((StackPane) this.game.getRoot()).getChildren().get(j) instanceof Pane) {
+                    ((Pane) ((StackPane) this.game.getRoot()).getChildren().get(j)).getChildren().add(this.animationBalls.get(i).getCircle());
+                }
+            }
+        }
+        this.game.setOld_time(System.nanoTime());
+        ArrayList <smallBalls> sba=this.animationBalls;
+        Game g=this.game;
+        this.game.setSmallTimer(new AnimationTimer() {
+            @Override
+            public void handle(long now){
+                g.settDiff((double)(now - g.getOld_time())/1000000000);
+                g.setOld_time(now);
+                for(int i=0;i<sba.size();i++)
+                    animateSmallBall(sba.get(i));
+            }
+        });
+        this.game.getSmallTimer().start();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gameOver.fxml"));
         Parent root1 = null;
         try {
@@ -339,9 +375,44 @@ public class gamePlayController {
             e.printStackTrace();
         }
         gameOverController myCon=(gameOverController) (loader.getController());
-        myCon.init(this.game);
         Scene main1=this.game.getPs().getScene();
-        main1.setRoot(root1);
+        Parent r=root1;
+        PauseTransition pause = new PauseTransition(
+                Duration.seconds(1)
+                );
+        pause.setOnFinished(event -> {
+            myCon.init(this.game, this.app);
+            main1.setRoot(r);
+        });
+        pause.play();
+    }
+    public void collisionAnimation(){
+        Random r=new Random();
+        ArrayList <String> colors=new ArrayList<>();
+        colors.add("#f70578");
+        colors.add("#f0f505");
+        colors.add("#440580");
+        colors.add("#00c8ff");
+        int[][] velArray= {{0,-600},{400,-600},{400,400},{-400,600},{250,-400},{250,400},{-250,-600},{-250,400},{0,700},{-400,0},{400,0}};
+        int[][] velArray1= {{0,-500},{800,-400},{800,500},{-500,500},{850,-500},{250,500},{-250,-500},{-250,500},{0,500},{-500,0},{500,0}};
+        for(int i=0;i<10;i++){
+            smallBalls sb=new smallBalls(velArray[i][0],this.game.main_ball.getCircle().getLayoutX(),this.game.main_ball.getCircle().getLayoutY(),velArray[i][1]);
+            sb.getCircle().setRadius(4);
+            sb.getCircle().setLayoutY(this.game.main_ball.getCircle().getLayoutY());
+            sb.getCircle().setLayoutX(this.game.main_ball.getCircle().getLayoutX());
+            sb.getCircle().setFill(Paint.valueOf(colors.get(r.nextInt(4))));
+            this.animationBalls.add(sb);
+        }
+        for(int i=0;i<10;i++){
+            smallBalls sb=new smallBalls(velArray1[i][0],this.game.main_ball.getCircle().getLayoutX(),this.game.main_ball.getCircle().getLayoutY(),velArray1[i][1]);
+            sb.getCircle().setRadius(4);
+            sb.getCircle().setLayoutY(this.game.main_ball.getCircle().getLayoutY());
+            sb.getCircle().setLayoutX(this.game.main_ball.getCircle().getLayoutX());
+            sb.getCircle().setFill(Paint.valueOf(colors.get(r.nextInt(4))));
+            this.animationBalls.add(sb);
+        }
+
+
     }
    public void setRotate(Arc arc, int multi) throws IOException{
        Timeline animation = new Timeline(

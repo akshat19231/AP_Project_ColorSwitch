@@ -40,6 +40,7 @@ public class pauseController {
 
     }
     public void saveGame() throws IOException {
+        this.g.setGameId();
         Main.serialize();
         quitToMain();
     }

@@ -26,6 +26,7 @@ public class Game implements Comparable<Game> , Serializable {
     private transient FXMLLoader loader;
     private stars Star;
     private transient AnimationTimer timer;
+    private transient AnimationTimer smallTimer;
     private long old_time;
     private double tDiff;
     public boolean CLICKED;
@@ -39,6 +40,12 @@ public class Game implements Comparable<Game> , Serializable {
         this.score=0;
         this.ar=new LinkedList<gameElements>();
         this.obsQ=new LinkedList<gameElements>();
+    }
+    public void setGameId(){
+        this.GameId=1;
+    }
+    public int getGameId(){
+        return this.GameId;
     }
     public void setApp(App a){
         this.app=a;
@@ -60,6 +67,9 @@ public class Game implements Comparable<Game> , Serializable {
     }
     public void setTimer(AnimationTimer timer){
         this.timer=timer;
+    }
+    public void setSmallTimer(AnimationTimer stimer){
+        this.smallTimer=stimer;
     }
     public void setOld_time(long old_time){
         this.old_time=old_time;
@@ -84,6 +94,9 @@ public class Game implements Comparable<Game> , Serializable {
     }
     public AnimationTimer getTimer(){
         return this.timer;
+    }
+    public AnimationTimer getSmallTimer(){
+        return this.smallTimer;
     }
     public long getOld_time(){
         return this.old_time;
@@ -163,7 +176,10 @@ public class Game implements Comparable<Game> , Serializable {
         }
     }
     public void reset(){
-
+        this.obsQ.clear();
+        this.ar.clear();
+        this.initialiseObs();
+        this.main_ball.getCircle().setLayoutY(569);
     }
     public void initialiseObs(){
         CircleObs crO=new CircleObs(0,1000,0,0,0,0,1);

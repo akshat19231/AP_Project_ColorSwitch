@@ -38,6 +38,12 @@ public class Ball implements Serializable {
         this.ball.setLayoutY(this.cury);
         this.ball.setLayoutX(312);
     }
+    public void setVy(int vy){
+        this.vy=vy;
+    }
+    public int getVy(){
+        return this.vy;
+    }
     public Circle getCircle(){
         return this.ball;
     }

@@ -1,24 +1,30 @@
 package sample;
 
-import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
+import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -60,6 +66,7 @@ public class Controller {
         rot(logo2,1);
         rot(logo3,-1);
     }
+
     public void handleClick(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("load.fxml"));
         Parent root = null;
@@ -68,14 +75,34 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Parent r=root;
         loadScreen myCon=(loadScreen)(loader.getController());
         myCon.init(this.ps, this.ps.getScene().getRoot(), this.curApp);
-        //this.ps.setTitle("Color Switch");
+//        WritableImage wi = new WritableImage(620, 669);
+//        Image img1 = this.ps.getScene().getRoot().snapshot(new SnapshotParameters(),wi);
+//        ImageView imgView1= new ImageView(img1);
+//        wi = new WritableImage(620, 669);
+//        Image img2 = r.snapshot(new SnapshotParameters(),wi);
+//        ImageView imgView2= new ImageView(img2);
+//        imgView1.setTranslateX(0);
+//        imgView2.setTranslateX(620);
+//        StackPane pane= new StackPane(imgView1,imgView2);
+//        pane.setPrefSize(620,669);
+//        ((AnchorPane)(this.ps.getScene().getRoot())).getChildren().setAll(pane);
+//        Timeline timeline = new Timeline();
+//        KeyValue kv = new KeyValue(imgView2.translateXProperty(), 0, Interpolator.EASE_BOTH);
+//        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+//        timeline.getKeyFrames().add(kf);
+//        timeline.setOnFinished(t->{
+//            Scene main1=this.ps.getScene();
+//            main1.setRoot(r);
+//        });
+//        timeline.play();
         Scene main1=this.ps.getScene();
-        main1.setRoot(root);
+        main1.setRoot(r);
     }
     public void reDirect(String un) throws IOException {
-        Game g1=new Game(1);
+        Game g1=new Game(0);
         Player p1=new Player(un);
         g1.setPlayer(p1);
         p1.setMyGame(g1);
@@ -91,7 +118,7 @@ public class Controller {
         assert root != null;
         gamePlayController myCon=(gamePlayController)(loader.getController());
         try {
-            myCon.init(this.ps, root, loader,g1);
+            myCon.init(this.ps, root, loader,g1, this.curApp);
         } catch (IOException e) {
             e.printStackTrace();
         }
