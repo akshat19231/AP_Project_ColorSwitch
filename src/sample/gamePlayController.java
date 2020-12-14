@@ -347,11 +347,13 @@ public class gamePlayController {
     public void GameOver() throws InterruptedException {
         this.game.getTimer().stop();
         this.collisionAnimation();
-        for(int i=0;i<this.animationBalls.size();i++) {
-            for (int j = 0; j < ((StackPane) this.game.getRoot()).getChildren().size(); j++) {
-                if (((StackPane) this.game.getRoot()).getChildren().get(j) instanceof Pane) {
-                    ((Pane) ((StackPane) this.game.getRoot()).getChildren().get(j)).getChildren().add(this.animationBalls.get(i).getCircle());
-                }
+        Group gr=new Group();
+        for(int i=0;i<this.animationBalls.size();i++){
+            gr.getChildren().add(this.animationBalls.get(i).getCircle());
+        }
+        for (int j = 0; j < ((StackPane) this.game.getRoot()).getChildren().size(); j++) {
+            if (((StackPane) this.game.getRoot()).getChildren().get(j) instanceof Pane) {
+                ((Pane) ((StackPane) this.game.getRoot()).getChildren().get(j)).getChildren().add(gr);
             }
         }
         this.game.setOld_time(System.nanoTime());
@@ -382,6 +384,7 @@ public class gamePlayController {
                 );
         pause.setOnFinished(event -> {
             myCon.init(this.game, this.app);
+            //this.animationBalls.clear();
             main1.setRoot(r);
         });
         pause.play();

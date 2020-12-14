@@ -59,7 +59,6 @@ public class pauseController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //this.ps.setTitle("Color Switch");
         Scene main1=this.ps.getScene();
         main1.setRoot(root);
     }

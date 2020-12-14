@@ -20,25 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="651c31a5-102a-4ff6-a68e-76795ce84e6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Ball.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gameOverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gameOverController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/gamePlayController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/load.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/loadScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/loadScreen$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/loadScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/loadScreen.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AP_project/sample/pauseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedGame.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savedGame.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Ball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/gameOverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/gameOverController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/gamePlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/gamePlayController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/load.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/loadScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/loadScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/pauseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/pauseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,22 +101,22 @@
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state x="343" y="250" key="#com.intellij.ide.util.MemberChooser/78.0.1842.1080@78.0.1842.1080" timestamp="1607878009344" />
-    <state width="1799" height="180" key="GridCell.Tab.0.bottom" timestamp="1607906192723">
+    <state width="1080" height="214" key="GridCell.Tab.0.bottom" timestamp="1607945857137">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state width="1799" height="180" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1607906192723" />
-    <state width="1799" height="180" key="GridCell.Tab.0.center" timestamp="1607906192722">
+    <state width="1080" height="214" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1607945857137" />
+    <state width="1080" height="214" key="GridCell.Tab.0.center" timestamp="1607945857137">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state width="1799" height="180" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1607906192722" />
-    <state width="1799" height="180" key="GridCell.Tab.0.left" timestamp="1607906192722">
+    <state width="1080" height="214" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1607945857137" />
+    <state width="1080" height="214" key="GridCell.Tab.0.left" timestamp="1607945857137">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state width="1799" height="180" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1607906192722" />
-    <state width="1799" height="180" key="GridCell.Tab.0.right" timestamp="1607906192723">
+    <state width="1080" height="214" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1607945857137" />
+    <state width="1080" height="214" key="GridCell.Tab.0.right" timestamp="1607945857137">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state width="1799" height="180" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1607906192723" />
+    <state width="1080" height="214" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1607945857137" />
     <state x="261" y="240" width="672" height="678" key="search.everywhere.popup" timestamp="1607901253883">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>

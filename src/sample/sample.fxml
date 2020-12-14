@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="669.0" prefWidth="620.0" style="-fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="669.0" prefWidth="620.0" style="-fx-background-size: 100% 100%; -fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ImageView fx:id="bg" fitHeight="669.0" fitWidth="620.0" managed="false" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="bg" fitHeight="669.0" fitWidth="620.0" managed="false" opacity="0.5" pickOnBounds="true">
          <image>
-            <Image url="@../assets/bg4.png" />
+            <Image url="@../assets/unknownarmy2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="logo1" fitHeight="174.0" fitWidth="259.0" layoutX="201.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/cs_logo_text_dk_preview_rev_1.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="logo3" fitHeight="45.0" fitWidth="52.0" layoutX="339.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/single_ring_preview_rev_1.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="logo2" fitHeight="52.0" fitWidth="45.0" layoutX="268.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/single_ring_preview_rev_1.png" />
-         </image>
-      </ImageView>
+      <Group scaleX="1.3" scaleY="1.3">
+         <children>
+            <ImageView fx:id="logo1" fitHeight="174.0" fitWidth="259.0" layoutX="201.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/cs_logo_text_dk_preview_rev_1.png" />
+               </image>
+               <effect>
+                  <Glow level="0.5" />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="logo3" fitHeight="41.0" fitWidth="43.0" layoutX="341.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/circleColor.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="logo2" fitHeight="45.0" fitWidth="42.0" layoutX="269.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/circleColor.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
       <ImageView fx:id="sRing2" fitHeight="192.0" fitWidth="212.0" layoutX="225.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/rings_preview_rev_1.png" />
@@ -37,30 +46,39 @@
             <Image url="@../assets/rings_preview_rev_1.png" />
          </image>
       </ImageView>
-      <Button fx:id="loadGameB" layoutX="293.0" layoutY="498.0" mnemonicParsing="false" onMouseClicked="#handleClick" onMouseEntered="#highlightOn_load" onMouseExited="#highlightOff_load" prefHeight="52.0" prefWidth="55.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="loadGameB" layoutX="293.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#handleClick" onMouseEntered="#highlightOn_load" onMouseExited="#highlightOff_load" prefHeight="52.0" prefWidth="55.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/loadg_preview_rev_1.png" />
                </image></ImageView>
          </graphic>
+         <effect>
+            <Glow />
+         </effect>
       </Button>
-      <Button fx:id="leaderBoardB" layoutX="125.0" layoutY="498.0" mnemonicParsing="false" onMouseEntered="#highlightOn_l" onMouseExited="#highlightOff_l" prefHeight="52.0" prefWidth="52.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="leaderBoardB" layoutX="125.0" layoutY="528.0" mnemonicParsing="false" onMouseEntered="#highlightOn_l" onMouseExited="#highlightOff_l" prefHeight="52.0" prefWidth="52.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/leader_preview_rev_1.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button fx:id="exitB" layoutX="454.0" layoutY="498.0" mnemonicParsing="false" onMouseClicked="#quitGame" onMouseEntered="#highlightOn_e" onMouseExited="#highlightOff_e" prefHeight="52.0" prefWidth="55.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+         </graphic>
+         <effect>
+            <Glow />
+         </effect></Button>
+      <Button fx:id="exitB" layoutX="454.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#quitGame" onMouseEntered="#highlightOn_e" onMouseExited="#highlightOff_e" prefHeight="52.0" prefWidth="55.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/exiticon_preview_rev_1.png" />
                </image>
             </ImageView>
-         </graphic></Button>
+         </graphic>
+         <effect>
+            <Glow />
+         </effect></Button>
       <Button fx:id="newGameB" layoutX="281.0" layoutY="294.0" mnemonicParsing="false" onMouseClicked="#newGame" onMouseEntered="#highlightOn_n" onMouseExited="#highlightOff_n" prefHeight="81.0" prefWidth="80.0" style="-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: white;">
          <graphic>
             <ImageView fitHeight="44.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: 1.56; -fx-scale-y: 1.56;">
@@ -69,6 +87,9 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <Glow />
+         </effect>
       </Button>
    </children>
 </AnchorPane>

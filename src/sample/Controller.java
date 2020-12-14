@@ -78,28 +78,18 @@ public class Controller {
         Parent r=root;
         loadScreen myCon=(loadScreen)(loader.getController());
         myCon.init(this.ps, this.ps.getScene().getRoot(), this.curApp);
-//        WritableImage wi = new WritableImage(620, 669);
-//        Image img1 = this.ps.getScene().getRoot().snapshot(new SnapshotParameters(),wi);
-//        ImageView imgView1= new ImageView(img1);
-//        wi = new WritableImage(620, 669);
-//        Image img2 = r.snapshot(new SnapshotParameters(),wi);
-//        ImageView imgView2= new ImageView(img2);
-//        imgView1.setTranslateX(0);
-//        imgView2.setTranslateX(620);
-//        StackPane pane= new StackPane(imgView1,imgView2);
-//        pane.setPrefSize(620,669);
-//        ((AnchorPane)(this.ps.getScene().getRoot())).getChildren().setAll(pane);
-//        Timeline timeline = new Timeline();
-//        KeyValue kv = new KeyValue(imgView2.translateXProperty(), 0, Interpolator.EASE_BOTH);
-//        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-//        timeline.getKeyFrames().add(kf);
-//        timeline.setOnFinished(t->{
-//            Scene main1=this.ps.getScene();
-//            main1.setRoot(r);
-//        });
-//        timeline.play();
-        Scene main1=this.ps.getScene();
-        main1.setRoot(r);
+        StackPane sp= (StackPane) this.ps.getScene().getRoot();
+        AnchorPane ap= (AnchorPane)sp.getChildren().get(0);
+        sp.getChildren().add(r);
+        r.translateXProperty().set(620);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(r.translateXProperty(), 0, Interpolator.EASE_BOTH);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t->{
+            sp.getChildren().remove(ap);
+        });
+        timeline.play();
     }
     public void reDirect(String un) throws IOException {
         Game g1=new Game(0);

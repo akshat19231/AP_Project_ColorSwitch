@@ -43,9 +43,7 @@ public class loadScreen{
         while(itr.hasNext())
         {
             Map.Entry<String, Game> entry = itr.next();
-            System.out.println(entry.getValue().getGameId());
             if(entry.getValue().getGameId()==1) {
-                System.out.println("YES");
                 arrG.add(entry.getValue());
             }
         }
@@ -122,9 +120,14 @@ public class loadScreen{
     private void setOnUserInput(Scene scene, gamePlayController c) {
         c.getGame().getMain_ball().vy=500;
     }
-    public void handleClick(){
+    public void handleClick() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        Parent root = loader.load();
+        Controller myCon=(Controller) (loader.getController());
+        myCon.init(this.ps, app);
+        StackPane sp=new StackPane(root);
         Scene main1=this.ps.getScene();
-        main1.setRoot(this.root);
+        main1.setRoot(sp);
     }
     public void highlightOn_b() throws IOException {
         backB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");

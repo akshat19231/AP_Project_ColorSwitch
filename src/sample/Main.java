@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -53,7 +54,8 @@ public class Main extends Application {
         Controller myCon=(Controller) (loader.getController());
         myCon.init(primaryStage, app);
         primaryStage.setTitle("Color Switch");
-        Scene main1=new Scene(root);
+        StackPane sp=new StackPane(root);
+        Scene main1=new Scene(sp);
         primaryStage.setScene(main1);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();

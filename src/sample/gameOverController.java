@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
@@ -40,25 +41,26 @@ public class gameOverController {
                 for(int i=0;i<((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().size();i++){
                     if(((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().get(i) instanceof Circle && ((Circle) ((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().get(i)).getRadius()==4){
                         tobeRemoved.add(((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().get(i));
+                        System.out.println("bruv");
                     }
                 }
             }
         }
-
         for (int j = 0; j < ((StackPane) this.g.getRoot()).getChildren().size(); j++) {
             if (((StackPane) this.g.getRoot()).getChildren().get(j) instanceof Pane) {
                 ((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().remove(tobeRemoved);
             }
         }
-
         this.g.getSmallTimer().stop();
         this.g.setSmallTimer(null);
-
     }
     public void restart() throws IOException {
-
-        this.g.reset();
-        this.g.setOld_time(System.nanoTime());
+        Game g1=new Game(0);
+        Player p1=new Player(this.g.getPlayer().getUname());
+        g1.setPlayer(p1);
+        p1.setMyGame(g1);
+        g1.setApp(this.app);
+        this.app.addGame(g1);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
         StackPane root = null;
         try {
@@ -69,15 +71,26 @@ public class gameOverController {
         assert root != null;
         gamePlayController myCon=(gamePlayController)(loader.getController());
         try {
-            myCon.init(this.g.getPs(), root, loader,this.g, this.app);
+            myCon.init(this.g.getPs(), root, loader,g1, this.app);
         } catch (IOException e) {
             e.printStackTrace();
         }
         Scene main1=this.g.getPs().getScene();
         main1.setRoot(root);
-        this.g.getRoot().requestFocus();
+        setKeyFunctions(main1, myCon);
+        g1.getRoot().requestFocus();
         myCon.startGame();
 
+    }
+    private void setKeyFunctions(Scene scene, gamePlayController Con) {
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.SPACE) {
+                setOnUserInput(scene, Con);
+            }
+        });
+    }
+    private void setOnUserInput(Scene scene, gamePlayController c) {
+        c.getGame().getMain_ball().vy=500;
     }
     public void quitToMain() throws IOException {
         Game saved=this.app.getGame(this.g.getPlayer().getUname());
