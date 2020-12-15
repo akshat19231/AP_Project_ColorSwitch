@@ -40,6 +40,7 @@ public class pauseController {
 
     }
     public void saveGame() throws IOException {
+        this.g.setGameId();
         Main.serialize();
         quitToMain();
     }
@@ -58,7 +59,6 @@ public class pauseController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //this.ps.setTitle("Color Switch");
         Scene main1=this.ps.getScene();
         main1.setRoot(root);
     }

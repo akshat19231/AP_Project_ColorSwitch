@@ -1,27 +1,31 @@
 package sample;
 
-import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
+import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -63,6 +67,7 @@ public class Controller {
         rot(logo2,1);
         rot(logo3,-1);
     }
+
     public void handleClick(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("load.fxml"));
         Parent root = null;
@@ -71,14 +76,24 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Parent r=root;
         loadScreen myCon=(loadScreen)(loader.getController());
         myCon.init(this.ps, this.ps.getScene().getRoot(), this.curApp);
-        //this.ps.setTitle("Color Switch");
-        Scene main1=this.ps.getScene();
-        main1.setRoot(root);
+        StackPane sp= (StackPane) this.ps.getScene().getRoot();
+        AnchorPane ap= (AnchorPane)sp.getChildren().get(0);
+        sp.getChildren().add(r);
+        r.translateXProperty().set(620);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(r.translateXProperty(), 0, Interpolator.EASE_BOTH);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t->{
+            sp.getChildren().remove(ap);
+        });
+        timeline.play();
     }
     public void reDirect(String un) throws IOException {
-        Game g1=new Game(1);
+        Game g1=new Game(0);
         Player p1=new Player(un);
         g1.setPlayer(p1);
         p1.setMyGame(g1);
@@ -94,7 +109,7 @@ public class Controller {
         assert root != null;
         gamePlayController myCon=(gamePlayController)(loader.getController());
         try {
-            myCon.init(this.ps, root, loader,g1);
+            myCon.init(this.ps, root, loader,g1, this.curApp);
         } catch (IOException e) {
             e.printStackTrace();
         }
