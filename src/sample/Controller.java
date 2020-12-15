@@ -13,12 +13,15 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -125,6 +128,13 @@ public class Controller {
     private void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE) {
+                String path4 = "src/assets/jump.wav";
+
+                Media media4 = new Media(new File(path4).toURI().toString());
+
+                MediaPlayer mediaPlayer4 = new MediaPlayer(media4);
+
+                mediaPlayer4.setAutoPlay(true);
                 setOnUserInput(scene, Con);
             }
         });

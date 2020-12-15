@@ -19,7 +19,13 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -43,11 +49,22 @@ public class gamePlayController {
     @FXML
     private Text scoreBoard;
     private Game game;
+
+    String path = "src/assets/be.mp3";
+
+    Media media = new Media(new File(path).toURI().toString());
+
+    MediaPlayer mediaPlayer = new MediaPlayer(media);
+
     public void init(Stage s, Parent p, FXMLLoader fml, Game g) throws IOException {
         this.game=g;
         this.game.initialiseObs();
         this.game.setPs(s);
         this.game.setRoot(p);
+
+
+
+        mediaPlayer.setAutoPlay(true);
         this.game.setLoader(fml);
         this.game.setTimer(null);
         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
@@ -57,6 +74,8 @@ public class gamePlayController {
         ArrayList <Node> toBeAdded= new ArrayList<Node>();
         toBeAdded.add(this.game.getMain_ball().getCircle());
         int mul=1;
+
+
         for(int i=0;i<this.game.getSize();i++){
             toBeAdded.add(this.game.getObs(i).getGroup());
             if(this.game.getObs(i) instanceof CircleObs) {
@@ -194,6 +213,18 @@ public class gamePlayController {
 //            }else{
         for(int i=0;i<this.game.getSizeQ();i++) {
             if(this.game.getObsQ(i).collisionCheck(this.game.getMain_ball().getCircle())){
+
+                String path1 = "src/assets/dead.wav";
+
+
+                Media media1 = new Media(new File(path1).toURI().toString());
+
+                MediaPlayer mediaPlayer1 = new MediaPlayer(media1);
+
+                mediaPlayer1.setAutoPlay(true);
+
+                mediaPlayer.stop();
+
                 this.GameOver();
             }
         }
@@ -202,9 +233,29 @@ public class gamePlayController {
             if ((this.game.getObs(i) instanceof wheel) || this.game.getObs(i) instanceof stars) {
                 if (this.game.getObs(i).collisionCheck(this.game.getMain_ball().getCircle())) {
                     if (this.game.getObs(i) instanceof stars) {
+
+                        String path2 = "src/assets/star.wav";
+
+                        Media media2 = new Media(new File(path2).toURI().toString());
+
+                        MediaPlayer mediaPlayer2 = new MediaPlayer(media2);
+
+                        mediaPlayer2.setAutoPlay(true);
+
                         this.updateScore();
                         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
                     }
+                    else{
+                        String path3 = "src/assets/colorswitch.wav";
+
+                        Media media3 = new Media(new File(path3).toURI().toString());
+
+                        MediaPlayer mediaPlayer3 = new MediaPlayer(media3);
+
+                        mediaPlayer3.setAutoPlay(true);
+
+                    }
+
                     tobeRemoved.add(this.game.getObs(i));
 
                 }
@@ -318,6 +369,7 @@ public class gamePlayController {
     public void pauseGame(){
         this.game.getTimer().stop();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pause.fxml"));
+        mediaPlayer.pause();
         Parent root1 = null;
         try {
             root1 = loader.load();

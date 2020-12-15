@@ -29,6 +29,7 @@ public class Game implements Comparable<Game> , Serializable {
     private long old_time;
     private double tDiff;
     public boolean CLICKED;
+    public int hello = 0;
     private LinkedList<gameElements> ar;
     public LinkedList <gameElements> obsQ;
     private App app;
