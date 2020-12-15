@@ -53,6 +53,7 @@ public class gameOverController {
         }
         this.g.getSmallTimer().stop();
         this.g.setSmallTimer(null);
+        this.g.getMain_ball().getCircle().setOpacity(1);
     }
     public void restart() throws IOException {
         Game g1=new Game(0);

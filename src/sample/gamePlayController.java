@@ -60,7 +60,7 @@ public class gamePlayController {
 
     MediaPlayer mediaPlayer = new MediaPlayer(media);
 
-    public void init(Stage s, Parent p, FXMLLoader fml, Game g) throws IOException {
+    public void init(Stage s, Parent p, FXMLLoader fml, Game g, App app) throws IOException {
         this.game=g;
         this.animationBalls=new ArrayList<smallBalls>();
         this.game.initialiseObs();
@@ -400,6 +400,7 @@ public class gamePlayController {
     public void GameOver() throws InterruptedException {
         this.game.getTimer().stop();
         this.collisionAnimation();
+        this.game.getMain_ball().getCircle().setOpacity(0);
         Group gr=new Group();
         for(int i=0;i<this.animationBalls.size();i++){
             gr.getChildren().add(this.animationBalls.get(i).getCircle());

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="651c31a5-102a-4ff6-a68e-76795ce84e6f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1lbfcKsuqMaGj0A9T8CUK3VxqrL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="AP_project" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\user\Downloads\javafx-sdk-15.0.1\lib&quot; --add-modules=javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="651c31a5-102a-4ff6-a68e-76795ce84e6f" name="Default Changelist" comment="" />
+      <created>1607870791543</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607870791543</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="298" y="140" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607871029325">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="298" y="140" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/78.0.1842.1080@78.0.1842.1080" timestamp="1607871029325" />
+    <state x="343" y="250" key="#com.intellij.ide.util.MemberChooser" timestamp="1607878009344">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="343" y="250" key="#com.intellij.ide.util.MemberChooser/78.0.1842.1080@78.0.1842.1080" timestamp="1607878009344" />
+    <state width="995" height="214" key="GridCell.Tab.0.bottom" timestamp="1607945991113">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="995" height="214" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1607945991113" />
+    <state width="995" height="214" key="GridCell.Tab.0.center" timestamp="1607945991113">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="995" height="214" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1607945991113" />
+    <state width="995" height="214" key="GridCell.Tab.0.left" timestamp="1607945991113">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="995" height="214" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1607945991113" />
+    <state width="995" height="214" key="GridCell.Tab.0.right" timestamp="1607945991113">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="995" height="214" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1607945991113" />
+    <state x="261" y="240" width="672" height="678" key="search.everywhere.popup" timestamp="1607901253883">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="261" y="240" width="672" height="678" key="search.everywhere.popup/78.0.1842.1080@78.0.1842.1080" timestamp="1607901253883" />
+  </component>
+</project>
