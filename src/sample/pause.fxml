@@ -48,5 +48,13 @@
          <effect>
             <Glow />
          </effect></Button>
+      <ImageView fitHeight="133.0" fitWidth="202.0" layoutX="210.0" layoutY="14.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/PauseLogo_preview_rev_2.png" />
+         </image>
+         <effect>
+            <Glow level="0.62" />
+         </effect>
+      </ImageView>
     </children>
 </AnchorPane>
