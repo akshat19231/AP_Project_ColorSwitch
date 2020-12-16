@@ -54,16 +54,15 @@ public class gamePlayController {
 
     private App app;
     private ArrayList <smallBalls> animationBalls;
-    public transient int hello;
 //    public Media media;
 
 //    public MediaPlayer mediaPlayer;
 
     public static String path = "src/assets/be.mp3";
 
-    public static Media media = new Media(new File(path).toURI().toString());
+    public static transient Media media = new Media(new File(path).toURI().toString());
 
-    public static MediaPlayer mediaPlayer = new MediaPlayer(media);
+    public static transient MediaPlayer mediaPlayer = new MediaPlayer(media);
 
     public void init(Stage s, Parent p, FXMLLoader fml, Game g, App app) throws IOException {
         this.game=g;
@@ -111,6 +110,7 @@ public class gamePlayController {
     }
     public void loadGame(Stage s, Parent p, FXMLLoader fml, Game g, App app1) throws IOException {
         this.game=g;
+        mediaPlayer.play();
         this.animationBalls=new ArrayList<smallBalls>();
         this.game.setPs(s);
         this.game.setRoot(p);

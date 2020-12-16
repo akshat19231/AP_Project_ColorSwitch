@@ -10,10 +10,12 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 import java.util.*;
 import java.io.*;
+
 
 public class Leaderboard{
     @FXML
@@ -37,6 +39,9 @@ public class Leaderboard{
     private Stage ps;
     private Parent root;
     private App app;
+
+    String path9 = "src/assets/start.wav";
+    AudioClip click = new AudioClip(new File(path9).toURI().toString());
     public void init(Stage s, Parent p, App app){
         this.ps=s;
         this.root=p;
@@ -62,6 +67,7 @@ public class Leaderboard{
         }
     }
     public void handleClick() throws IOException {
+        click.play();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
         Controller myCon=(Controller) (loader.getController());

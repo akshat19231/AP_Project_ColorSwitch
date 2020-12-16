@@ -54,6 +54,10 @@ public class Controller {
     String path9 = "src/assets/start.wav";
     AudioClip click = new AudioClip(new File(path9).toURI().toString());
 
+    String path4 = "src/assets/jump.wav";
+
+    AudioClip jump = new AudioClip(new File(path4).toURI().toString());
+
     public void rot(ImageView imv, int mul){
         RotateTransition rotate = new RotateTransition(Duration.millis(3000));
         rotate.setAxis(Rotate.Z_AXIS);
@@ -74,6 +78,7 @@ public class Controller {
         rot(logo3,-1);
     }
     public void showLeaderBoard(){
+        click.play();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Leaderboard.fxml"));
         Parent root = null;
         try {
@@ -174,9 +179,7 @@ public class Controller {
     private void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE) {
-                String path4 = "src/assets/jump.wav";
 
-                AudioClip jump = new AudioClip(new File(path4).toURI().toString());
 //                Media media4 = new Media(new File(path4).toURI().toString());
 
                 jump.play();

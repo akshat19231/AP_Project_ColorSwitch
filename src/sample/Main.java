@@ -60,10 +60,7 @@ public class Main extends Application {
         primaryStage.setScene(main1);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
-
     }
-
-
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         deserialize();

@@ -37,11 +37,12 @@ public class gameOverController {
     private App app;
     private Obstacles collidedWith;
     private Group swarm;
-    public void init(Game g, App app, Obstacles o, Group gr){
     String path6 = "src/assets/start.wav";
     AudioClip click = new AudioClip(new File(path6).toURI().toString());
+    public void init(Game g, App app, Obstacles o, Group gr){
 
-    public void init(Game g, App app, Obstacles o){
+
+
         this.g=g;
         this.app=app;
         this.collidedWith=o;
@@ -119,6 +120,7 @@ public class gameOverController {
     public void quitToMain() throws IOException {
         click.play();
         gamePlayController.mediaPlayer.stop();
+
         Game saved=this.app.getGame(this.g.getPlayer().getUname());
         if(saved!=null){
             this.app.getGameMap().remove(this.g.getPlayer().getUname());
@@ -143,7 +145,7 @@ public class gameOverController {
         //this.ps.setTitle("Color Switch");
         StackPane sp=new StackPane(root);
         Scene main1=this.g.getPs().getScene();
-        main1.setRoot(root);
+        main1.setRoot(sp);
     }
     public void resume() throws IOException {
         //if(this.g.getScore()<5) return;
