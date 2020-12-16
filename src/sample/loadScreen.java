@@ -7,8 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -28,6 +30,12 @@ public class loadScreen{
     private Stage ps;
     private Parent root;
     private App app;
+
+    String path5 = "src/assets/button.wav";
+    AudioClip hover = new AudioClip(new File(path5).toURI().toString());
+
+    String path6 = "src/assets/start.wav";
+    AudioClip click = new AudioClip(new File(path6).toURI().toString());
     public void init(Stage s, Parent p, App app){
         this.ps=s;
         this.root=p;
@@ -40,6 +48,7 @@ public class loadScreen{
         buttons.add(lb5);
         Iterator<HashMap.Entry<String, Game>> itr = this.app.getGameMap().entrySet().iterator();
         ArrayList<Game> arrG=new ArrayList<Game>();
+
         while(itr.hasNext())
         {
             Map.Entry<String, Game> entry = itr.next();
@@ -121,6 +130,8 @@ public class loadScreen{
         c.getGame().getMain_ball().vy=500;
     }
     public void handleClick() throws IOException {
+
+        click.play();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
         Controller myCon=(Controller) (loader.getController());
@@ -136,30 +147,35 @@ public class loadScreen{
         backB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
     }
     public void highlightOn_1() throws IOException {
+        hover.play();
         lb1.setStyle("-fx-background-radius: 10px; -fx-background-color: #5B7065, linear-gradient(#5B7065 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #5B7065 45%, #304040 50%);;");
     }
     public void highlightOff_1() throws IOException {
         lb1.setStyle("-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%);;");
     }
     public void highlightOn_2() throws IOException {
+        hover.play();
         lb2.setStyle("-fx-background-radius: 10px; -fx-background-color: #5B7065, linear-gradient(#5B7065 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #5B7065 45%, #304040 50%);;");
     }
     public void highlightOff_2() throws IOException {
         lb2.setStyle("-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%);;");
     }
     public void highlightOn_3() throws IOException {
+        hover.play();
         lb3.setStyle("-fx-background-radius: 10px; -fx-background-color: #5B7065, linear-gradient(#5B7065 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #5B7065 45%, #304040 50%);;");
     }
     public void highlightOff_3() throws IOException {
         lb3.setStyle("-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%);;");
     }
     public void highlightOn_4() throws IOException {
+        hover.play();
         lb4.setStyle("-fx-background-radius: 10px; -fx-background-color: #5B7065, linear-gradient(#5B7065 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #5B7065 45%, #304040 50%);;");
     }
     public void highlightOff_4() throws IOException {
         lb4.setStyle("-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%);;");
     }
     public void highlightOn_5() throws IOException {
+        hover.play();
         lb5.setStyle("-fx-background-radius: 10px; -fx-background-color: #5B7065, linear-gradient(#5B7065 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #5B7065 45%, #304040 50%);;");
     }
     public void highlightOff_5() throws IOException {

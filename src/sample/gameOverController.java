@@ -10,10 +10,12 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -30,11 +32,12 @@ public class gameOverController {
     private Text starCnt;
     private Game g;
     private App app;
-    private Obstacles collidedWith;
-    public void init(Game g, App app, Obstacles o){
+
+    String path6 = "src/assets/start.wav";
+    AudioClip click = new AudioClip(new File(path6).toURI().toString());
+    public void init(Game g, App app){
         this.g=g;
         this.app=app;
-        this.collidedWith=o;
         this.score.setText(Integer.toString(this.g.getLevel()-1));
         this.starCnt.setText(Integer.toString(this.g.getScore()));
         ArrayList<Node> tobeRemoved=new ArrayList<Node>();
@@ -43,6 +46,7 @@ public class gameOverController {
                 for(int i=0;i<((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().size();i++){
                     if(((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().get(i) instanceof Circle && ((Circle) ((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().get(i)).getRadius()==4){
                         tobeRemoved.add(((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().get(i));
+                        System.out.println("bruv");
                     }
                 }
             }
@@ -57,6 +61,8 @@ public class gameOverController {
         this.g.getMain_ball().getCircle().setOpacity(1);
     }
     public void restart() throws IOException {
+        click.play();
+        gamePlayController.mediaPlayer.stop();
         Game g1=new Game(0);
         Player p1=new Player(this.g.getPlayer().getUname());
         g1.setPlayer(p1);
@@ -87,6 +93,13 @@ public class gameOverController {
     private void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE) {
+                String path4 = "src/assets/jump.wav";
+
+                AudioClip jump = new AudioClip(new File(path4).toURI().toString());
+//                Media media4 = new Media(new File(path4).toURI().toString());
+
+                jump.play();
+
                 setOnUserInput(scene, Con);
             }
         });
@@ -95,6 +108,8 @@ public class gameOverController {
         c.getGame().getMain_ball().vy=500;
     }
     public void quitToMain() throws IOException {
+        click.play();
+        gamePlayController.mediaPlayer.stop();
         Game saved=this.app.getGame(this.g.getPlayer().getUname());
         if(saved!=null){
             this.app.getGameMap().remove(this.g.getPlayer().getUname());
@@ -115,23 +130,13 @@ public class gameOverController {
             e.printStackTrace();
         }
         //this.ps.setTitle("Color Switch");
-        StackPane sp=new StackPane(root);
         Scene main1=this.g.getPs().getScene();
-        main1.setRoot(sp);
+        main1.setRoot(root);
     }
     public void resume() throws IOException {
-        //if(this.g.getScore()<5) return;
-        double line=this.collidedWith.getStarY();
-        if(line>340){
-            for(int i=0;i<this.g.getSize();i++){
-                this.g.getObs(i).moveDown(80);
-            }
-            for(int i=0;i<this.g.getSizeQ();i++){
-                this.g.getObsQ(i).moveDown(80);
-            }
-        }
-        this.g.getMain_ball().getCircle().setLayoutY(420);
-        this.g.getMain_ball().setCurY();
+        click.play();
+        gamePlayController.mediaPlayer.play();
+        if(this.g.getScore()<5) return;
         this.g.useStars();
         this.g.setOld_time(System.nanoTime());
         Scene main1=this.g.getPs().getScene();

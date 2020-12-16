@@ -6,9 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class pauseController {
@@ -25,6 +26,10 @@ public class pauseController {
     private FXMLLoader loader;
     private AnimationTimer timer;
     private Game g;
+
+    String path8 = "src/assets/start.wav";
+    AudioClip click = new AudioClip(new File(path8).toURI().toString());
+
     public void init( Game g){
         this.g=g;
         this.ps=this.g.getPs();
@@ -33,20 +38,26 @@ public class pauseController {
         this.timer=this.g.getTimer();
     }
     public void goBack() throws IOException {
+        click.play();
         this.g.setOld_time(System.nanoTime());
         Scene main1=this.ps.getScene();
         main1.setRoot(this.root);
         this.timer.start();
         this.root.requestFocus();
+        gamePlayController.mediaPlayer.play();
 
     }
     public void saveGame() throws IOException {
+        click.play();
+        gamePlayController.mediaPlayer.stop();
         this.g.setGameId();
         Main.serialize();
         quitToMain();
     }
     public void quitToMain() throws IOException {
 
+        click.play();
+        gamePlayController.mediaPlayer.stop();
         FXMLLoader loader1 = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = null;
         try {
@@ -60,9 +71,8 @@ public class pauseController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        StackPane sp=new StackPane(root);
-        Scene main1=this.g.getPs().getScene();
-        main1.setRoot(sp);
+        Scene main1=this.ps.getScene();
+        main1.setRoot(root);
     }
     public void highlightOn_b() throws IOException {
         backB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");

@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -52,24 +51,11 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
         Controller myCon=(Controller) (loader.getController());
-
         myCon.init(primaryStage, app);
         primaryStage.setTitle("Color Switch");
-        StackPane sp=new StackPane(root);
-        Scene main1=new Scene(sp);
+        Scene main1=new Scene(root);
         primaryStage.setScene(main1);
         primaryStage.initStyle(StageStyle.UNDECORATED);
-//
-//        String path = "src/assets/mystery.mp3";
-//
-//
-//        Media media = new Media(new File(path).toURI().toString());
-//
-//        MediaPlayer mediaPlayer = new MediaPlayer(media);
-//
-//        mediaPlayer.setAutoPlay(true);
-
-
         primaryStage.show();
 
     }

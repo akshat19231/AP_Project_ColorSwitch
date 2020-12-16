@@ -11,6 +11,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
@@ -53,12 +54,16 @@ public class gamePlayController {
 
     private App app;
     private ArrayList <smallBalls> animationBalls;
+    public transient int hello;
+//    public Media media;
 
-//    String path = "src/assets/be.mp3";
-//
-//    Media media = new Media(new File(path).toURI().toString());
-//
-//    MediaPlayer mediaPlayer = new MediaPlayer(media);
+//    public MediaPlayer mediaPlayer;
+
+    public static String path = "src/assets/be.mp3";
+
+    public static Media media = new Media(new File(path).toURI().toString());
+
+    public static MediaPlayer mediaPlayer = new MediaPlayer(media);
 
     public void init(Stage s, Parent p, FXMLLoader fml, Game g, App app) throws IOException {
         this.game=g;
@@ -66,33 +71,68 @@ public class gamePlayController {
         this.game.initialiseObs();
         this.game.setPs(s);
         this.game.setRoot(p);
+
+
+
 //        mediaPlayer.setAutoPlay(true);
         this.game.setLoader(fml);
+        mediaPlayer.play();
         this.game.setTimer(null);
         this.game.setSmallTimer(null);
         this.app=app;
         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
-        this.game.setMain_ball(new Ball(0, 312,527));
+        this.game.setMain_ball(new Ball(0, 310,600));
         this.game.getMain_ball().getCircle().setLayoutY(this.game.getMain_ball().getCircle().getLayoutY() - 3);
         this.game.getMain_ball().setCurY();
         ArrayList <Node> toBeAdded= new ArrayList<Node>();
         toBeAdded.add(this.game.getMain_ball().getCircle());
+        int mul=1;
+
 
         for(int i=0;i<this.game.getSize();i++){
             toBeAdded.add(this.game.getObs(i).getGroup());
+            if(this.game.getObs(i) instanceof CircleObs) {
+                ArrayList<Arc> getArcs = ((CircleObs) this.game.getObs(i)).getArcforRotation();
+                for (int j = 0; j < 4; j++) {
+                    setRotate(getArcs.get(j), mul);
+                }
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
+            }else{
+                if(this.game.getObs(i) instanceof stars)
+                    continue;
+                rotateLine((Group)toBeAdded.get(toBeAdded.size()-1));
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
+            }
         }
         for(int i=0;i<this.game.getSizeQ();i++){
-            ((Obstacles)this.game.getObsQ(i)).rotateOn();
+            toBeAdded.add(this.game.getObsQ(i).getGroup());
             if(this.game.getObsQ(i) instanceof CircleObs) {
-                toBeAdded.add(this.game.getObsQ(i).getGroup());
-            }else if(this.game.getObsQ(i) instanceof doubleCircle){
-                toBeAdded.add(((doubleCircle) this.game.getObsQ(i)).getGroup());
-                toBeAdded.add(((doubleCircle) this.game.getObsQ(i)).getGroup1());
-            }else if(this.game.getObsQ(i) instanceof doubleCross){
-                toBeAdded.add(((doubleCross) this.game.getObsQ(i)).getGroup());
-                toBeAdded.add(((doubleCross) this.game.getObsQ(i)).getGroup1());
+                ArrayList<Arc> getArcs = ((CircleObs) this.game.getObsQ(i)).getArcforRotation();
+                for (int j = 0; j < 4; j++) {
+                    setRotate(getArcs.get(j), mul);
+                }
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
             }else{
-                toBeAdded.add(this.game.getObsQ(i).getGroup());
+                if(this.game.getObsQ(i) instanceof stars)
+                    continue;
+                rotateLine((Group)toBeAdded.get(toBeAdded.size()-1));
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
             }
         }
         assert this.game.getRoot() != null;
@@ -117,21 +157,51 @@ public class gamePlayController {
         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
         ArrayList <Node> toBeAdded= new ArrayList<Node>();
         toBeAdded.add(this.game.getMain_ball().getCircle());
+        int mul=1;
         for(int i=0;i<this.game.getSize();i++){
             toBeAdded.add(this.game.getObs(i).getGroup());
+            if(this.game.getObs(i) instanceof CircleObs) {
+                ArrayList<Arc> getArcs = ((CircleObs) this.game.getObs(i)).getArcforRotation();
+                for (int j = 0; j < 4; j++) {
+                    setRotate(getArcs.get(j), mul);
+                }
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
+            }else{
+                if(this.game.getObs(i) instanceof stars)
+                    continue;
+                rotateLine((Group)toBeAdded.get(toBeAdded.size()-1));
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
+            }
         }
         for(int i=0;i<this.game.getSizeQ();i++){
-            ((Obstacles)this.game.getObsQ(i)).rotateOn();
+            toBeAdded.add(this.game.getObsQ(i).getGroup());
             if(this.game.getObsQ(i) instanceof CircleObs) {
-                toBeAdded.add(this.game.getObsQ(i).getGroup());
-            }else if(this.game.getObsQ(i) instanceof doubleCircle){
-                toBeAdded.add(((doubleCircle) this.game.getObsQ(i)).getGroup());
-                toBeAdded.add(((doubleCircle) this.game.getObsQ(i)).getGroup1());
-            }else if(this.game.getObsQ(i) instanceof doubleCross){
-                toBeAdded.add(((doubleCross) this.game.getObsQ(i)).getGroup());
-                toBeAdded.add(((doubleCross) this.game.getObsQ(i)).getGroup1());
+                ArrayList<Arc> getArcs = ((CircleObs) this.game.getObsQ(i)).getArcforRotation();
+                for (int j = 0; j < 4; j++) {
+                    setRotate(getArcs.get(j), mul);
+                }
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
             }else{
-                toBeAdded.add(this.game.getObsQ(i).getGroup());
+                if(this.game.getObsQ(i) instanceof stars)
+                    continue;
+                rotateLine((Group)toBeAdded.get(toBeAdded.size()-1));
+                if (mul == 1) {
+                    mul = -1;
+                } else {
+                    mul = 1;
+                }
             }
         }
         assert this.game.getRoot() != null;
@@ -150,18 +220,20 @@ public class gamePlayController {
         for(int i=0;i<this.game.getSizeQ();i++) {
             if(this.game.getObsQ(i).collisionCheck(this.game.getMain_ball().getCircle())){
 
-//                String path1 = "src/assets/dead.wav";
-//
-//
-//                Media media1 = new Media(new File(path1).toURI().toString());
-//
-//                MediaPlayer mediaPlayer1 = new MediaPlayer(media1);
-//
-//                mediaPlayer1.setAutoPlay(true);
-//
-//                mediaPlayer.stop();
+                String path1 = "src/assets/dead.wav";
 
-                this.GameOver((Obstacles) this.game.getObsQ(i));
+
+//                Media media1 = new Media(new File(path1).toURI().toString());
+                AudioClip dead = new AudioClip(new File(path1).toURI().toString());
+
+//                MediaPlayer mediaPlayer1 = new MediaPlayer(media1);
+
+//                mediaPlayer1.setAutoPlay(true);
+                dead.play();
+
+                mediaPlayer.pause();
+
+                this.GameOver();
             }
         }
 
@@ -170,24 +242,32 @@ public class gamePlayController {
                 if (this.game.getObs(i).collisionCheck(this.game.getMain_ball().getCircle())) {
                     if (this.game.getObs(i) instanceof stars) {
 
-//                        String path2 = "src/assets/star.wav";
-//
+                        String path2 = "src/assets/star.wav";
+
+                        AudioClip star = new AudioClip(new File(path2).toURI().toString());
+
+                        star.play();
+
 //                        Media media2 = new Media(new File(path2).toURI().toString());
-//
+
 //                        MediaPlayer mediaPlayer2 = new MediaPlayer(media2);
-//
+
 //                        mediaPlayer2.setAutoPlay(true);
 
                         this.updateScore();
                         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
                     }
                     else{
-//                        String path3 = "src/assets/colorswitch.wav";
-//
+                        String path3 = "src/assets/colorswitch.wav";
+
+                        AudioClip colorwheel = new AudioClip(new File(path3).toURI().toString());
+
+                        colorwheel.play();
+
 //                        Media media3 = new Media(new File(path3).toURI().toString());
-//
+
 //                        MediaPlayer mediaPlayer3 = new MediaPlayer(media3);
-//
+
 //                        mediaPlayer3.setAutoPlay(true);
 
                     }
@@ -206,38 +286,51 @@ public class gamePlayController {
             }
         }
     }
+    public void RefreshObs(int idx){
+
+    }
+
     public void updateScore(){
         this.game.levelUp();
     }
     public void fun(Game g){
         double val=0;
-        if (g.getObsQ(0) instanceof CircleObs || g.getObsQ(0) instanceof doubleCircle) val=275;
+        if (g.getObsQ(0) instanceof CircleObs) val=275;
         if( g.getSizeQ()>0 && g.getObsQ(0).getPosY()>=799-val){
-            System.out.println("yes");
             for (int j = 0; j < ((StackPane) this.game.getRoot()).getChildren().size(); j++) {
                 if (((StackPane) this.game.getRoot()).getChildren().get(j) instanceof Pane) {
                     ((Pane) ((StackPane) this.game.getRoot()).getChildren().get(j)).getChildren().remove(g.getObsQ(0).getGroup());
                 }
             }
             double y=(g.getObsQ(0)).getPosY();
+            //g.getObs(i).refresh();
             g.removeQ();
-            int ret=g.update(900);
-            stars new_s=new stars(302,((Obstacles)(g.getObsQ(g.getSizeQ()-1))).getStarY());
+            //System.out.println(y);
+            int ret=g.update(1000);
+            stars new_s=new stars(0,1000);
             new_s.makeObs();
-            wheel new_w=new wheel(311,((Obstacles)(g.getObsQ(g.getSizeQ()-1))).getWheelY());
+            wheel new_w=new wheel(0,1000);
             new_w.makeObs();
             this.game.add(new_s);
             this.game.add(new_w);
             System.out.println("updated");
+            //System.out.println(g.getSizeQ());
+            //System.out.println();
             for (int j = 0; j < ((StackPane) g.getRoot()).getChildren().size(); j++) {
                 if (((StackPane) g.getRoot()).getChildren().get(j) instanceof Pane) {
                     ((Pane) ((StackPane) g.getRoot()).getChildren().get(j)).getChildren().addAll(g.getObsQ(g.getSizeQ()-1).getGroup(),new_s.getGroup(),new_w.getGroup());
-                    if(this.game.getObsQ(g.getSizeQ()-1) instanceof doubleCircle){
-                        ((Pane) ((StackPane) g.getRoot()).getChildren().get(j)).getChildren().addAll(((doubleCircle)g.getObsQ(g.getSizeQ()-1)).getGroup1());
-                    }else if(this.game.getObsQ(g.getSizeQ()-1) instanceof doubleCross){
-                        ((Pane) ((StackPane) g.getRoot()).getChildren().get(j)).getChildren().addAll(((doubleCross)g.getObsQ(g.getSizeQ()-1)).getGroup1());
+                    if(g.getObsQ(g.getSizeQ()-1) instanceof  CircleObs){
+                        ArrayList<Arc> getArcs = ((CircleObs) g.getObsQ(g.getSizeQ()-1)).getArcforRotation();
+                        for (int k = 0; k < 4; k++) {
+                            try {
+                                setRotate(getArcs.get(k), 1);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }else{
+                        rotateLine(g.getObsQ(g.getSizeQ()-1).getGroup());
                     }
-                    ((Obstacles)this.game.getObsQ(g.getSizeQ()-1)).rotateOn();
                 }
             }
         }
@@ -256,6 +349,7 @@ public class gamePlayController {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
             }
         });
         this.game.getTimer().start();
@@ -263,9 +357,13 @@ public class gamePlayController {
     public void moveObs(double dist){
         for(int i=0;i<this.game.getSize();i++) {
             this.game.getObs(i).moveDown(dist);
+            RefreshObs(i);
+
         }
         for(int i=0;i<this.game.getSizeQ();i++) {
             this.game.getObsQ(i).moveDown(dist);
+            //this.game.getObsQ(i).print();
+
         }
         fun(this.game);
     }
@@ -288,11 +386,22 @@ public class gamePlayController {
         this.game.getMain_ball().vy = (int) (this.game.getMain_ball().vy - 2000 * this.game.getDiff());
         this.game.getMain_ball().setCurY();
     }
-
+    public void animateSmallBall(smallBalls sb){
+        double curY=sb.getCircle().getLayoutY();
+        double dist1=(sb.vy * this.game.getDiff()) - ((2000 * this.game.getDiff() * this.game.getDiff()) / 2);
+        double dist2=(sb.vx * this.game.getDiff() );
+        double ballCurY=sb.getCircle().getLayoutY();
+        sb.getCircle().setLayoutY(sb.getCircle().getLayoutY() - dist1);
+        sb.getCircle().setLayoutX(sb.getCircle().getLayoutX() - dist2);
+        sb.posy = (int)sb.getCircle().getLayoutY();
+        sb.posx = (int)sb.getCircle().getLayoutX();
+        sb.vy = (int) (sb.vy - 2000 * this.game.getDiff());
+        sb.setCurY();
+    }
     public void pauseGame(){
         this.game.getTimer().stop();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pause.fxml"));
-//        mediaPlayer.pause();
+        mediaPlayer.pause();
         Parent root1 = null;
         try {
             root1 = loader.load();
@@ -304,9 +413,8 @@ public class gamePlayController {
         Scene main1=this.game.getPs().getScene();
         main1.setRoot(root1);
     }
-    public void GameOver(Obstacles o) throws InterruptedException {
+    public void GameOver() throws InterruptedException {
         this.game.getTimer().stop();
-        this.game.getMain_ball().getCircle().setOpacity(0);
         this.collisionAnimation();
         this.game.getMain_ball().getCircle().setOpacity(0);
         Group gr=new Group();
@@ -345,27 +453,11 @@ public class gamePlayController {
                 Duration.seconds(1)
                 );
         pause.setOnFinished(event -> {
-            myCon.init(this.game, this.app, o);
+            myCon.init(this.game, this.app);
             //this.animationBalls.clear();
             main1.setRoot(r);
         });
         pause.play();
-    }
-    ///
-    ///
-    ///
-    //bonus animation work
-    public void animateSmallBall(smallBalls sb){
-        double curY=sb.getCircle().getLayoutY();
-        double dist1=(sb.vy * this.game.getDiff()) - ((2000 * this.game.getDiff() * this.game.getDiff()) / 2);
-        double dist2=(sb.vx * this.game.getDiff() );
-        double ballCurY=sb.getCircle().getLayoutY();
-        sb.getCircle().setLayoutY(sb.getCircle().getLayoutY() - dist1);
-        sb.getCircle().setLayoutX(sb.getCircle().getLayoutX() - dist2);
-        sb.posy = (int)sb.getCircle().getLayoutY();
-        sb.posx = (int)sb.getCircle().getLayoutX();
-        sb.vy = (int) (sb.vy - 2000 * this.game.getDiff());
-        sb.setCurY();
     }
     public void collisionAnimation(){
         Random r=new Random();
@@ -392,11 +484,27 @@ public class gamePlayController {
             sb.getCircle().setFill(Paint.valueOf(colors.get(r.nextInt(4))));
             this.animationBalls.add(sb);
         }
-    }
-    ////
-    ////
-    ////
 
+
+    }
+   public void setRotate(Arc arc, int multi) throws IOException{
+       Timeline animation = new Timeline(
+               new KeyFrame(Duration.ZERO, new KeyValue(arc.startAngleProperty(), arc.getStartAngle(), Interpolator.LINEAR)),
+               new KeyFrame(Duration.seconds(5), new KeyValue(arc.startAngleProperty(), arc.getStartAngle() - 360*multi, Interpolator.LINEAR))
+       );
+       animation.setCycleCount(Animation.INDEFINITE);
+       animation.play();
+   }
+   public void rotateLine(Group l){
+       RotateTransition rotate = new RotateTransition();
+       rotate.setAxis(Rotate.Z_AXIS);
+       rotate.setByAngle(360);
+       rotate.setCycleCount(Animation.INDEFINITE);
+       rotate.setInterpolator(Interpolator.LINEAR);
+       rotate.setDuration(Duration.millis(5000));
+       rotate.setNode(l);
+       rotate.play();
+   }
     public void highlight_On() throws IOException {
         backB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
     }

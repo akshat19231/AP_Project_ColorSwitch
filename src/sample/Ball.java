@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
@@ -22,7 +23,7 @@ public class Ball implements Serializable {
         this.ball.setRadius(9);
         this.ball.setCenterY(0);
         this.ball.setCenterX(0);
-        this.ball.setLayoutY(500);
+        this.ball.setLayoutY(569);
         this.ball.setLayoutX(312);
         this.cury=569;
     }
