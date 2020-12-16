@@ -10,6 +10,8 @@ import java.util.Random;
 public abstract class gameElements implements Serializable {
     double posx;
     double posy;
+    double topy;
+    double bottomy;
     private ArrayList<String> colors;
     public gameElements(double x, double y){
         this.posx=x;
@@ -28,6 +30,18 @@ public abstract class gameElements implements Serializable {
     public abstract void refresh();
     public abstract void setUp();
     public abstract double getPosY();
+    public void setTopy(double y){
+        this.topy=y;
+    }
+    public double getTopy(){
+        return this.topy;
+    }
+    public void setBottomy(double y){
+        this.bottomy=y;
+    }
+    public double getBottomy(){
+        return this.bottomy;
+    }
     public void setPosy(double y){
         this.posy=y;
     }

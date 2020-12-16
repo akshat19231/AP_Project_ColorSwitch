@@ -41,9 +41,9 @@ public class CircleObs extends Obstacles {
     }
     public void moveDown(double y){
         this.arc1.setLayoutY(this.arc1.getLayoutY() + y);
-        this.arc2.setLayoutY(this.arc1.getLayoutY() + y);
-        this.arc3.setLayoutY(this.arc1.getLayoutY() + y);
-        this.arc4.setLayoutY(this.arc1.getLayoutY() + y);
+        this.arc2.setLayoutY(this.arc2.getLayoutY() + y);
+        this.arc3.setLayoutY(this.arc3.getLayoutY() + y);
+        this.arc4.setLayoutY(this.arc4.getLayoutY() + y);
         this.centre+=y;
         this.keep_track=this.arc1.getLayoutY();
     }

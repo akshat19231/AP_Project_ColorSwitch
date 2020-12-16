@@ -1,17 +1,21 @@
 package sample;
 
-import javafx.animation.AnimationTimer;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 
 public class pauseController {
     @FXML
@@ -22,6 +26,8 @@ public class pauseController {
     private Button lb2;
     @FXML
     private Button lb3;
+    @FXML
+    private ImageView PauseIcon;
     private Stage ps;
     private Parent root;
     private FXMLLoader loader;
@@ -37,6 +43,13 @@ public class pauseController {
         this.root=this.g.getRoot();
         this.loader=this.g.getLoader();
         this.timer=this.g.getTimer();
+        Timeline t=new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(PauseIcon.scaleXProperty(), PauseIcon.getScaleX(), Interpolator.EASE_OUT), new KeyValue(PauseIcon.scaleYProperty(), PauseIcon.getScaleY(), Interpolator.EASE_OUT)),
+                new KeyFrame(Duration.seconds(1), new KeyValue(PauseIcon.scaleXProperty(), PauseIcon.getScaleX()+0.1, Interpolator.EASE_OUT), new KeyValue(PauseIcon.scaleYProperty(), PauseIcon.getScaleY()+0.1, Interpolator.EASE_OUT))
+        );
+        t.setAutoReverse(true);
+        t.setCycleCount(-1);
+        t.play();
     }
     public void goBack() throws IOException {
         click.play();

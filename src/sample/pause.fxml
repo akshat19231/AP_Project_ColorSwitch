@@ -10,50 +10,50 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="620.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pauseController">
     <children>
-      <ImageView fitHeight="669.0" fitWidth="620.0" opacity="0.48" pickOnBounds="true">
+      <ImageView fitHeight="669.0" fitWidth="620.0" opacity="0.35" pickOnBounds="true">
          <image>
             <Image url="@../assets/unknownarmy2.png" />
          </image>
       </ImageView>
-        <Button fx:id="lb3" layoutX="111.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#saveGame" onMouseEntered="#highlightOn_3" onMouseExited="#highlightOff_3" opacity="0.84" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
+        <Button fx:id="lb3" layoutX="112.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#saveGame" onMouseEntered="#highlightOn_3" onMouseExited="#highlightOff_3" opacity="0.84" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
             <graphic>
-                <Text fx:id="t3" fill="#c29100" strokeType="OUTSIDE" strokeWidth="0.0" text="Save Game">
+                <Text fx:id="t3" fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" text="Save Game">
                     <font>
-                        <Font name="System Bold" size="22.0" />
+                        <Font name="Candara Bold" size="22.0" />
                     </font>
                 </Text>
             </graphic>
          <effect>
             <Glow />
          </effect></Button>
-        <Button fx:id="lb2" layoutX="111.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#quitToMain" onMouseEntered="#highlightOn_2" onMouseExited="#highlightOff_2" opacity="0.84" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
+        <Button fx:id="lb2" layoutX="112.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#quitToMain" onMouseEntered="#highlightOn_2" onMouseExited="#highlightOff_2" opacity="0.84" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
             <graphic>
-                <Text fx:id="t5" fill="#c29100" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu">
+                <Text fx:id="t5" fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu">
                     <font>
-                        <Font name="System Bold" size="22.0" />
+                        <Font name="Candara Bold" size="22.0" />
                     </font>
                 </Text>
             </graphic>
          <effect>
             <Glow />
          </effect></Button>
-        <Button fx:id="lb1" layoutX="111.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#goBack" onMouseEntered="#highlightOn_1" onMouseExited="#highlightOff_1" opacity="0.84" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
+        <Button fx:id="lb1" layoutX="112.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#goBack" onMouseEntered="#highlightOn_1" onMouseExited="#highlightOff_1" opacity="0.84" prefHeight="40.0" prefWidth="399.0" style="-fx-background-radius: 10px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%); -fx-cursor: hand;">
             <graphic>
-                <Text fx:id="t1" fill="#c29100" strokeType="OUTSIDE" strokeWidth="0.0" text="Resume Game">
+                <Text fx:id="t1" fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" text="Resume Game">
                     <font>
-                        <Font name="System Bold" size="22.0" />
+                        <Font name="Candara Bold" size="22.0" />
                     </font>
                 </Text>
             </graphic>
          <effect>
             <Glow />
          </effect></Button>
-      <ImageView fitHeight="133.0" fitWidth="202.0" layoutX="210.0" layoutY="14.0" pickOnBounds="true">
+      <ImageView fx:id="PauseIcon" fitHeight="114.0" fitWidth="158.0" layoutX="268.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/PauseLogo_preview_rev_2.png" />
          </image>
          <effect>
-            <Glow level="0.62" />
+            <Glow level="0.64" />
          </effect>
       </ImageView>
     </children>

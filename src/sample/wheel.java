@@ -29,9 +29,9 @@ public class wheel extends gameElements{
     }
     public void moveDown(double y){
         this.arc1.setLayoutY(this.arc1.getLayoutY() + y);
-        this.arc2.setLayoutY(this.arc1.getLayoutY() + y);
-        this.arc3.setLayoutY(this.arc1.getLayoutY() + y);
-        this.arc4.setLayoutY(this.arc1.getLayoutY() + y);
+        this.arc2.setLayoutY(this.arc2.getLayoutY() + y);
+        this.arc3.setLayoutY(this.arc3.getLayoutY() + y);
+        this.arc4.setLayoutY(this.arc4.getLayoutY() + y);
         this.cur+=y;
     }
 
