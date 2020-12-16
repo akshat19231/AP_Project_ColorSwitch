@@ -328,6 +328,7 @@ public class gamePlayController {
                 g.setOld_time(now);
                 for(int i=0;i<sba.size();i++)
                     animateSmallBall(sba.get(i));
+                swarmCollision();
             }
         });
         this.game.getSmallTimer().start();
@@ -345,7 +346,7 @@ public class gamePlayController {
                 Duration.seconds(1)
                 );
         pause.setOnFinished(event -> {
-            myCon.init(this.game, this.app, o);
+            myCon.init(this.game, this.app, o, gr);
             //this.animationBalls.clear();
             main1.setRoot(r);
         });
@@ -367,7 +368,19 @@ public class gamePlayController {
         sb.vy = (int) (sb.vy - 2000 * this.game.getDiff());
         sb.setCurY();
     }
+    public void swarmCollision(){
+        for(int i=0;i<this.animationBalls.size();i++){
+            if(this.animationBalls.get(i).getCircle().getLayoutX()<=0 || this.animationBalls.get(i).getCircle().getLayoutX()>=620){
+                this.animationBalls.get(i).setVx(-this.animationBalls.get(i).getVx());
+            }
+            if(this.animationBalls.get(i).getCircle().getLayoutY()>=669){
+                this.animationBalls.get(i).setVy(-this.animationBalls.get(i).getVy());
+            }
+
+        }
+    }
     public void collisionAnimation(){
+        this.animationBalls.clear();
         Random r=new Random();
         ArrayList <String> colors=new ArrayList<>();
         colors.add("#f70578");
