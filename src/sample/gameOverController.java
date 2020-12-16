@@ -123,9 +123,10 @@ public class gameOverController {
         if(saved!=null){
             this.app.getGameMap().remove(this.g.getPlayer().getUname());
             //removed from map
-            Main.serialize();
         }
         this.app.getLeaderBoard().update(this.g);
+        Main.serialize();
+
         FXMLLoader loader1 = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = null;
         try {
