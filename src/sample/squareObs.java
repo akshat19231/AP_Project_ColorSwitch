@@ -1,11 +1,16 @@
 package sample;
 
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Shape;
+import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -20,9 +25,12 @@ public class squareObs extends Obstacles{
     private double len2;
     private boolean collided;
     private double offset;
+    private double offset1;
     private double y1,y2,y3,y4;
+    private double translationalY1;
+    private double translationalY2;
 
-    public squareObs(double x, double y, int a, int b, int c, int d, int type, int size1, int size2, double offset) {
+    public squareObs(double x, double y, int a, int b, int c, int d, int type, int size1, int size2, double offset, double offset1) {
 
         super(x, y, a, b, c, d, type);
         this.line1=new Line();
@@ -33,16 +41,14 @@ public class squareObs extends Obstacles{
         this.len1=size1;
         this.len2=size2;
         this.offset=offset;
-        this.y1=328-this.offset;
-        this.y2=324-this.offset;
-        this.y3=328-this.offset;
-        this.y4=329-this.offset;
+        this.offset1=offset1;
+        this.y1=328-this.offset1;
+        this.y2=324-this.offset1;
+        this.y3=328-this.offset1;
+        this.y4=329-this.offset1;
 
     }
 
-//    public double getCentre() {
-//        return arc1.getCenterY();
-//    }
     @Override
     public void moveDown(double y){
         this.line1.setLayoutY(this.line1.getLayoutY() + y);
@@ -54,6 +60,8 @@ public class squareObs extends Obstacles{
         this.y2=this.line2.getLayoutY();
         this.y3=this.line3.getLayoutY();
         this.y4=this.line4.getLayoutY();
+        this.translationalY1+=y;
+        this.translationalY2+=y;
     }
     public void print(){
         System.out.println(this.line1.getLayoutY());
@@ -66,6 +74,8 @@ public class squareObs extends Obstacles{
         getLine(line2, 123,-114, 123, "#f0f505",1,0, 240, 324, 3);
         getLine(line3, -100,-0, 98,"#440580",0,1, 340, 328, 1);
         getLine(line4, -100,-21, 98, "#00c8ff",0,1,483, 329, 4);
+        this.translationalY1=this.line1.getLayoutY();
+        this.translationalY2=this.line2.getLayoutY();
         rect.getChildren().addAll(line1,line2,line3,line4);
     }
     public void setObs(){
@@ -80,21 +90,13 @@ public class squareObs extends Obstacles{
         setLine(line4, -100,-21, 98, "#00c8ff",0,1,483, 329, 4, this.y4);
         rect.getChildren().addAll(line1,line2,line3,line4);
     }
-    public ArrayList<Line> getLineforRotation(){
-        ArrayList<Line> lineArrayList=new ArrayList<Line>();
-        lineArrayList.add(this.line1);
-        lineArrayList.add(this.line2);
-        lineArrayList.add(this.line3);
-        lineArrayList.add(this.line4);
-        return lineArrayList;
-    }
     public void getLine( Line line, double x, double y, int size, String color, int type1, int type2, double lx, double ly, int angle){
         line.setEndX(x-size*type1);
         line.setEndY(y-size*type2);
         line.setStartX(x);
         line.setStartY(y);
         line.setLayoutX(lx);
-        line.setLayoutY(ly-this.offset);
+        line.setLayoutY(ly-this.offset1);
         if(angle==1){
             line.setRotate(15);
             line.setEndY(line.getEndY()-20);
@@ -109,6 +111,7 @@ public class squareObs extends Obstacles{
             line.setRotate(15);
             line.setStartY(line.getStartY()+20);
         }
+//        line.setLayoutY(line.getLayoutY()-this.offset1);
         line.setFill(Paint.valueOf(color));
         line.setStyle( "-fx-stroke : "+ color + "; -fx-stroke-width : 20" + "; -fx-stroke-type : CENTERED" + "; -fx-stroke-line-cap : ROUND" + "; -fx-stroke-line-join : MITER");
     }
@@ -172,5 +175,30 @@ public class squareObs extends Obstacles{
 
     public Group getGroup(){
         return this.rect;
+    }
+
+    @Override
+    public double getWheelY() {
+        return this.translationalY1 - 215;
+    }
+
+    @Override
+    public double getStarY() {
+        return this.translationalY1 - 70;
+    }
+
+    @Override
+    public void rotateOn(){
+        this.rotate(this.rect, 1);
+    }
+    public void rotate(Group g, int mul){
+        RotateTransition rotate = new RotateTransition();
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setByAngle(360*mul);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setDuration(Duration.millis(5000));
+        rotate.setNode(g);
+        rotate.play();
     }
 }

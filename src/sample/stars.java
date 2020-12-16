@@ -11,18 +11,18 @@ public class stars extends gameElements{
     private transient Group g;
     private boolean collided;
     private double cur;
-    public stars(int x, int y) {
+    public stars(double x, double y) {
         super(x, y);
         this.img=new ImageView();
         this.g=new Group();
         this.collided=false;
-        this.cur=260-this.getY();
+        this.cur=this.getY();
 
     }
     public void makeObs(){
         this.img.setImage(new Image(getClass().getResourceAsStream("/assets/star_preview_rev_1.png")));
         this.img.setLayoutX(302);
-        this.img.setLayoutY(260-this.getY());
+        this.img.setLayoutY(this.getY());
         this.img.setX(0);
         this.img.setY(0);
         this.img.setFitHeight(18);
@@ -38,7 +38,7 @@ public class stars extends gameElements{
         this.g=new Group();
         this.img.setImage(new Image(getClass().getResourceAsStream("/assets/star_preview_rev_1.png")));
         this.img.setLayoutX(302);
-        this.img.setLayoutY(260-this.getY());
+        this.img.setLayoutY(this.getY());
         this.img.setLayoutY(this.cur);
         this.img.setX(0);
         this.img.setY(0);

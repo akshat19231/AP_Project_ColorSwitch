@@ -25,7 +25,7 @@ public class wheel extends gameElements{
         this.arc4=new Arc();
         this.w= new Group();
         this.collided=false;
-        this.cur=120-this.getY();
+        this.cur=this.getY();
     }
     public void moveDown(double y){
         this.arc1.setLayoutY(this.arc1.getLayoutY() + y);
@@ -66,8 +66,8 @@ public class wheel extends gameElements{
     public void getArc(int r, Arc arc, int angle, String color){
         arc.setCenterX(0);
         arc.setCenterY(0);
-        arc.setLayoutX(311-this.getX());
-        arc.setLayoutY(120-this.getY());
+        arc.setLayoutX(this.getX());
+        arc.setLayoutY(this.getY());
         arc.setRadiusX(r);
         arc.setRadiusY(r);
         arc.setStartAngle(angle);
@@ -79,8 +79,8 @@ public class wheel extends gameElements{
     public void setArc(int r, Arc arc, int angle, String color){
         arc.setCenterX(0);
         arc.setCenterY(0);
-        arc.setLayoutX(311-this.getX());
-        arc.setLayoutY(120-this.getY());
+        arc.setLayoutX(this.getX());
+        arc.setLayoutY(this.getY());
         arc.setLayoutY(this.cur);
         arc.setRadiusX(r);
         arc.setRadiusY(r);

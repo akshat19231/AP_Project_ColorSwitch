@@ -41,7 +41,6 @@ public class gameOverController {
                 for(int i=0;i<((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().size();i++){
                     if(((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().get(i) instanceof Circle && ((Circle) ((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().get(i)).getRadius()==4){
                         tobeRemoved.add(((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().get(i));
-                        System.out.println("bruv");
                     }
                 }
             }
@@ -114,8 +113,9 @@ public class gameOverController {
             e.printStackTrace();
         }
         //this.ps.setTitle("Color Switch");
+        StackPane sp=new StackPane(root);
         Scene main1=this.g.getPs().getScene();
-        main1.setRoot(root);
+        main1.setRoot(sp);
     }
     public void resume() throws IOException {
         if(this.g.getScore()<5) return;

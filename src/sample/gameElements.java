@@ -28,6 +28,9 @@ public abstract class gameElements implements Serializable {
     public abstract void refresh();
     public abstract void setUp();
     public abstract double getPosY();
+    public void setPosy(double y){
+        this.posy=y;
+    }
     public double getX(){
         return posx;
     }

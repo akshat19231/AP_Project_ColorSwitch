@@ -21,7 +21,9 @@ public abstract class Obstacles extends gameElements {
         return cury;
     }
     public abstract Group getGroup();
-
+    public abstract double getWheelY();
+    public abstract double getStarY();
+    public abstract void rotateOn();
     public void checkGameOver(){
 
     }

@@ -1,11 +1,13 @@
 package sample;
 
+import javafx.animation.*;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -18,7 +20,7 @@ public class CircleObs extends Obstacles {
     private double centre;
     private boolean collided;
     private int radius;
-
+    private double keep_track;
 
     public CircleObs(double x, double y, int a, int b, int c, int d, int type) {
 
@@ -27,8 +29,10 @@ public class CircleObs extends Obstacles {
         this.arc2=new Arc();
         this.arc3=new Arc();
         this.arc4=new Arc();
-        this.centre=0-this.getY();
+        this.centre=275-this.getY();
         this.ring= new Group();
+        this.keep_track=0-this.getY();
+
 
     }
 
@@ -41,6 +45,7 @@ public class CircleObs extends Obstacles {
         this.arc3.setLayoutY(this.arc1.getLayoutY() + y);
         this.arc4.setLayoutY(this.arc1.getLayoutY() + y);
         this.centre+=y;
+        this.keep_track=this.arc1.getLayoutY();
     }
 
     public void makeObs(int r){
@@ -90,8 +95,7 @@ public class CircleObs extends Obstacles {
         arc.setCenterX(312);
         arc.setCenterY(275);
         arc.setLayoutX(0-this.getX());
-        arc.setLayoutY(0-this.getY());
-        arc.setLayoutY(this.centre);
+        arc.setLayoutY(this.keep_track);
         arc.setRadiusX(r);
         arc.setRadiusY(r);
         arc.setStartAngle(angle);
@@ -141,5 +145,31 @@ public class CircleObs extends Obstacles {
 
     public Group getGroup(){
         return this.ring;
+    }
+
+    @Override
+    public double getWheelY() {
+        return this.centre - this.radius - 60;
+    }
+
+    @Override
+    public double getStarY() {
+        return this.centre;
+    }
+
+    @Override
+    public void rotateOn() {
+        this.rotate(this.arc1, 1);
+        this.rotate(this.arc2, 1);
+        this.rotate(this.arc3, 1);
+        this.rotate(this.arc4, 1);
+    }
+    public void rotate(Arc arc, int multi){
+        Timeline animation = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(arc.startAngleProperty(), arc.getStartAngle(), Interpolator.LINEAR)),
+                new KeyFrame(Duration.seconds(5), new KeyValue(arc.startAngleProperty(), arc.getStartAngle() - 360*multi, Interpolator.LINEAR))
+        );
+        animation.setCycleCount(Animation.INDEFINITE);
+        animation.play();
     }
 }

@@ -1,11 +1,16 @@
 package sample;
 
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Shape;
+import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -47,14 +52,6 @@ public class CrossObs extends Obstacles{
         setArc(this.l3, 180, "#440580",1,0, this.y3);
         setArc(this.l4, 270, "#00c8ff",0, 1, this.y4);
         cross.getChildren().addAll(l1,l2,l3,l4);
-    }
-    public ArrayList<Line> getLineforRotation(){
-        ArrayList<Line> lineArrayList=new ArrayList<Line>();
-        lineArrayList.add(this.l1);
-        lineArrayList.add(this.l2);
-        lineArrayList.add(this.l3);
-        lineArrayList.add(this.l4);
-        return lineArrayList;
     }
     public void getArc(Line l, int angle, String color, int ori1, int ori2){
         double x1; double y1; double lx; double ly;
@@ -140,6 +137,32 @@ public class CrossObs extends Obstacles{
     public Group getGroup() {
         return this.cross;
     }
+
+    @Override
+    public double getWheelY() {
+        return this.l1.getLayoutY() - 118;
+    }
+
+    @Override
+    public double getStarY() {
+        return this.l1.getLayoutY() - 80;
+    }
+
+    @Override
+    public void rotateOn(){
+        this.rotate(this.cross, 1);
+    }
+    public void rotate(Group g, int mul){
+        RotateTransition rotate = new RotateTransition();
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setByAngle(360*mul);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setDuration(Duration.millis(5000));
+        rotate.setNode(g);
+        rotate.play();
+    }
+
     public void moveDown(double y){
         this.l1.setLayoutY(this.l1.getLayoutY() + y);
         this.l2.setLayoutY(this.l2.getLayoutY() + y);
