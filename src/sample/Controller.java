@@ -16,6 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -49,6 +50,10 @@ public class Controller {
     private Button loadGameB;
     private Stage ps;
     private App curApp;
+
+    String path9 = "src/assets/start.wav";
+    AudioClip click = new AudioClip(new File(path9).toURI().toString());
+
     public void rot(ImageView imv, int mul){
         RotateTransition rotate = new RotateTransition(Duration.millis(3000));
         rotate.setAxis(Rotate.Z_AXIS);
@@ -68,31 +73,9 @@ public class Controller {
         rot(logo2,1);
         rot(logo3,-1);
     }
-    public void showLeaderBoard(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Leaderboard.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent r=root;
-        Leaderboard myCon=(Leaderboard)(loader.getController());
-        myCon.init(this.ps, this.ps.getScene().getRoot(), this.curApp);
-        StackPane sp= (StackPane) this.ps.getScene().getRoot();
-        AnchorPane ap= (AnchorPane)sp.getChildren().get(0);
-        sp.getChildren().add(r);
-        r.translateXProperty().set(620);
-        Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(r.translateXProperty(), 0, Interpolator.EASE_BOTH);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(t->{
-            sp.getChildren().remove(ap);
-        });
-        timeline.play();
-    }
+
     public void handleClick(){
+        click.play();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("load.fxml"));
         Parent root = null;
         try {
@@ -145,6 +128,7 @@ public class Controller {
         myCon.startGame();
     }
     public void newGame() throws IOException {
+        click.play();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("newGame.fxml"));
         Parent root = null;
         try {
@@ -167,12 +151,15 @@ public class Controller {
     private void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE) {
-//                String path4 = "src/assets/jump.wav";
-//
+                String path4 = "src/assets/jump.wav";
+
+                AudioClip jump = new AudioClip(new File(path4).toURI().toString());
 //                Media media4 = new Media(new File(path4).toURI().toString());
-//
+
+                jump.play();
+
 //                MediaPlayer mediaPlayer4 = new MediaPlayer(media4);
-//
+
 //                mediaPlayer4.setAutoPlay(true);
                 setOnUserInput(scene, Con);
             }
@@ -183,6 +170,7 @@ public class Controller {
         c.getGame().getMain_ball().vy=500;
     }
     public void quitGame() throws IOException{
+        click.play();
         Platform.exit();
     }
     public void highlightOn_e() throws IOException {
