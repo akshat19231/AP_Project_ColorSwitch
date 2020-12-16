@@ -1,8 +1,10 @@
 package sample;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +16,7 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,6 +36,8 @@ public class gameOverController {
     private Game g;
     private App app;
     private Obstacles collidedWith;
+    private Group swarm;
+    public void init(Game g, App app, Obstacles o, Group gr){
     String path6 = "src/assets/start.wav";
     AudioClip click = new AudioClip(new File(path6).toURI().toString());
 
@@ -40,6 +45,7 @@ public class gameOverController {
         this.g=g;
         this.app=app;
         this.collidedWith=o;
+        this.swarm=gr;
         this.score.setText(Integer.toString(this.g.getLevel()-1));
         this.starCnt.setText(Integer.toString(this.g.getScore()));
         ArrayList<Node> tobeRemoved=new ArrayList<Node>();
@@ -58,6 +64,7 @@ public class gameOverController {
                 ((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().remove(tobeRemoved);
             }
         }
+
         this.g.getSmallTimer().stop();
         this.g.setSmallTimer(null);
         this.g.getMain_ball().getCircle().setOpacity(1);
@@ -118,6 +125,7 @@ public class gameOverController {
             //removed from map
             Main.serialize();
         }
+        this.app.getLeaderBoard().update(this.g);
         FXMLLoader loader1 = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = null;
         try {
@@ -141,22 +149,37 @@ public class gameOverController {
         click.play();
         gamePlayController.mediaPlayer.play();
         double line=this.collidedWith.getStarY();
+        this.g.getMain_ball().getCircle().setLayoutY(440);
+        this.g.getMain_ball().setCurY();
         if(line>340){
             for(int i=0;i<this.g.getSize();i++){
-                this.g.getObs(i).moveDown(80);
+                this.g.getObs(i).moveDown(100);
             }
             for(int i=0;i<this.g.getSizeQ();i++){
-                this.g.getObsQ(i).moveDown(80);
+                this.g.getObsQ(i).moveDown(100);
             }
         }
-        this.g.getMain_ball().getCircle().setLayoutY(420);
-        this.g.getMain_ball().setCurY();
-        this.g.useStars();
-        this.g.setOld_time(System.nanoTime());
-        Scene main1=this.g.getPs().getScene();
-        main1.setRoot(this.g.getRoot());
-        this.g.getTimer().start();
-        this.g.getRoot().requestFocus();
+        PauseTransition pause = new PauseTransition(
+                Duration.seconds(0.2)
+        );
+        pause.setOnFinished(event -> {
+            this.g.useStars();
+            this.g.setOld_time(System.nanoTime());
+            Scene main1=this.g.getPs().getScene();
+            main1.setRoot(this.g.getRoot());
+
+            for (int j = 0; j < ((StackPane) this.g.getRoot()).getChildren().size(); j++) {
+                if (((StackPane) this.g.getRoot()).getChildren().get(j) instanceof Pane) {
+                    ((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().remove(this.swarm);
+                }
+            }
+            this.g.getTimer().start();
+            this.g.getRoot().requestFocus();
+        });
+        pause.play();
+
+
+
     }
     public void highlightOn_r() throws IOException {
         restartB.setStyle("-fx-background-radius: 30px; -fx-background-color: #5B7065, linear-gradient(#5B7065 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #5B7065 45%, #304040 50%);;");

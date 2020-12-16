@@ -145,7 +145,7 @@ public class Game implements Comparable<Game> , Serializable {
     public int update(double pos){
         Random random = new Random();
         int index = random.nextInt(6);
-//        index=1;
+        index=0;
         if(index==0){
             CircleObs crO=new CircleObs(0,pos,0,0,0,0,1);
             crO.makeObs(75);
@@ -192,7 +192,7 @@ public class Game implements Comparable<Game> , Serializable {
         double offset=0;
         for(int i=0;i<3;i++){
             int index = random.nextInt(6);
-//            index=1;
+            index=0;
             double starY;
             double wheelY;
             if(index==0){

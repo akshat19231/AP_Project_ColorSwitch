@@ -52,24 +52,7 @@ public class Leaderboard{
         slabels.add(sc3);
         slabels.add(sc4);
         Iterator<HashMap.Entry<String, Game>> itr = this.app.getGameMap().entrySet().iterator();
-        ArrayList<Game> arrG=new ArrayList<Game>();
-        while(itr.hasNext())
-        {
-            HashMap.Entry<String, Game> entry = itr.next();
-            if(entry.getValue().getGameId()==1) {
-                arrG.add(entry.getValue());
-            }
-        }
-        Collections.sort(arrG, new Comparator<Game>() {
-            @Override
-            public int compare(Game o1, Game o2) {
-                if(o1.getScore()>o2.getScore()){
-                    return -1;
-                }else{
-                    return 1;
-                }
-            }
-        });
+        ArrayList<Game> arrG=this.app.getLeaderBoard().getBoard();
         for(int j=0;j<Math.min(4,arrG.size());j++){
             String name;
             if(arrG.get(j)!=null){
