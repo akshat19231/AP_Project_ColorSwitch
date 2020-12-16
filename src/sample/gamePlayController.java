@@ -161,7 +161,7 @@ public class gamePlayController {
 //
 //                mediaPlayer.stop();
 
-                this.GameOver();
+                this.GameOver((Obstacles) this.game.getObsQ(i));
             }
         }
 
@@ -304,7 +304,7 @@ public class gamePlayController {
         Scene main1=this.game.getPs().getScene();
         main1.setRoot(root1);
     }
-    public void GameOver() throws InterruptedException {
+    public void GameOver(Obstacles o) throws InterruptedException {
         this.game.getTimer().stop();
         this.game.getMain_ball().getCircle().setOpacity(0);
         this.collisionAnimation();
@@ -345,7 +345,7 @@ public class gamePlayController {
                 Duration.seconds(1)
                 );
         pause.setOnFinished(event -> {
-            myCon.init(this.game, this.app);
+            myCon.init(this.game, this.app, o);
             //this.animationBalls.clear();
             main1.setRoot(r);
         });
