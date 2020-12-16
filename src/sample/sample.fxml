@@ -57,7 +57,7 @@
             <Glow />
          </effect>
       </Button>
-      <Button fx:id="leaderBoardB" layoutX="125.0" layoutY="528.0" mnemonicParsing="false" onMouseEntered="#highlightOn_l" onMouseExited="#highlightOff_l" prefHeight="52.0" prefWidth="52.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="leaderBoardB" layoutX="125.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#showLeaderBoard" onMouseEntered="#highlightOn_l" onMouseExited="#highlightOff_l" prefHeight="52.0" prefWidth="52.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                <image>

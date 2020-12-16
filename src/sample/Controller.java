@@ -73,7 +73,30 @@ public class Controller {
         rot(logo2,1);
         rot(logo3,-1);
     }
-
+    public void showLeaderBoard(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Leaderboard.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Parent r=root;
+        Leaderboard myCon=(Leaderboard)(loader.getController());
+        myCon.init(this.ps, this.ps.getScene().getRoot(), this.curApp);
+        StackPane sp= (StackPane) this.ps.getScene().getRoot();
+        AnchorPane ap= (AnchorPane)sp.getChildren().get(0);
+        sp.getChildren().add(r);
+        r.translateXProperty().set(620);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(r.translateXProperty(), 0, Interpolator.EASE_BOTH);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t->{
+            sp.getChildren().remove(ap);
+        });
+        timeline.play();
+    }
     public void handleClick(){
         click.play();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("load.fxml"));

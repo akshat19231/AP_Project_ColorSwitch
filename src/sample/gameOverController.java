@@ -32,12 +32,14 @@ public class gameOverController {
     private Text starCnt;
     private Game g;
     private App app;
-
+    private Obstacles collidedWith;
     String path6 = "src/assets/start.wav";
     AudioClip click = new AudioClip(new File(path6).toURI().toString());
-    public void init(Game g, App app){
+
+    public void init(Game g, App app, Obstacles o){
         this.g=g;
         this.app=app;
+        this.collidedWith=o;
         this.score.setText(Integer.toString(this.g.getLevel()-1));
         this.starCnt.setText(Integer.toString(this.g.getScore()));
         ArrayList<Node> tobeRemoved=new ArrayList<Node>();
@@ -130,13 +132,25 @@ public class gameOverController {
             e.printStackTrace();
         }
         //this.ps.setTitle("Color Switch");
+        StackPane sp=new StackPane(root);
         Scene main1=this.g.getPs().getScene();
         main1.setRoot(root);
     }
     public void resume() throws IOException {
+        //if(this.g.getScore()<5) return;
         click.play();
         gamePlayController.mediaPlayer.play();
-        if(this.g.getScore()<5) return;
+        double line=this.collidedWith.getStarY();
+        if(line>340){
+            for(int i=0;i<this.g.getSize();i++){
+                this.g.getObs(i).moveDown(80);
+            }
+            for(int i=0;i<this.g.getSizeQ();i++){
+                this.g.getObsQ(i).moveDown(80);
+            }
+        }
+        this.g.getMain_ball().getCircle().setLayoutY(420);
+        this.g.getMain_ball().setCurY();
         this.g.useStars();
         this.g.setOld_time(System.nanoTime());
         Scene main1=this.g.getPs().getScene();

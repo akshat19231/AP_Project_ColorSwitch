@@ -48,7 +48,6 @@ public class loadScreen{
         buttons.add(lb5);
         Iterator<HashMap.Entry<String, Game>> itr = this.app.getGameMap().entrySet().iterator();
         ArrayList<Game> arrG=new ArrayList<Game>();
-
         while(itr.hasNext())
         {
             Map.Entry<String, Game> entry = itr.next();

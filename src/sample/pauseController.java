@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
@@ -71,8 +72,9 @@ public class pauseController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene main1=this.ps.getScene();
-        main1.setRoot(root);
+        StackPane sp=new StackPane(root);
+        Scene main1=this.g.getPs().getScene();
+        main1.setRoot(sp);
     }
     public void highlightOn_b() throws IOException {
         backB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
