@@ -89,11 +89,18 @@ public class squareObs extends Obstacles{
         this.setBottomY(this.line2.getLayoutY() + 35);
     }
     public void setObs(){
+
         this.line1=new Line();
         this.line2=new Line();
         this.line3=new Line();
         this.line4=new Line();
         this.rect= new Group();
+        rotate = new RotateTransition();
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setDuration(Duration.millis(5000));
+        rotate.setNode(this.rect);
         setLine(line1, -3, 0, 123, "#f70578", 1, 0, 386,328, 2, this.y1);
         setLine(line2, 123,-114, 123, "#f0f505",1,0, 240, 324, 3, this.y2);
         setLine(line3, -100,-0, 98,"#440580",0,1, 340, 328, 1, this.y3);

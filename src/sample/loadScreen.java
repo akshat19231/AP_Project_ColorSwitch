@@ -104,6 +104,7 @@ public class loadScreen{
             this.load(g1);
     }
     private void load(Game g) throws IOException {
+        gamePlayController.mode=g.getMode();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
         StackPane root = null;
         try {
@@ -126,6 +127,18 @@ public class loadScreen{
             if (e.getCode() == KeyCode.SPACE) {
                 jump.play();
                 setOnUserInput(scene, Con);
+            }
+            if(e.getCode() == KeyCode.D && gamePlayController.mode){
+                System.out.println("ayyo");
+                gamePlayController.focusObs.rotateRight();
+            }
+            if(e.getCode() == KeyCode.A && gamePlayController.mode){
+                System.out.println("neyyo");
+                gamePlayController.focusObs.rotateLeft();
+            }
+            if(e.getCode() == KeyCode.S && gamePlayController.mode){
+                System.out.println("bruv");
+                gamePlayController.focusObs.rotateStop();
             }
         });
     }

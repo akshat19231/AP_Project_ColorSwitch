@@ -76,7 +76,7 @@ public class gamePlayController {
         this.game.setLoader(fml);
         mediaPlayer.play();
         if(mode!=this.game.getMode()){
-            this.game.toggleMode();
+            mode=this.game.getMode();
         }
         mediaPlayer.setAutoPlay(true);
 //        this.game.setLoader(fml);
@@ -176,6 +176,7 @@ public class gamePlayController {
                 ((Pane) ((StackPane)this.game.getRoot()).getChildren().get(j)).getChildren().addAll(toBeAdded);
             }
         }
+        focusObs=checkIfRing();
         if(checkIfRing() instanceof doubleCircle){
             int choose=new Random().nextInt(2);
             if(choose==0)

@@ -51,11 +51,18 @@ public class CrossObs extends Obstacles{
         this.setBottomY(this.l1.getLayoutY());
     }
     public void setObs(){
+
         this.l1=new Line();
         this.l2=new Line();
         this.l3=new Line();
         this.l4=new Line();
         this.cross=new Group();
+        rotate = new RotateTransition();
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setDuration(Duration.millis(5000));
+        rotate.setNode(this.cross);
         setArc(this.l1, 0, "#f70578",1, 0, this.y1);
         setArc(this.l2, 90, "#f0f505",0, 1, this.y2);
         setArc(this.l3, 180, "#440580",1,0, this.y3);

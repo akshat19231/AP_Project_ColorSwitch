@@ -68,11 +68,18 @@ public class CircleObs extends Obstacles {
     }
 
     public void setObs(int r){
+
         this.arc1=new Arc();
         this.arc2=new Arc();
         this.arc3=new Arc();
         this.arc4=new Arc();
         this.ring= new Group();
+        rotate = new RotateTransition();
+        rotate.setNode(this.ring);
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setDuration(Duration.millis(5000));
         setArc(r,arc1, 0, "#f70578");
         setArc(r,arc2, 90, "#f0f505");
         setArc(r,arc3, 180, "#440580");

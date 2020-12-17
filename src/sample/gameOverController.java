@@ -86,6 +86,11 @@ public class gameOverController {
         p1.setMyGame(g1);
         g1.setApp(this.app);
         this.app.addGame(g1);
+        if(this.g.getMode()){
+            g1.toggleMode();
+            gamePlayController.mode=g1.getMode();
+        }
+        if(g1.getMode()) System.out.println("HIII");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
         StackPane root = null;
         try {
@@ -109,12 +114,25 @@ public class gameOverController {
     }
     private void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.SPACE) {
+            if (e.getCode() == KeyCode.SPACE && !gamePlayController.mode) {
+                Con.getGame().setGravity(2000);
                 String path4 = "src/assets/jump.wav";
                 AudioClip jump = new AudioClip(new File(path4).toURI().toString());
 //                Media media4 = new Media(new File(path4).toURI().toString());
                 jump.play();
                 setOnUserInput(scene, Con);
+            }
+            if(e.getCode() == KeyCode.D && gamePlayController.mode){
+                System.out.println("ayyo");
+                gamePlayController.focusObs.rotateRight();
+            }
+            if(e.getCode() == KeyCode.A && gamePlayController.mode){
+                System.out.println("neyyo");
+                gamePlayController.focusObs.rotateLeft();
+            }
+            if(e.getCode() == KeyCode.S && gamePlayController.mode){
+                System.out.println("bruv");
+                gamePlayController.focusObs.rotateStop();
             }
         });
     }
@@ -153,6 +171,8 @@ public class gameOverController {
         if(this.g.getScore()<5) return;
         click.play();
         gamePlayController.mediaPlayer.play();
+        this.g.setGravity(0);
+        this.g.getMain_ball().setVy(0);
         double ballPos=this.g.getMain_ball().getCircle().getLayoutY();
         System.out.println(this.collidedWith.getBottomY()+ " " + this.collidedWith.getTopY() + " "+ ballPos);
         if(ballPos>=this.collidedWith.getBottomY()){
