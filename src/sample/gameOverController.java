@@ -41,6 +41,15 @@ public class gameOverController {
     AudioClip click = new AudioClip(new File(path6).toURI().toString());
     public void init(Game g, App app, Obstacles o, Group gr){
 
+        try
+        {
+            throw new GameOverException("Game Over");
+        }
+        catch (GameOverException ex)
+        {
+            System.out.println(":(");
+            System.out.println(ex.getMessage());
+        }
         this.g=g;
         this.app=app;
         this.collidedWith=o;
@@ -138,6 +147,7 @@ public class gameOverController {
         c.getGame().getMain_ball().vy=500;
     }
     public void quitToMain() throws IOException {
+
         click.play();
         gamePlayController.mediaPlayer.stop();
         Game saved=this.app.getGame(this.g.getPlayer().getUname());
@@ -193,7 +203,6 @@ public class gameOverController {
             this.g.getMain_ball().setCurY();
         }
         //System.out.println(this.collidedWith.getBottomY()+ " " + this.collidedWith.getTopY() + " "+ ballPos);
-
         if(this.collidedWith.getWheelY()>this.g.getMain_ball().getCircle().getLayoutY()){
             this.g.getMain_ball().getCircle().setLayoutY(this.collidedWith.getWheelY());
             this.g.getMain_ball().setCurY();
