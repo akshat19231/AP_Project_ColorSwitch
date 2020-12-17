@@ -17,27 +17,47 @@
             <Image url="@../assets/unknownarmy2.png" />
          </image>
       </ImageView>
-      <Pane layoutX="7.0" layoutY="60.0" opacity="0.97" prefHeight="54.0" prefWidth="605.0" style="-fx-background-color: #2A3132; -fx-background-radius: 10px;">
+      <Pane layoutX="140.0" layoutY="60.0" opacity="0.97" prefHeight="54.0" prefWidth="340.0" style="-fx-background-color: #003B46; -fx-background-radius: 50px;">
          <children>
-            <Text fx:id="score" fill="WHITE" layoutX="358.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="68.0">
+            <Label layoutX="71.0" layoutY="6.0" prefHeight="42.0" prefWidth="99.0" text="SCORE" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="37.0" />
+                  <Font name="Eras Bold ITC" size="28.0" />
                </font>
-            </Text>
-            <Label layoutX="131.0" layoutY="4.0" prefHeight="42.0" prefWidth="99.0" text="SCORE" textFill="WHITE">
+            </Label>
+            <Label fx:id="score" alignment="CENTER" contentDisplay="RIGHT" layoutX="177.0" layoutY="6.0" prefHeight="42.0" prefWidth="99.0" text="5" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="Eras Bold ITC" size="28.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/star_preview_rev_1.png" />
+                     </image>
+                     <effect>
+                        <Glow level="0.46" />
+                     </effect>
+                  </ImageView>
+               </graphic>
             </Label>
          </children>
       </Pane>
-      <Button fx:id="resumeB" layoutX="157.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#resume" onMouseEntered="#highlightOn_1" onMouseExited="#highlightOff_1" opacity="0.88" prefHeight="65.0" prefWidth="307.0" style="-fx-background-radius: 30px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%);">
+      <Button fx:id="resumeB" layoutX="157.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#resume" onMouseEntered="#highlightOn_1" onMouseExited="#highlightOff_1" opacity="0.88" prefHeight="65.0" prefWidth="308.0" style="-fx-background-radius: 30px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%);">
          <graphic>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RESUME(5 STARS)?" wrappingWidth="252.5185546875">
+            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="31.0" prefWidth="284.0" text="REVIVE FOR 5" textFill="WHITE">
                <font>
-                  <Font name="Gill Sans Ultra Bold" size="20.0" />
+                  <Font name="Eras Bold ITC" size="25.0" />
                </font>
-            </Text>
+               <effect>
+                  <Glow level="0.6" />
+               </effect>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/star_preview_rev_1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
          </graphic>
       </Button>
       <ImageView fitHeight="108.0" fitWidth="139.0" layoutX="257.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
@@ -52,10 +72,10 @@
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/restart_preview_rev_2.png" />
+                  <Image url="@../assets/restartB.png" />
                </image>
                <effect>
-                  <Glow />
+                  <Glow level="0.49" />
                </effect>
             </ImageView>
          </graphic>
@@ -72,8 +92,11 @@
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/homeb_preview_rev_1.png" />
+                  <Image url="@../assets/homeB.png" />
                </image>
+               <effect>
+                  <Glow level="0.42" />
+               </effect>
             </ImageView>
          </graphic>
       </Button>

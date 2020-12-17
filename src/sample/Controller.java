@@ -52,7 +52,8 @@ public class Controller {
     private Button loadGameB;
     private Stage ps;
     private App curApp;
-
+    private ArrayList<RotateTransition> rt;
+    private ArrayList<Integer> rtDir;
     String path9 = "src/assets/start.wav";
     AudioClip click = new AudioClip(new File(path9).toURI().toString());
 
@@ -68,18 +69,23 @@ public class Controller {
         rotate.setInterpolator(Interpolator.LINEAR);
         //rotate.setAutoReverse(true);
         rotate.setNode(imv);
+        rt.add(rotate);
+        rtDir.add(mul);
         rotate.play();
     }
 
     public void init(Stage s, App app) throws IOException {
         this.curApp=app;
         this.ps=s;
+        rt=new ArrayList<RotateTransition>();
+        rtDir=new ArrayList<>();
         rot(sRing1,1);
         rot(sRing2,-1);
         rot(logo2,1);
         rot(logo3,-1);
         gamePlayController.mode=false;
         this.reverseB.setOpacity(1);
+
     }
     public void showLeaderBoard(){
         click.play();
@@ -187,9 +193,21 @@ public class Controller {
         if(!gamePlayController.mode){
             gamePlayController.mode=true;
             this.reverseB.setOpacity(0.3);
+            for(int i=0;i<rt.size();i++){
+                RotateTransition rtx=rt.get(i);
+                rtx.stop();
+                rtx.setByAngle(rtDir.get(i)*360*(-1));
+                rtx.play();
+            }
         }else{
             gamePlayController.mode=false;
             this.reverseB.setOpacity(1);
+            for(int i=0;i<rt.size();i++){
+                RotateTransition rtx=rt.get(i);
+                rtx.stop();
+                rtx.setByAngle(rtDir.get(i)*360);
+                rtx.play();
+            }
         }
     }
     public void setKeyFunctions(Scene scene, gamePlayController Con) {
@@ -220,22 +238,22 @@ public class Controller {
         Platform.exit();
     }
     public void highlightOn_e() throws IOException {
-        exitB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
+        exitB.setStyle("-fx-background-radius: 100px; -fx-background-color: #D51D0A ;");
     }
     public void highlightOff_e() throws IOException {
-        exitB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
+        exitB.setStyle("-fx-background-radius: 100px; -fx-background-color:  #D72C16;");
     }
     public void highlightOn_r() throws IOException {
-        reverseB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
+        reverseB.setStyle("-fx-background-radius: 100px; -fx-background-color: #D70026 ;");
     }
     public void highlightOff_r() throws IOException {
-        reverseB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
+        reverseB.setStyle("-fx-background-radius: 100px; -fx-background-color:  #A10115;");
     }
     public void highlightOn_l() throws IOException {
-        leaderBoardB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
+        leaderBoardB.setStyle("-fx-background-radius: 100px; -fx-background-color: #D51D0A ;");
     }
     public void highlightOff_l() throws IOException {
-        leaderBoardB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
+        leaderBoardB.setStyle("-fx-background-radius: 100px; -fx-background-color:  #D72C16;");
     }
     public void highlightOn_n() throws IOException {
         newGameB.setStyle("-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: a0a3e0 ;");
@@ -244,9 +262,9 @@ public class Controller {
         newGameB.setStyle("-fx-background-radius: 100px; -fx-border-width: 2px; -fx-background-color: white;");
     }
     public void highlightOn_load() throws IOException {
-        loadGameB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0;");
+        loadGameB.setStyle("-fx-background-radius: 100px; -fx-background-color: #D51D0A;");
     }
     public void highlightOff_load() throws IOException {
-        loadGameB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
+        loadGameB.setStyle("-fx-background-radius: 100px; -fx-background-color:  #D72C16;");
     }
 }

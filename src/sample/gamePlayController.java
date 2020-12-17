@@ -55,14 +55,8 @@ public class gamePlayController {
     private App app;
     private ArrayList <smallBalls> animationBalls;
     public static Obstacles focusObs;
-//    public Media media;
-
-//    public MediaPlayer mediaPlayer;
-
     public static String path = "src/assets/bg.mp3";
-
     public static transient Media media = new Media(new File(path).toURI().toString());
-
     public static transient MediaPlayer mediaPlayer = new MediaPlayer(media);
 
     public void init(Stage s, Parent p, FXMLLoader fml, Game g, App app) throws IOException {
@@ -72,15 +66,12 @@ public class gamePlayController {
         this.focusObs=(Obstacles) this.game.getObsQ(0);
         this.game.setPs(s);
         this.game.setRoot(p);
-//        mediaPlayer.getOnRepeat();
         this.game.setLoader(fml);
-//        mediaPlayer.play();
         if(mode!=this.game.getMode()){
             mode=this.game.getMode();
         }
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-//        this.game.setLoader(fml);
         mediaPlayer.play();
         this.game.setTimer(null);
         this.game.setSmallTimer(null);
@@ -207,26 +198,14 @@ public class gamePlayController {
             if ((this.game.getObs(i) instanceof wheel) || this.game.getObs(i) instanceof stars) {
                 if (this.game.getObs(i).collisionCheck(this.game.getMain_ball().getCircle())) {
                     if (this.game.getObs(i) instanceof stars) {
-
                         String path2 = "src/assets/star.wav";
-
                         AudioClip star = new AudioClip(new File(path2).toURI().toString());
-
                         star.play();
-
-//                        Media media2 = new Media(new File(path2).toURI().toString());
-
-//                        MediaPlayer mediaPlayer2 = new MediaPlayer(media2);
-
-//                        mediaPlayer2.setAutoPlay(true);
-
                         this.updateScore();
                         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
                     }else{
                         String path3 = "src/assets/colorswitch.wav";
-
                         AudioClip colorwheel = new AudioClip(new File(path3).toURI().toString());
-
                         colorwheel.play();
                         if(checkIfRing() instanceof doubleCircle){
                             int choose=new Random().nextInt(2);
@@ -236,9 +215,7 @@ public class gamePlayController {
                                 this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#440580"));
                         }
                     }
-
                     tobeRemoved.add(this.game.getObs(i));
-
                 }
             }
         }
@@ -251,6 +228,7 @@ public class gamePlayController {
             }
         }
     }
+    //helper
     public Obstacles checkIfRing(){
         for(int i=0;i<this.game.getSizeQ();i++){
             if(this.game.getObsQ(i).getBottomY()<this.game.getMain_ball().getCircle().getLayoutY()){
@@ -266,7 +244,6 @@ public class gamePlayController {
         double val=0;
         if (g.getObsQ(0) instanceof CircleObs || g.getObsQ(0) instanceof doubleCircle) val=275;
         if( g.getSizeQ()>0 && g.getObsQ(0).getPosY()>=799-val){
-            System.out.println("yes");
             for (int j = 0; j < ((StackPane) this.game.getRoot()).getChildren().size(); j++) {
                 if (((StackPane) this.game.getRoot()).getChildren().get(j) instanceof Pane) {
                     ((Pane) ((StackPane) this.game.getRoot()).getChildren().get(j)).getChildren().remove(g.getObsQ(0).getGroup());
@@ -281,7 +258,6 @@ public class gamePlayController {
             new_w.makeObs();
             this.game.add(new_s);
             this.game.add(new_w);
-            System.out.println("updated");
             for (int j = 0; j < ((StackPane) g.getRoot()).getChildren().size(); j++) {
                 if (((StackPane) g.getRoot()).getChildren().get(j) instanceof Pane) {
                     ((Pane) ((StackPane) g.getRoot()).getChildren().get(j)).getChildren().addAll(g.getObsQ(g.getSizeQ()-1).getGroup(),new_s.getGroup(),new_w.getGroup());

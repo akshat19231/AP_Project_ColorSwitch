@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -29,7 +30,7 @@ public class gameOverController {
     @FXML
     private Button homeB;
     @FXML
-    private Text score;
+    private Label score;
     @FXML
     private Text starCnt;
     private Game g;
@@ -39,16 +40,6 @@ public class gameOverController {
     String path6 = "src/assets/start.wav";
     AudioClip click = new AudioClip(new File(path6).toURI().toString());
     public void init(Game g, App app, Obstacles o, Group gr){
-
-        Timeline t=new Timeline(
-                new KeyFrame(Duration.ZERO, new KeyValue(resumeB.scaleXProperty(), resumeB.getScaleX(), Interpolator.EASE_OUT), new KeyValue(resumeB.scaleYProperty(), resumeB.getScaleY(), Interpolator.EASE_OUT)),
-                new KeyFrame(Duration.seconds(1), new KeyValue(resumeB.scaleXProperty(), resumeB.getScaleX()+0.1, Interpolator.EASE_OUT), new KeyValue(resumeB.scaleYProperty(), resumeB.getScaleY()+0.1, Interpolator.EASE_OUT))
-        );
-        t.setAutoReverse(true);
-        t.setCycleCount(-1);
-        t.play();
-
-
 
         this.g=g;
         this.app=app;
