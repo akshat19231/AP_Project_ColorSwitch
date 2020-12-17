@@ -59,7 +59,7 @@ public class gamePlayController {
 
 //    public MediaPlayer mediaPlayer;
 
-    public static String path = "src/assets/mystery.mp3";
+    public static String path = "src/assets/bg.mp3";
 
     public static transient Media media = new Media(new File(path).toURI().toString());
 
@@ -72,13 +72,14 @@ public class gamePlayController {
         this.focusObs=(Obstacles) this.game.getObsQ(0);
         this.game.setPs(s);
         this.game.setRoot(p);
-        mediaPlayer.getOnRepeat();
+//        mediaPlayer.getOnRepeat();
         this.game.setLoader(fml);
-        mediaPlayer.play();
+//        mediaPlayer.play();
         if(mode!=this.game.getMode()){
             mode=this.game.getMode();
         }
         mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 //        this.game.setLoader(fml);
         mediaPlayer.play();
         this.game.setTimer(null);
@@ -129,6 +130,8 @@ public class gamePlayController {
     }
     public void loadGame(Stage s, Parent p, FXMLLoader fml, Game g, App app1) throws IOException {
         this.game=g;
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
         this.animationBalls=new ArrayList<smallBalls>();
         this.game.setPs(s);
