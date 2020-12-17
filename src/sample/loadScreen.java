@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
@@ -27,6 +28,16 @@ public class loadScreen{
     private Button lb4;
     @FXML
     private Button lb5;
+    @FXML
+    private Label sc1;
+    @FXML
+    private Label sc2;
+    @FXML
+    private Label sc3;
+    @FXML
+    private Label sc4;
+    @FXML
+    private Label sc5;
     private Stage ps;
     private Parent root;
     private App app;
@@ -50,6 +61,12 @@ public class loadScreen{
         buttons.add(lb3);
         buttons.add(lb4);
         buttons.add(lb5);
+        ArrayList<Label> labels=new ArrayList<Label>();
+        labels.add(sc1);
+        labels.add(sc2);
+        labels.add(sc3);
+        labels.add(sc4);
+        labels.add(sc5);
         Iterator<HashMap.Entry<String, Game>> itr = this.app.getGameMap().entrySet().iterator();
         ArrayList<Game> arrG=new ArrayList<Game>();
         while(itr.hasNext())
@@ -71,6 +88,7 @@ public class loadScreen{
         });
         for(int j=0;j<Math.min(5,arrG.size());j++){
             buttons.get(j).setText(arrG.get(j).getPlayer().getUname());
+            labels.get(j).setText(Integer.toString(arrG.get(j).getScore()));
         }
         while(arrG.size()>5){
             this.app.getGameMap().remove(arrG.get(arrG.size()-1).getPlayer().getUname());

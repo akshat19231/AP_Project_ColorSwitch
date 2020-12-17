@@ -202,6 +202,7 @@ public class gamePlayController {
                         AudioClip star = new AudioClip(new File(path2).toURI().toString());
                         star.play();
                         this.updateScore();
+                        this.app.addStars();
                         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
                     }else{
                         String path3 = "src/assets/colorswitch.wav";

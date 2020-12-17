@@ -46,7 +46,7 @@ public class gameOverController {
         this.collidedWith=o;
         this.swarm=gr;
         this.score.setText(Integer.toString(this.g.getLevel()-1));
-        this.starCnt.setText(Integer.toString(this.g.getScore()));
+        this.starCnt.setText(Integer.toString(this.app.getStars()));
         ArrayList<Node> tobeRemoved=new ArrayList<Node>();
         for (int j = 0; j < ((StackPane) this.g.getRoot()).getChildren().size(); j++) {
             if (((StackPane) this.g.getRoot()).getChildren().get(j) instanceof Pane) {
@@ -166,7 +166,7 @@ public class gameOverController {
         main1.setRoot(sp);
     }
     public void resume() throws IOException {
-        if(this.g.getScore()<5) return;
+        if(this.app.getStars()<5) return;
         click.play();
         gamePlayController.mediaPlayer.play();
         this.g.setGravity(0);
@@ -202,7 +202,7 @@ public class gameOverController {
                 Duration.seconds(0.2)
         );
         pause.setOnFinished(event -> {
-            this.g.useStars();
+            this.app.removeStars(5);
             this.g.setOld_time(System.nanoTime());
             Scene main1=this.g.getPs().getScene();
             main1.setRoot(this.g.getRoot());
