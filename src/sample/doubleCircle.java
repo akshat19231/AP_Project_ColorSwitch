@@ -128,6 +128,7 @@ public class doubleCircle extends Obstacles {
         rotate2.play();
     }
     public void setObs(int r){
+
         this.arc1=new Arc();
         this.arc2=new Arc();
         this.arc3=new Arc();
@@ -138,6 +139,18 @@ public class doubleCircle extends Obstacles {
         this.arc31=new Arc();
         this.arc41=new Arc();
         this.ring1= new Group();
+        rotate1 = new RotateTransition();
+        rotate1.setNode(this.ring);
+        rotate1.setAxis(Rotate.Z_AXIS);
+        rotate1.setCycleCount(Animation.INDEFINITE);
+        rotate1.setInterpolator(Interpolator.LINEAR);
+        rotate1.setDuration(Duration.millis(5000));
+        rotate2 = new RotateTransition();
+        rotate2.setNode(this.ring1);
+        rotate2.setAxis(Rotate.Z_AXIS);
+        rotate2.setCycleCount(Animation.INDEFINITE);
+        rotate2.setInterpolator(Interpolator.LINEAR);
+        rotate2.setDuration(Duration.millis(5000));
         setArc(r,arc1, 0, "#f70578");
         setArc(r,arc2, 90, "#f0f505");
         setArc(r,arc3, 180, "#440580");

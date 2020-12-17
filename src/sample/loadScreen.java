@@ -100,6 +100,7 @@ public class loadScreen{
             this.load(g1);
     }
     private void load(Game g) throws IOException {
+        gamePlayController.mode=g.getMode();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
         StackPane root = null;
         try {
@@ -119,8 +120,21 @@ public class loadScreen{
     }
     private void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.SPACE) {
+            if (e.getCode() == KeyCode.SPACE && !gamePlayController.mode) {
+                Con.getGame().setGravity(2000);
                 setOnUserInput(scene, Con);
+            }
+            if(e.getCode() == KeyCode.D && gamePlayController.mode){
+                System.out.println("ayyo");
+                gamePlayController.focusObs.rotateRight();
+            }
+            if(e.getCode() == KeyCode.A && gamePlayController.mode){
+                System.out.println("neyyo");
+                gamePlayController.focusObs.rotateLeft();
+            }
+            if(e.getCode() == KeyCode.S && gamePlayController.mode){
+                System.out.println("bruv");
+                gamePlayController.focusObs.rotateStop();
             }
         });
     }

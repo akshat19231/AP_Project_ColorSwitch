@@ -138,6 +138,9 @@ public class Controller {
         p1.setMyGame(g1);
         g1.setApp(this.curApp);
         this.curApp.addGame(g1);
+        if(gamePlayController.mode!=g1.getMode()){
+            g1.toggleMode();
+        }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gamePlay.fxml"));
         StackPane root = null;
         try {
@@ -192,19 +195,17 @@ public class Controller {
     public void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE && !gamePlayController.mode) {
+                Con.getGame().setGravity(2000);
                 jump.play();
                 setOnUserInput(scene, Con);
             }
-            if(e.getCode() == KeyCode.RIGHT && gamePlayController.mode){
-                System.out.println("ayyo");
+            if(e.getCode() == KeyCode.D && gamePlayController.mode){
                 gamePlayController.focusObs.rotateRight();
             }
-            if(e.getCode() == KeyCode.LEFT && gamePlayController.mode){
-                System.out.println("neyyo");
+            if(e.getCode() == KeyCode.A && gamePlayController.mode){
                 gamePlayController.focusObs.rotateLeft();
             }
-            if(e.getCode() == KeyCode.DOWN && gamePlayController.mode){
-                System.out.println("bruv");
+            if(e.getCode() == KeyCode.S && gamePlayController.mode){
                 gamePlayController.focusObs.rotateStop();
             }
 
