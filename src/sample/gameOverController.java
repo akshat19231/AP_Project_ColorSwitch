@@ -210,6 +210,15 @@ public class gameOverController {
         if(this.collidedWith.getWheelY()>this.g.getMain_ball().getCircle().getLayoutY()){
             this.g.getMain_ball().getCircle().setLayoutY(this.collidedWith.getWheelY());
             this.g.getMain_ball().setCurY();
+            if(this.g.getObsQ(0) instanceof stars){
+                this.g.levelUp();
+                for (int j = 0; j < ((StackPane) this.g.getRoot()).getChildren().size(); j++) {
+                    if (((StackPane) this.g.getRoot()).getChildren().get(j) instanceof Pane) {
+                        ((Pane) ((StackPane) this.g.getRoot()).getChildren().get(j)).getChildren().remove(this.g.getObsQ(0));
+                    }
+                }
+                this.g.removeQ();
+            }
         }
         PauseTransition pause = new PauseTransition(
                 Duration.seconds(0.2)

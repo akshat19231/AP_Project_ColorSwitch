@@ -180,22 +180,29 @@ public class Game implements Comparable<Game> , Serializable {
         }
 
         int index = ThreadLocalRandom.current().nextInt(base_line, 7);
+        index=3;
         if(index==0){
             CircleObs crO=new CircleObs(0,pos,0,0,0,0,1);
             if(this.score>5 && this.score<=7)
                 crO.makeObs(100);
             else
                 crO.makeObs(75);
-            if(this.score>8){
+            if(this.score>5){
                 crO.changeSpeed(-1000);
+            }
+            if(this.score>8){
+                crO.changeSpeed(-500);
             }
             obsQ.add(crO);
             return 1;
         }else if(index==1){
             CrossObs co1=new CrossObs(0,pos,0,0,0,0,0);
             co1.makeObs();
-            if(this.score>8){
+            if(this.score>5){
                 co1.changeSpeed(-1000);
+            }
+            if(this.score>8){
+                co1.changeSpeed(-500);
             }
             obsQ.add(co1);
 
@@ -203,8 +210,11 @@ public class Game implements Comparable<Game> , Serializable {
         }else if(index==2){
             squareObs sq1=new squareObs(-80,-21,1,0,0,0,2,123, 98, 0, pos);
             sq1.makeObs();
-            if(this.score>8){
+            if(this.score>5){
                 sq1.changeSpeed(-1000);
+            }
+            if(this.score>8){
+                sq1.changeSpeed(-500);
             }
             obsQ.add(sq1);
             return 1;
@@ -216,16 +226,22 @@ public class Game implements Comparable<Game> , Serializable {
                 dcr1.makeObs(85);
             else
                 dcr1.makeObs(100);
-            if(this.score>8){
+            if(this.score>5){
                 dcr1.changeSpeed(-1000);
+            }
+            if(this.score>8){
+                dcr1.changeSpeed(-500);
             }
             obsQ.add(dcr1);
             return 1;
         }else if(index==4){
             squareObs sq1=new squareObs(-80,-21,0,0,0,0,2,123, 98, 0, pos);
             sq1.makeObs();
-            if(this.score>8){
+            if(this.score>5){
                 sq1.changeSpeed(-1000);
+            }
+            if(this.score>8){
+                sq1.changeSpeed(-500);
             }
             obsQ.add(sq1);
             return 1;
@@ -235,16 +251,22 @@ public class Game implements Comparable<Game> , Serializable {
                 dcr1.makeObs(75);
             else
                 dcr1.makeObs(100);
-            if(this.score>8){
+            if(this.score>5){
                 dcr1.changeSpeed(-1000);
+            }
+            if(this.score>8){
+                dcr1.changeSpeed(-500);
             }
             obsQ.add(dcr1);
             return 1;
         }else{
             doubleCross dco1=new doubleCross(0,pos,0,0,0,0,0);
             dco1.makeObs();
-            if(this.score>8){
+            if(this.score>5){
                 dco1.changeSpeed(-1000);
+            }
+            if(this.score>8){
+                dco1.changeSpeed(-500);
             }
             obsQ.add(dco1);
             return 1;
@@ -285,32 +307,13 @@ public class Game implements Comparable<Game> , Serializable {
                 starY=co1.getStarY();
                 wheelY=co1.getWheelY();
             }
-//            else if(index==3){
-//                doubleCross dco1=new doubleCross(0,offset,0,0,0,0,0);
-//                dco1.makeObs();
-//                obsQ.add(dco1);
-//                starY=dco1.getStarY();
-//                wheelY=dco1.getWheelY();
-//            }else if(index==4){
-//                doubleCircle dcr1=new doubleCircle(0,offset,0,0,0,0,1, 1);
-//                dcr1.makeObs(100);
-//                obsQ.add(dcr1);
-//                starY=dcr1.getStarY();
-//                wheelY=dcr1.getWheelY();
-//            } else{
-//                doubleCircle dcr1=new doubleCircle(0,offset,0,0,0,0,1, 0);
-//                dcr1.makeObs(100);
-//                obsQ.add(dcr1);
-//                starY=dcr1.getStarY();
-//                wheelY=dcr1.getWheelY();
-//            }
             wheel w=new wheel(311, wheelY);
             w.makeObs();
             stars s=new stars(302, starY);
             s.makeObs();
             this.ar.add(w);
             this.ar.add(s);
-            offset+=400;
+            offset+=450;
         }
 
     }

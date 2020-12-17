@@ -251,7 +251,7 @@ public class gamePlayController {
     }
     public void fun(Game g){
         double val=0;
-        if (g.getObsQ(0) instanceof CircleObs || g.getObsQ(0) instanceof doubleCircle) val=275;
+        if (g.getObsQ(0) instanceof CircleObs || g.getObsQ(0) instanceof doubleCircle) val=300;
         if( g.getSizeQ()>0 && g.getObsQ(0).getPosY()>=799-val){
             for (int j = 0; j < ((StackPane) this.game.getRoot()).getChildren().size(); j++) {
                 if (((StackPane) this.game.getRoot()).getChildren().get(j) instanceof Pane) {
@@ -260,7 +260,7 @@ public class gamePlayController {
             }
             double y=(g.getObsQ(0)).getPosY();
             g.removeQ();
-            int ret=g.update(800);
+            int ret=g.update(900);
             stars new_s=new stars(302,((Obstacles)(g.getObsQ(g.getSizeQ()-1))).getStarY());
             new_s.makeObs();
             wheel new_w=new wheel(311,((Obstacles)(g.getObsQ(g.getSizeQ()-1))).getWheelY());

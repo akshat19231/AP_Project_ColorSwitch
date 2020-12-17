@@ -111,8 +111,8 @@ public class doubleCircle extends Obstacles {
         this.setTopY(this.centre-this.radius);
         this.setBottomY(this.centre+this.radius);
         if(this.outside==1){
-            this.setTopY(this.centre+10);
-            this.setBottomY(this.centre-10);
+            this.setTopY(this.centre-30);
+            this.setBottomY(this.centre+30);
         }
     }
 
