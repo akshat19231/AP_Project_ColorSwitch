@@ -1,7 +1,6 @@
 package sample;
 
-import javafx.animation.AnimationTimer;
-import javafx.animation.PauseTransition;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -66,6 +65,13 @@ public class gameOverController {
         this.g.getSmallTimer().stop();
         this.g.setSmallTimer(null);
         this.g.getMain_ball().getCircle().setOpacity(1);
+        Timeline t=new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(resumeB.scaleXProperty(), resumeB.getScaleX(), Interpolator.EASE_OUT), new KeyValue(resumeB.scaleYProperty(), resumeB.getScaleY(), Interpolator.EASE_OUT)),
+                new KeyFrame(Duration.seconds(1), new KeyValue(resumeB.scaleXProperty(), resumeB.getScaleX()+0.1, Interpolator.EASE_OUT), new KeyValue(resumeB.scaleYProperty(), resumeB.getScaleY()+0.1, Interpolator.EASE_OUT))
+        );
+        t.setAutoReverse(true);
+        t.setCycleCount(-1);
+        t.play();
     }
     public void restart() throws IOException {
         click.play();

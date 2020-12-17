@@ -122,7 +122,6 @@ public class gamePlayController {
             else
                 this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#440580"));
         }
-
     }
     public void loadGame(Stage s, Parent p, FXMLLoader fml, Game g, App app1) throws IOException {
         this.game=g;
@@ -189,16 +188,8 @@ public class gamePlayController {
         ArrayList<gameElements> tobeRemoved=new ArrayList<gameElements>();
         for(int i=0;i<this.game.getSizeQ();i++) {
             if(this.game.getObsQ(i).collisionCheck(this.game.getMain_ball().getCircle())){
-
                 String path1 = "src/assets/dead.wav";
-
-
-//                Media media1 = new Media(new File(path1).toURI().toString());
                 AudioClip dead = new AudioClip(new File(path1).toURI().toString());
-
-//                MediaPlayer mediaPlayer1 = new MediaPlayer(media1);
-
-//                mediaPlayer1.setAutoPlay(true);
                 dead.play();
                 mediaPlayer.pause();
                 this.GameOver((Obstacles) this.game.getObsQ(i));
