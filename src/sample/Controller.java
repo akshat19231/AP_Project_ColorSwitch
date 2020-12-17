@@ -57,6 +57,9 @@ public class Controller {
     String path9 = "src/assets/start.wav";
     AudioClip click = new AudioClip(new File(path9).toURI().toString());
 
+    String path10 = "src/assets/reverse.mp3";
+    AudioClip reverse = new AudioClip(new File(path10).toURI().toString());
+
     String path4 = "src/assets/jump.wav";
 
     AudioClip jump = new AudioClip(new File(path4).toURI().toString());
@@ -138,6 +141,7 @@ public class Controller {
         timeline.play();
     }
     public void reDirect(String un) throws IOException {
+        reverse.play();
         Game g1=new Game(0);
         Player p1=new Player(un);
         g1.setPlayer(p1);
@@ -190,6 +194,7 @@ public class Controller {
         }
     }
     public void switchOnReverse(){
+        reverse.play();
         if(!gamePlayController.mode){
             gamePlayController.mode=true;
             this.reverseB.setOpacity(0.3);
