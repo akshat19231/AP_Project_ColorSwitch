@@ -1,7 +1,6 @@
 package sample;
 
-import javafx.animation.AnimationTimer;
-import javafx.animation.PauseTransition;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -40,6 +39,14 @@ public class gameOverController {
     String path6 = "src/assets/start.wav";
     AudioClip click = new AudioClip(new File(path6).toURI().toString());
     public void init(Game g, App app, Obstacles o, Group gr){
+
+        Timeline t=new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(resumeB.scaleXProperty(), resumeB.getScaleX(), Interpolator.EASE_OUT), new KeyValue(resumeB.scaleYProperty(), resumeB.getScaleY(), Interpolator.EASE_OUT)),
+                new KeyFrame(Duration.seconds(1), new KeyValue(resumeB.scaleXProperty(), resumeB.getScaleX()+0.1, Interpolator.EASE_OUT), new KeyValue(resumeB.scaleYProperty(), resumeB.getScaleY()+0.1, Interpolator.EASE_OUT))
+        );
+        t.setAutoReverse(true);
+        t.setCycleCount(-1);
+        t.play();
 
 
 
@@ -143,7 +150,7 @@ public class gameOverController {
         main1.setRoot(sp);
     }
     public void resume() throws IOException {
-        //if(this.g.getScore()<5) return;
+        if(this.g.getScore()<5) return;
         click.play();
         gamePlayController.mediaPlayer.play();
         double ballPos=this.g.getMain_ball().getCircle().getLayoutY();

@@ -59,7 +59,7 @@ public class gamePlayController {
 
 //    public MediaPlayer mediaPlayer;
 
-    public static String path = "src/assets/be.mp3";
+    public static String path = "src/assets/mystery.mp3";
 
     public static transient Media media = new Media(new File(path).toURI().toString());
 
@@ -72,12 +72,15 @@ public class gamePlayController {
         this.focusObs=(Obstacles) this.game.getObsQ(0);
         this.game.setPs(s);
         this.game.setRoot(p);
-//        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.getOnRepeat();
         this.game.setLoader(fml);
-        //mediaPlayer.play();
+        mediaPlayer.play();
         if(mode!=this.game.getMode()){
             this.game.toggleMode();
         }
+        mediaPlayer.setAutoPlay(true);
+//        this.game.setLoader(fml);
+        mediaPlayer.play();
         this.game.setTimer(null);
         this.game.setSmallTimer(null);
         this.app=app;
@@ -126,7 +129,7 @@ public class gamePlayController {
     }
     public void loadGame(Stage s, Parent p, FXMLLoader fml, Game g, App app1) throws IOException {
         this.game=g;
-        //mediaPlayer.play();
+        mediaPlayer.play();
         this.animationBalls=new ArrayList<smallBalls>();
         this.game.setPs(s);
         this.game.setRoot(p);
@@ -184,6 +187,7 @@ public class gamePlayController {
     public Game getGame(){
         return this.game;
     }
+
     public void regCollisionCheck() throws InterruptedException {
         ArrayList<gameElements> tobeRemoved=new ArrayList<gameElements>();
         for(int i=0;i<this.game.getSizeQ();i++) {
@@ -208,14 +212,26 @@ public class gamePlayController {
             if ((this.game.getObs(i) instanceof wheel) || this.game.getObs(i) instanceof stars) {
                 if (this.game.getObs(i).collisionCheck(this.game.getMain_ball().getCircle())) {
                     if (this.game.getObs(i) instanceof stars) {
+
                         String path2 = "src/assets/star.wav";
+
                         AudioClip star = new AudioClip(new File(path2).toURI().toString());
+
                         star.play();
+
+//                        Media media2 = new Media(new File(path2).toURI().toString());
+
+//                        MediaPlayer mediaPlayer2 = new MediaPlayer(media2);
+
+//                        mediaPlayer2.setAutoPlay(true);
+
                         this.updateScore();
                         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
                     }else{
                         String path3 = "src/assets/colorswitch.wav";
+
                         AudioClip colorwheel = new AudioClip(new File(path3).toURI().toString());
+
                         colorwheel.play();
                         if(checkIfRing() instanceof doubleCircle){
                             int choose=new Random().nextInt(2);
