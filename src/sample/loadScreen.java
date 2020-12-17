@@ -34,6 +34,10 @@ public class loadScreen{
     String path5 = "src/assets/button.wav";
     AudioClip hover = new AudioClip(new File(path5).toURI().toString());
 
+    String path4 = "src/assets/jump.wav";
+
+    AudioClip jump = new AudioClip(new File(path4).toURI().toString());
+
     String path6 = "src/assets/start.wav";
     AudioClip click = new AudioClip(new File(path6).toURI().toString());
     public void init(Stage s, Parent p, App app){
@@ -120,8 +124,8 @@ public class loadScreen{
     }
     private void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.SPACE && !gamePlayController.mode) {
-                Con.getGame().setGravity(2000);
+            if (e.getCode() == KeyCode.SPACE) {
+                jump.play();
                 setOnUserInput(scene, Con);
             }
             if(e.getCode() == KeyCode.D && gamePlayController.mode){

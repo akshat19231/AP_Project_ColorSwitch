@@ -61,7 +61,14 @@ public class Leaderboard{
         for(int j=0;j<Math.min(4,arrG.size());j++){
             String name;
             if(arrG.get(j)!=null){
-                labels.get(j).setText(arrG.get(j).getPlayer().getUname());
+                if(arrG.get(j).getMode()){
+                    String hello = arrG.get(j).getPlayer().getUname() + " (Reverse)";
+                    labels.get(j).setText(hello);
+                }
+                else{
+                    labels.get(j).setText(arrG.get(j).getPlayer().getUname());
+                }
+//                labels.get(j).setText(arrG.get(j).getPlayer().getUname());
                 slabels.get(j).setText(Integer.toString(arrG.get(j).getScore()));
             }
         }

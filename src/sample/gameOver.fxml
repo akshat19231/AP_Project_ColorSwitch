@@ -33,13 +33,10 @@
       </Pane>
       <Button fx:id="resumeB" layoutX="157.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#resume" onMouseEntered="#highlightOn_1" onMouseExited="#highlightOff_1" opacity="0.88" prefHeight="65.0" prefWidth="307.0" style="-fx-background-radius: 30px; -fx-background-color: #2F496E, linear-gradient(#2F496E 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #2F496E 45%, #304040 50%);">
          <graphic>
-            <Text fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" text="RESUME(5 STARS)?" textAlignment="CENTER" wrappingWidth="252.5185546875">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RESUME(5 STARS)?" wrappingWidth="252.5185546875">
                <font>
-                  <Font name="Eras Bold ITC" size="26.0" />
+                  <Font name="Gill Sans Ultra Bold" size="20.0" />
                </font>
-               <effect>
-                  <Glow />
-               </effect>
             </Text>
          </graphic>
       </Button>
