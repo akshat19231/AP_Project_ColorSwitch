@@ -62,9 +62,9 @@
          <effect>
             <Glow />
          </effect></Button>
-      <Label fx:id="sc1" alignment="CENTER" contentDisplay="RIGHT" layoutX="424.0" layoutY="93.0" prefHeight="30.0" prefWidth="42.0" text="0" textFill="WHITE">
+      <Label fx:id="sc1" contentDisplay="RIGHT" layoutX="424.0" layoutY="93.0" prefHeight="30.0" prefWidth="50.0" text="0" textFill="WHITE">
          <font>
-            <Font name="Candara Bold" size="24.0" />
+            <Font name="Candara Bold" size="20.0" />
          </font>
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
@@ -74,9 +74,9 @@
             </ImageView>
          </graphic>
       </Label>
-      <Label fx:id="sc2" alignment="CENTER" contentDisplay="RIGHT" layoutX="424.0" layoutY="199.0" prefHeight="30.0" prefWidth="42.0" text="0" textFill="WHITE">
+      <Label fx:id="sc2" contentDisplay="RIGHT" layoutX="424.0" layoutY="199.0" prefHeight="30.0" prefWidth="50.0" text="0" textFill="WHITE">
          <font>
-            <Font name="Candara Bold" size="24.0" />
+            <Font name="Candara Bold" size="20.0" />
          </font>
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
@@ -86,9 +86,9 @@
             </ImageView>
          </graphic>
       </Label>
-      <Label fx:id="sc3" alignment="CENTER" contentDisplay="RIGHT" layoutX="424.0" layoutY="302.0" prefHeight="30.0" prefWidth="42.0" text="0" textFill="WHITE">
+      <Label fx:id="sc3" contentDisplay="RIGHT" layoutX="424.0" layoutY="302.0" prefHeight="30.0" prefWidth="50.0" text="0" textFill="WHITE">
          <font>
-            <Font name="Candara Bold" size="24.0" />
+            <Font name="Candara Bold" size="20.0" />
          </font>
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
@@ -98,9 +98,9 @@
             </ImageView>
          </graphic>
       </Label>
-      <Label fx:id="sc4" alignment="CENTER" contentDisplay="RIGHT" layoutX="424.0" layoutY="409.0" prefHeight="30.0" prefWidth="42.0" text="0" textFill="WHITE">
+      <Label fx:id="sc4" contentDisplay="RIGHT" layoutX="424.0" layoutY="409.0" prefHeight="30.0" prefWidth="50.0" text="0" textFill="WHITE">
          <font>
-            <Font name="Candara Bold" size="24.0" />
+            <Font name="Candara Bold" size="20.0" />
          </font>
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
@@ -110,9 +110,9 @@
             </ImageView>
          </graphic>
       </Label>
-      <Label fx:id="sc5" alignment="CENTER" contentDisplay="RIGHT" layoutX="424.0" layoutY="516.0" prefHeight="30.0" prefWidth="42.0" text="0" textFill="WHITE">
+      <Label fx:id="sc5" contentDisplay="RIGHT" layoutX="424.0" layoutY="516.0" prefHeight="30.0" prefWidth="50.0" text="0" textFill="WHITE">
          <font>
-            <Font name="Candara Bold" size="24.0" />
+            <Font name="Candara Bold" size="20.0" />
          </font>
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">

@@ -66,7 +66,10 @@ public class CircleObs extends Obstacles {
         this.setTopY(this.centre-this.radius);
         this.setBottomY(this.centre+this.radius);
     }
-
+    public void changeSpeed(double y){
+        Double x=rotate.getDuration().toMillis();
+        rotate.setDuration(Duration.millis(x+y));
+    }
     public void setObs(int r){
 
         this.arc1=new Arc();

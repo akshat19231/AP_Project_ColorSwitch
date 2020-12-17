@@ -30,7 +30,7 @@
             </ImageView>
             <Label fx:id="lb4" layoutX="111.0" layoutY="10.0" text="----" textFill="#bfb6bd">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="18.0" />
                </font>
                <effect>
                   <Glow level="1.0" />
@@ -64,7 +64,7 @@
             </ImageView>
             <Label fx:id="lb1" layoutX="114.0" layoutY="10.0" text="----" textFill="GOLD">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="18.0" />
                </font>
                <effect>
                   <Glow level="1.0" />
@@ -94,7 +94,7 @@
             </ImageView>
             <Label fx:id="lb3" layoutX="112.0" layoutY="10.0" text="----" textFill="SADDLEBROWN">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="18.0" />
                </font>
                <effect>
                   <Glow level="1.0" />
@@ -124,7 +124,7 @@
             </ImageView>
             <Label fx:id="lb2" layoutX="111.0" layoutY="9.0" text="----" textFill="#5e5858">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="18.0" />
                </font>
                <effect>
                   <Glow level="1.0" />

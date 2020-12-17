@@ -5,7 +5,7 @@ import javafx.scene.Group;
 import java.util.ArrayList;
 
 public abstract class Obstacles extends gameElements {
-    ArrayList <Integer> colors;
+    protected ArrayList <Integer> colors;
     int type;
     double cury;
     protected Boolean isRight=true;

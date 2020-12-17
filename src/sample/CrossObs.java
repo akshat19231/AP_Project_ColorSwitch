@@ -50,6 +50,10 @@ public class CrossObs extends Obstacles{
         this.setTopY(this.l1.getLayoutY());
         this.setBottomY(this.l1.getLayoutY());
     }
+    public void changeSpeed(double y){
+        Double x=rotate.getDuration().toMillis();
+        rotate.setDuration(Duration.millis(x+y));
+    }
     public void setObs(){
 
         this.l1=new Line();

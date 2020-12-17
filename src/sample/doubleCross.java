@@ -115,6 +115,12 @@ public class doubleCross extends Obstacles {
         cross.getChildren().addAll(l1,l2,l3,l4);
         cross1.getChildren().addAll(l11,l21,l31,l41);
     }
+    public void changeSpeed(double y){
+        Double x=rotate1.getDuration().toMillis();
+        rotate1.setDuration(Duration.millis(x+y));
+        Double x1=rotate2.getDuration().toMillis();
+        rotate2.setDuration(Duration.millis(x1+y));
+    }
     public void getArc(Line l, int angle, String color, int ori1, int ori2){
         double x1; double y1; double lx; double ly;
         if(angle==0){

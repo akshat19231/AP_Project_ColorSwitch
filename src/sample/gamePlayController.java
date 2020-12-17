@@ -214,6 +214,14 @@ public class gamePlayController {
                                 this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#f70578"));
                             else
                                 this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#440580"));
+                        }else if(checkIfRing() instanceof TriangleObs){
+                            int choose=new Random().nextInt(3);
+                            if(choose==0)
+                                this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#f70578"));
+                            else if(choose==1)
+                                this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#f0f505"));
+                            else
+                                this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#00c8ff"));
                         }
                     }
                     tobeRemoved.add(this.game.getObs(i));
@@ -252,7 +260,7 @@ public class gamePlayController {
             }
             double y=(g.getObsQ(0)).getPosY();
             g.removeQ();
-            int ret=g.update(900);
+            int ret=g.update(800);
             stars new_s=new stars(302,((Obstacles)(g.getObsQ(g.getSizeQ()-1))).getStarY());
             new_s.makeObs();
             wheel new_w=new wheel(311,((Obstacles)(g.getObsQ(g.getSizeQ()-1))).getWheelY());
@@ -290,6 +298,7 @@ public class gamePlayController {
                     int idx=g.getArr().indexOf(focusObs) + 1;
                     focusObs=(Obstacles) g.getObsQ(idx);
                     System.out.println(focusObs.getClass());
+                    game.getMain_ball().setVy(95);
                 }
             }
         });

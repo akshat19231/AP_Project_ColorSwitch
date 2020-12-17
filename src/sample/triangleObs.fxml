@@ -20,7 +20,7 @@
                         <Image url="@../assets/bg4.png" />
                     </image>
                 </ImageView>
-                <Circle fx:id="ball" fill="#00c8ff" layoutX="312.0" layoutY="569.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                <Circle fx:id="ball" fill="#00c8ff" layoutX="310.0" layoutY="567.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
                 <Button fx:id="backB" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#pauseGame" onMouseEntered="#highlight_On" onMouseExited="#highlight_Off" prefHeight="43.0" prefWidth="47.0" style="-fx-background-color: purple; -fx-background-radius: 100px;">
                     <graphic>
                         <ImageView fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
@@ -30,7 +30,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <ImageView fitHeight="16.0" fitWidth="22.0" layoutX="304.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="16.0" fitWidth="22.0" layoutX="302.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../assets/star_preview_rev_1.png" />
                     </image>
@@ -39,9 +39,10 @@
                 <Arc fill="#f70578" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
                 <Arc fill="#440580" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
                 <Arc fill="#f0f505" layoutX="311.0" layoutY="120.0" length="90.0" radiusX="10.0" radiusY="10.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-                <Line fx:id="l3" endX="14.0" layoutX="375.0" layoutY="325.0" startX="-138.0" stroke="AQUA" strokeLineCap="ROUND" strokeWidth="20.0" />
-                <Line fx:id="l2" endX="-46.0" endY="-106.0" layoutX="357.0" layoutY="291.0" startX="-122.0" startY="29.0" stroke="#f70578" strokeLineCap="ROUND" strokeWidth="20.0" />
-                <Line fx:id="l1" endX="-166.0" endY="-105.0" layoutX="479.0" layoutY="291.0" startX="-88.0" startY="30.0" stroke="#f0f505" strokeLineCap="ROUND" strokeWidth="20.0" />
+                <Line fx:id="l3" endX="19.0" layoutX="383.0" layoutY="330.0" startX="-159.0" stroke="#440580" strokeLineCap="ROUND" strokeWidth="20.0" />
+            <Circle fill="DODGERBLUE" layoutX="310.0" layoutY="150.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+            <Line fx:id="l31" endX="-159.0" endY="-171.0" layoutX="412.0" layoutY="322.0" rotate="32.0" startX="-159.0" stroke="#440580" strokeLineCap="ROUND" strokeWidth="20.0" />
+            <Line fx:id="l311" endX="-159.0" endY="-171.0" layoutX="528.0" layoutY="322.0" rotate="-32.0" startX="-159.0" stroke="#440580" strokeLineCap="ROUND" strokeWidth="20.0" />
             </children>
         </Pane>
     </children>

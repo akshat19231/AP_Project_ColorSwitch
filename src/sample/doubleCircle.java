@@ -127,6 +127,12 @@ public class doubleCircle extends Obstacles {
         this.rotate2.setByAngle(360*multi*(-1));
         rotate2.play();
     }
+    public void changeSpeed(double y){
+        Double x=rotate1.getDuration().toMillis();
+        rotate1.setDuration(Duration.millis(x+y));
+        Double x1=rotate2.getDuration().toMillis();
+        rotate2.setDuration(Duration.millis(x1+y));
+    }
     public void setObs(int r){
 
         this.arc1=new Arc();

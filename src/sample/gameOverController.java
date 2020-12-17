@@ -179,8 +179,12 @@ public class gameOverController {
         if(this.app.getStars()<5) return;
         click.play();
         gamePlayController.mediaPlayer.play();
-        this.g.setGravity(0);
-        this.g.getMain_ball().setVy(0);
+        if(!this.g.getMode()) {
+            this.g.setGravity(0);
+            this.g.getMain_ball().setVy(0);
+        }else{
+            this.g.getMain_ball().setVy(50);
+        }
         double ballPos=this.g.getMain_ball().getCircle().getLayoutY();
         System.out.println(this.collidedWith.getBottomY()+ " " + this.collidedWith.getTopY() + " "+ ballPos);
         if(ballPos>=this.collidedWith.getBottomY()){
