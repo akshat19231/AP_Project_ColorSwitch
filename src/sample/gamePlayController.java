@@ -51,9 +51,10 @@ public class gamePlayController {
     @FXML
     private Text scoreBoard;
     private Game game;
-
+    public static Boolean mode=false;
     private App app;
     private ArrayList <smallBalls> animationBalls;
+    public static Obstacles focusObs;
 //    public Media media;
 
 //    public MediaPlayer mediaPlayer;
@@ -68,18 +69,26 @@ public class gamePlayController {
         this.game=g;
         this.animationBalls=new ArrayList<smallBalls>();
         this.game.initialiseObs();
+        this.focusObs=(Obstacles) this.game.getObsQ(0);
         this.game.setPs(s);
         this.game.setRoot(p);
 //        mediaPlayer.setAutoPlay(true);
         this.game.setLoader(fml);
-        mediaPlayer.play();
+        //mediaPlayer.play();
+        if(mode!=this.game.getMode()){
+            this.game.toggleMode();
+        }
         this.game.setTimer(null);
         this.game.setSmallTimer(null);
         this.app=app;
         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
-        this.game.setMain_ball(new Ball(0, 312,527));
+        this.game.setMain_ball(new Ball(0, 312,500));
         this.game.getMain_ball().getCircle().setLayoutY(this.game.getMain_ball().getCircle().getLayoutY() - 3);
         this.game.getMain_ball().setCurY();
+        if(mode){
+            this.game.setGravity(0);
+            this.game.getMain_ball().setVy(95);
+        }
         ArrayList <Node> toBeAdded= new ArrayList<Node>();
         toBeAdded.add(this.game.getMain_ball().getCircle());
 
@@ -106,11 +115,18 @@ public class gamePlayController {
                 ((Pane) ((StackPane)this.game.getRoot()).getChildren().get(j)).getChildren().addAll(toBeAdded);
             }
         }
+        if(checkIfRing() instanceof doubleCircle){
+            int choose=new Random().nextInt(2);
+            if(choose==0)
+                this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#f70578"));
+            else
+                this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#440580"));
+        }
 
     }
     public void loadGame(Stage s, Parent p, FXMLLoader fml, Game g, App app1) throws IOException {
         this.game=g;
-        mediaPlayer.play();
+        //mediaPlayer.play();
         this.animationBalls=new ArrayList<smallBalls>();
         this.game.setPs(s);
         this.game.setRoot(p);
@@ -140,17 +156,34 @@ public class gamePlayController {
                 toBeAdded.add(this.game.getObsQ(i).getGroup());
             }
         }
+        if(mode!=this.game.getMode()){
+            if(mode){
+                mode=false;
+            }else{
+                mode=true;
+            }
+        }
+        if(mode){
+            this.game.setGravity(0);
+            this.game.getMain_ball().setVy(95);
+        }
         assert this.game.getRoot() != null;
         for(int j = 0; j<((StackPane)this.game.getRoot()).getChildren().size(); j++){
             if(((StackPane)this.game.getRoot()).getChildren().get(j) instanceof Pane){
                 ((Pane) ((StackPane)this.game.getRoot()).getChildren().get(j)).getChildren().addAll(toBeAdded);
             }
         }
+        if(checkIfRing() instanceof doubleCircle){
+            int choose=new Random().nextInt(2);
+            if(choose==0)
+                this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#f70578"));
+            else
+                this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#440580"));
+        }
     }
     public Game getGame(){
         return this.game;
     }
-
     public void regCollisionCheck() throws InterruptedException {
         ArrayList<gameElements> tobeRemoved=new ArrayList<gameElements>();
         for(int i=0;i<this.game.getSizeQ();i++) {
@@ -175,35 +208,22 @@ public class gamePlayController {
             if ((this.game.getObs(i) instanceof wheel) || this.game.getObs(i) instanceof stars) {
                 if (this.game.getObs(i).collisionCheck(this.game.getMain_ball().getCircle())) {
                     if (this.game.getObs(i) instanceof stars) {
-
                         String path2 = "src/assets/star.wav";
-
                         AudioClip star = new AudioClip(new File(path2).toURI().toString());
-
                         star.play();
-
-//                        Media media2 = new Media(new File(path2).toURI().toString());
-
-//                        MediaPlayer mediaPlayer2 = new MediaPlayer(media2);
-
-//                        mediaPlayer2.setAutoPlay(true);
-
                         this.updateScore();
                         this.scoreBoard.setText(Integer.toString(this.game.getScore()));
-                    }
-                    else{
+                    }else{
                         String path3 = "src/assets/colorswitch.wav";
-
                         AudioClip colorwheel = new AudioClip(new File(path3).toURI().toString());
-
                         colorwheel.play();
-
-//                        Media media3 = new Media(new File(path3).toURI().toString());
-
-//                        MediaPlayer mediaPlayer3 = new MediaPlayer(media3);
-
-//                        mediaPlayer3.setAutoPlay(true);
-
+                        if(checkIfRing() instanceof doubleCircle){
+                            int choose=new Random().nextInt(2);
+                            if(choose==0)
+                                this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#f70578"));
+                            else
+                                this.game.getMain_ball().getCircle().setFill(Paint.valueOf("#440580"));
+                        }
                     }
 
                     tobeRemoved.add(this.game.getObs(i));
@@ -219,6 +239,14 @@ public class gamePlayController {
                 }
             }
         }
+    }
+    public Obstacles checkIfRing(){
+        for(int i=0;i<this.game.getSizeQ();i++){
+            if(this.game.getObsQ(i).getBottomY()<this.game.getMain_ball().getCircle().getLayoutY()){
+                return (Obstacles) this.game.getObsQ(i);
+            }
+        }
+        return null;
     }
     public void updateScore(){
         this.game.levelUp();
@@ -270,6 +298,11 @@ public class gamePlayController {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                if(focusObs.getTopY() > g.getMain_ball().getCircle().getLayoutY()){
+                    int idx=g.getArr().indexOf(focusObs) + 1;
+                    focusObs=(Obstacles) g.getObsQ(idx);
+                    System.out.println(focusObs.getClass());
+                }
             }
         });
         this.game.getTimer().start();
@@ -289,17 +322,17 @@ public class gamePlayController {
             this.game.getMain_ball().vy=0;
             return;
         }
-        double dist=(this.game.getMain_ball().vy * this.game.getDiff()) - ((2000 * this.game.getDiff() * this.game.getDiff()) / 2);
+        double dist=(this.game.getMain_ball().vy * this.game.getDiff()) - ((this.game.getGravity() * this.game.getDiff() * this.game.getDiff()) / 2);
         double ballCurY=this.game.getMain_ball().getCircle().getLayoutY();
         if(ballCurY-dist<340 ){
             this.moveObs(340-ballCurY+dist);
             this.game.getMain_ball().getCircle().setLayoutY(340);
         }else {
-            this.game.getMain_ball().getCircle().setLayoutY(this.game.getMain_ball().getCircle().getLayoutY() - ((this.game.getMain_ball().vy * this.game.getDiff()) - ((2000 * this.game.getDiff() * this.game.getDiff()) / 2)));
+            this.game.getMain_ball().getCircle().setLayoutY(this.game.getMain_ball().getCircle().getLayoutY() - ((this.game.getMain_ball().vy * this.game.getDiff()) - ((this.game.getGravity() * this.game.getDiff() * this.game.getDiff()) / 2)));
 
         }
         this.game.getMain_ball().posy = (int) this.game.getMain_ball().getCircle().getLayoutY();
-        this.game.getMain_ball().vy = (int) (this.game.getMain_ball().vy - 2000 * this.game.getDiff());
+        this.game.getMain_ball().vy = (int) (this.game.getMain_ball().vy - this.game.getGravity() * this.game.getDiff());
         this.game.getMain_ball().setCurY();
     }
 
@@ -372,14 +405,14 @@ public class gamePlayController {
     //bonus animation work
     public void animateSmallBall(smallBalls sb){
         double curY=sb.getCircle().getLayoutY();
-        double dist1=(sb.vy * this.game.getDiff()) - ((2000 * this.game.getDiff() * this.game.getDiff()) / 2);
+        double dist1=(sb.vy * this.game.getDiff()) - ((this.game.getGravity() * this.game.getDiff() * this.game.getDiff()) / 2);
         double dist2=(sb.vx * this.game.getDiff() );
         double ballCurY=sb.getCircle().getLayoutY();
         sb.getCircle().setLayoutY(sb.getCircle().getLayoutY() - dist1);
         sb.getCircle().setLayoutX(sb.getCircle().getLayoutX() - dist2);
         sb.posy = (int)sb.getCircle().getLayoutY();
         sb.posx = (int)sb.getCircle().getLayoutX();
-        sb.vy = (int) (sb.vy - 2000 * this.game.getDiff());
+        sb.vy = (int) (sb.vy - this.game.getGravity() * this.game.getDiff());
         sb.setCurY();
     }
     public void swarmCollision(){

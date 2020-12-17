@@ -8,6 +8,9 @@ public abstract class Obstacles extends gameElements {
     ArrayList <Integer> colors;
     int type;
     double cury;
+    protected Boolean isRight=true;
+    protected Boolean isLeft=false;
+
     public Obstacles(double x, double y, int a, int b, int c, int d, int type) {
         super(x, y);
         this.colors=new ArrayList<Integer>(4);
@@ -25,7 +28,9 @@ public abstract class Obstacles extends gameElements {
     public abstract double getStarY();
     public abstract void rotateOn();
     public void checkGameOver(){
-
     }
+    public abstract void rotateRight();
+    public abstract void rotateLeft();
+    public abstract void rotateStop();
 
 }

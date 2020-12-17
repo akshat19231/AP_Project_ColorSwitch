@@ -46,7 +46,7 @@
             <Image url="@../assets/rings_preview_rev_1.png" />
          </image>
       </ImageView>
-      <Button fx:id="loadGameB" layoutX="293.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#handleClick" onMouseEntered="#highlightOn_load" onMouseExited="#highlightOff_load" prefHeight="52.0" prefWidth="55.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="loadGameB" layoutX="298.0" layoutY="562.0" mnemonicParsing="false" onMouseClicked="#handleClick" onMouseEntered="#highlightOn_load" onMouseExited="#highlightOff_load" prefHeight="52.0" prefWidth="55.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -57,7 +57,7 @@
             <Glow />
          </effect>
       </Button>
-      <Button fx:id="leaderBoardB" layoutX="125.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#showLeaderBoard" onMouseEntered="#highlightOn_l" onMouseExited="#highlightOff_l" prefHeight="52.0" prefWidth="52.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="leaderBoardB" layoutX="134.0" layoutY="562.0" mnemonicParsing="false" onMouseClicked="#showLeaderBoard" onMouseEntered="#highlightOn_l" onMouseExited="#highlightOff_l" prefHeight="52.0" prefWidth="52.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -68,7 +68,7 @@
          <effect>
             <Glow />
          </effect></Button>
-      <Button fx:id="exitB" layoutX="454.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#quitGame" onMouseEntered="#highlightOn_e" onMouseExited="#highlightOff_e" prefHeight="52.0" prefWidth="55.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+      <Button fx:id="exitB" layoutX="454.0" layoutY="562.0" mnemonicParsing="false" onMouseClicked="#quitGame" onMouseEntered="#highlightOn_e" onMouseExited="#highlightOff_e" prefHeight="52.0" prefWidth="55.0" scaleX="1.3" scaleY="1.3" style="-fx-background-radius: 100px; -fx-background-color: purple;">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -89,6 +89,18 @@
          </graphic>
          <effect>
             <Glow />
+         </effect>
+      </Button>
+      <Button fx:id="reverseB" layoutX="289.0" layoutY="487.0" mnemonicParsing="false" onMouseClicked="#switchOnReverse" onMouseEntered="#highlightOn_r" onMouseExited="#highlightOff_r" prefHeight="52.0" prefWidth="52.0" style="-fx-background-radius: 100px; -fx-background-color: purple;">
+         <graphic>
+            <ImageView fitHeight="48.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/reverse1_preview_rev_1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <Glow level="0.5" />
          </effect>
       </Button>
    </children>

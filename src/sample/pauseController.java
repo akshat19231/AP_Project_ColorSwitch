@@ -45,7 +45,7 @@ public class pauseController {
         this.timer=this.g.getTimer();
         Timeline t=new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(PauseIcon.scaleXProperty(), PauseIcon.getScaleX(), Interpolator.EASE_OUT), new KeyValue(PauseIcon.scaleYProperty(), PauseIcon.getScaleY(), Interpolator.EASE_OUT)),
-                new KeyFrame(Duration.seconds(1), new KeyValue(PauseIcon.scaleXProperty(), PauseIcon.getScaleX()+0.1, Interpolator.EASE_OUT), new KeyValue(PauseIcon.scaleYProperty(), PauseIcon.getScaleY()+0.1, Interpolator.EASE_OUT))
+                new KeyFrame(Duration.seconds(1), new KeyValue(PauseIcon.scaleXProperty(), PauseIcon.getScaleX()+0.3, Interpolator.EASE_OUT), new KeyValue(PauseIcon.scaleYProperty(), PauseIcon.getScaleY()+0.3, Interpolator.EASE_OUT))
         );
         t.setAutoReverse(true);
         t.setCycleCount(-1);

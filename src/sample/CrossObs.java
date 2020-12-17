@@ -22,6 +22,7 @@ public class CrossObs extends Obstacles{
     private transient Group cross;
     private double y1,y2,y3,y4;
     private boolean collided;
+    private transient RotateTransition rotate;
     public CrossObs(double x, double y, int a, int b, int c, int d, int type) {
         super(x, y, a, b, c, d, type);
         this.l1=new Line();
@@ -33,6 +34,12 @@ public class CrossObs extends Obstacles{
         this.y3=331-this.getY();
         this.y4=433-this.getY();
         this.cross=new Group();
+        rotate = new RotateTransition();
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setDuration(Duration.millis(5000));
+        rotate.setNode(this.cross);
     }
     public void makeObs(){
         getArc(this.l1, 0, "#f70578",1, 0);
@@ -40,6 +47,8 @@ public class CrossObs extends Obstacles{
         getArc(this.l3, 180, "#440580",1,0);
         getArc(this.l4, 270, "#00c8ff",0, 1);
         cross.getChildren().addAll(l1,l2,l3,l4);
+        this.setTopY(this.l1.getLayoutY());
+        this.setBottomY(this.l1.getLayoutY());
     }
     public void setObs(){
         this.l1=new Line();
@@ -152,14 +161,49 @@ public class CrossObs extends Obstacles{
     public void rotateOn(){
         this.rotate(this.cross, 1);
     }
+    @Override
+    public void rotateRight() {
+        if(isLeft){
+            this.rotate.stop();
+            this.rotate.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate.stop();
+            Duration x=this.rotate.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate.setDuration(Duration.millis(y));
+        }
+        isLeft=false;
+        isRight=true;
+        this.rotate(this.cross,1);
+    }
+
+    @Override
+    public void rotateLeft() {
+        if(isRight){
+            this.rotate.stop();
+            this.rotate.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate.stop();
+            Duration x=this.rotate.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate.setDuration(Duration.millis(y));
+        }
+        isRight=false;
+        isLeft=true;
+        this.rotate(this.cross,-1);
+    }
+
+    @Override
+    public void rotateStop() {
+        isLeft=false;
+        isRight=false;
+        this.rotate.stop();
+        this.rotate.setDuration(Duration.millis(5000));
+    }
+
     public void rotate(Group g, int mul){
-        RotateTransition rotate = new RotateTransition();
-        rotate.setAxis(Rotate.Z_AXIS);
-        rotate.setByAngle(360*mul);
-        rotate.setCycleCount(Animation.INDEFINITE);
-        rotate.setInterpolator(Interpolator.LINEAR);
-        rotate.setDuration(Duration.millis(5000));
-        rotate.setNode(g);
+        this.rotate.stop();
+        this.rotate.setByAngle(360*mul);
         rotate.play();
     }
 
@@ -172,5 +216,7 @@ public class CrossObs extends Obstacles{
         this.y2=this.l2.getLayoutY();
         this.y3=this.l3.getLayoutY();
         this.y4=this.l4.getLayoutY();
+        this.setTopY(this.getTopY()+y);
+        this.setBottomY(this.getBottomY()+y);
     }
 }

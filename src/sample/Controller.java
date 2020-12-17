@@ -45,6 +45,8 @@ public class Controller {
     @FXML
     private Button newGameB;
     @FXML
+    private Button reverseB;
+    @FXML
     private Button leaderBoardB;
     @FXML
     private Button loadGameB;
@@ -76,6 +78,8 @@ public class Controller {
         rot(sRing2,-1);
         rot(logo2,1);
         rot(logo3,-1);
+        gamePlayController.mode=false;
+        this.reverseB.setOpacity(1);
     }
     public void showLeaderBoard(){
         click.play();
@@ -176,23 +180,38 @@ public class Controller {
             this.reDirect(myCon.getUsername());
         }
     }
-    private void setKeyFunctions(Scene scene, gamePlayController Con) {
+    public void switchOnReverse(){
+        if(!gamePlayController.mode){
+            gamePlayController.mode=true;
+            this.reverseB.setOpacity(0.3);
+        }else{
+            gamePlayController.mode=false;
+            this.reverseB.setOpacity(1);
+        }
+    }
+    public void setKeyFunctions(Scene scene, gamePlayController Con) {
         scene.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.SPACE) {
-
-//                Media media4 = new Media(new File(path4).toURI().toString());
-
+            if (e.getCode() == KeyCode.SPACE && !gamePlayController.mode) {
                 jump.play();
-
-//                MediaPlayer mediaPlayer4 = new MediaPlayer(media4);
-
-//                mediaPlayer4.setAutoPlay(true);
                 setOnUserInput(scene, Con);
             }
+            if(e.getCode() == KeyCode.RIGHT && gamePlayController.mode){
+                System.out.println("ayyo");
+                gamePlayController.focusObs.rotateRight();
+            }
+            if(e.getCode() == KeyCode.LEFT && gamePlayController.mode){
+                System.out.println("neyyo");
+                gamePlayController.focusObs.rotateLeft();
+            }
+            if(e.getCode() == KeyCode.DOWN && gamePlayController.mode){
+                System.out.println("bruv");
+                gamePlayController.focusObs.rotateStop();
+            }
+
         });
     }
 
-    private void setOnUserInput(Scene scene, gamePlayController c) {
+    public void setOnUserInput(Scene scene, gamePlayController c) {
         c.getGame().getMain_ball().vy=500;
     }
     public void quitGame() throws IOException{
@@ -204,6 +223,12 @@ public class Controller {
     }
     public void highlightOff_e() throws IOException {
         exitB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
+    }
+    public void highlightOn_r() throws IOException {
+        reverseB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");
+    }
+    public void highlightOff_r() throws IOException {
+        reverseB.setStyle("-fx-background-radius: 100px; -fx-background-color: purple;");
     }
     public void highlightOn_l() throws IOException {
         leaderBoardB.setStyle("-fx-background-radius: 100px; -fx-background-color: bda0e0 ;");

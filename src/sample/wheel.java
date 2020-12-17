@@ -16,6 +16,8 @@ public class wheel extends gameElements{
     private transient Group w;
     private boolean collided;
     private double cur;
+    public Boolean isNextRing=false;
+    public Boolean isNextTriangle=false;
 
     public wheel(double x, double y) {
         super(x, y);

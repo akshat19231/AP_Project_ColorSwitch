@@ -104,12 +104,9 @@ public class gameOverController {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE) {
                 String path4 = "src/assets/jump.wav";
-
                 AudioClip jump = new AudioClip(new File(path4).toURI().toString());
 //                Media media4 = new Media(new File(path4).toURI().toString());
-
                 jump.play();
-
                 setOnUserInput(scene, Con);
             }
         });
@@ -120,7 +117,6 @@ public class gameOverController {
     public void quitToMain() throws IOException {
         click.play();
         gamePlayController.mediaPlayer.stop();
-
         Game saved=this.app.getGame(this.g.getPlayer().getUname());
         if(saved!=null){
             this.app.getGameMap().remove(this.g.getPlayer().getUname());
@@ -128,7 +124,6 @@ public class gameOverController {
         }
         this.app.getLeaderBoard().update(this.g);
         Main.serialize();
-
         FXMLLoader loader1 = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = null;
         try {
@@ -151,16 +146,32 @@ public class gameOverController {
         //if(this.g.getScore()<5) return;
         click.play();
         gamePlayController.mediaPlayer.play();
-        double line=this.collidedWith.getStarY();
-        this.g.getMain_ball().getCircle().setLayoutY(440);
-        this.g.getMain_ball().setCurY();
-        if(line>340){
+        double ballPos=this.g.getMain_ball().getCircle().getLayoutY();
+        System.out.println(this.collidedWith.getBottomY()+ " " + this.collidedWith.getTopY() + " "+ ballPos);
+        if(ballPos>=this.collidedWith.getBottomY()){
+            System.out.println("1");
+            this.g.getMain_ball().getCircle().setLayoutY(this.g.getMain_ball().getCircle().getLayoutY()+100);
+            this.g.getMain_ball().setCurY();
+        }else if(ballPos<=this.collidedWith.getTopY()){
+            System.out.println("2");
             for(int i=0;i<this.g.getSize();i++){
-                this.g.getObs(i).moveDown(100);
+                this.g.getObs(i).moveDown(130);
             }
             for(int i=0;i<this.g.getSizeQ();i++){
-                this.g.getObsQ(i).moveDown(100);
+                this.g.getObsQ(i).moveDown(130);
             }
+        }else{
+            System.out.println("3");
+            double dist1=(this.collidedWith.getBottomY()-this.g.getMain_ball().getCircle().getLayoutY());
+            double dist=(this.collidedWith.getBottomY()- this.collidedWith.getTopY())/2;
+            this.g.getMain_ball().getCircle().setLayoutY(this.g.getMain_ball().getCircle().getLayoutY() + dist + dist1 + 10);
+            this.g.getMain_ball().setCurY();
+        }
+        //System.out.println(this.collidedWith.getBottomY()+ " " + this.collidedWith.getTopY() + " "+ ballPos);
+
+        if(this.collidedWith.getWheelY()>this.g.getMain_ball().getCircle().getLayoutY()){
+            this.g.getMain_ball().getCircle().setLayoutY(this.collidedWith.getWheelY());
+            this.g.getMain_ball().setCurY();
         }
         PauseTransition pause = new PauseTransition(
                 Duration.seconds(0.2)
@@ -180,9 +191,6 @@ public class gameOverController {
             this.g.getRoot().requestFocus();
         });
         pause.play();
-
-
-
     }
     public void highlightOn_r() throws IOException {
         restartB.setStyle("-fx-background-radius: 30px; -fx-background-color: #5B7065, linear-gradient(#5B7065 50%, #304040 100%), radial-gradient(center 50% -40%, radius 200%, #5B7065 45%, #304040 50%);;");

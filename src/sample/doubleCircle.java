@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ public class doubleCircle extends Obstacles {
     private int radius1;
     private int outside;
     private double keep_track;
+    private transient RotateTransition rotate1;
+    private transient RotateTransition rotate2;
 
 
     public doubleCircle(double x, double y, int a, int b, int c, int d, int type, int outside) {
@@ -45,6 +48,18 @@ public class doubleCircle extends Obstacles {
         this.arc41=new Arc();
         this.ring1= new Group();
         this.outside=outside;
+        rotate1 = new RotateTransition();
+        rotate1.setNode(this.ring);
+        rotate1.setAxis(Rotate.Z_AXIS);
+        rotate1.setCycleCount(Animation.INDEFINITE);
+        rotate1.setInterpolator(Interpolator.LINEAR);
+        rotate1.setDuration(Duration.millis(5000));
+        rotate2 = new RotateTransition();
+        rotate2.setNode(this.ring1);
+        rotate2.setAxis(Rotate.Z_AXIS);
+        rotate2.setCycleCount(Animation.INDEFINITE);
+        rotate2.setInterpolator(Interpolator.LINEAR);
+        rotate2.setDuration(Duration.millis(5000));
 
     }
     public double getCentre() {
@@ -61,6 +76,8 @@ public class doubleCircle extends Obstacles {
         this.arc41.setLayoutY(this.arc41.getLayoutY() + y);
         this.centre+=y;
         this.keep_track=this.arc1.getLayoutY();
+        this.setTopY(this.getTopY()+y);
+        this.setBottomY(this.getBottomY()+y);
     }
 
     public void makeObs(int r){
@@ -91,24 +108,24 @@ public class doubleCircle extends Obstacles {
 
         }
         this.ring1.getChildren().addAll(this.arc11,this.arc21,this.arc31,this.arc41);
+        this.setTopY(this.centre-this.radius);
+        this.setBottomY(this.centre+this.radius);
+        if(this.outside==1){
+            this.setTopY(this.centre+10);
+            this.setBottomY(this.centre-10);
+        }
     }
+
     public void rotateOn(){
-        this.rotate(this.arc1, 1);
-        this.rotate(this.arc2, 1);
-        this.rotate(this.arc3, 1);
-        this.rotate(this.arc4, 1);
-        this.rotate(this.arc11, -1);
-        this.rotate(this.arc21, -1);
-        this.rotate(this.arc31, -1);
-        this.rotate(this.arc41, -1);
+        this.rotate(this.ring, 1);
     }
-    public void rotate(Arc arc, int multi){
-        Timeline animation = new Timeline(
-                new KeyFrame(Duration.ZERO, new KeyValue(arc.startAngleProperty(), arc.getStartAngle(), Interpolator.LINEAR)),
-                new KeyFrame(Duration.seconds(5), new KeyValue(arc.startAngleProperty(), arc.getStartAngle() - 360*multi, Interpolator.LINEAR))
-        );
-        animation.setCycleCount(Animation.INDEFINITE);
-        animation.play();
+    public void rotate(Group g, int multi){
+        this.rotate1.stop();
+        this.rotate1.setByAngle(360*multi);
+        rotate1.play();
+        this.rotate2.stop();
+        this.rotate2.setByAngle(360*multi*(-1));
+        rotate2.play();
     }
     public void setObs(int r){
         this.arc1=new Arc();
@@ -236,6 +253,59 @@ public class doubleCircle extends Obstacles {
         }
     }
 
+    @Override
+    public void rotateRight() {
+        if(isLeft){
+            this.rotate1.stop();
+            this.rotate1.setDuration(Duration.millis(5000));
+            this.rotate2.stop();
+            this.rotate2.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate1.stop();
+            Duration x=this.rotate1.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate1.setDuration(Duration.millis(y));
+            this.rotate2.stop();
+            Duration x1=this.rotate2.getDuration();
+            Double y1=x1.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate2.setDuration(Duration.millis(y1));
+        }
+        isLeft=false;
+        isRight=true;
+        this.rotate(this.ring,1);
+    }
+
+    @Override
+    public void rotateLeft() {
+        if(isRight){
+            this.rotate1.stop();
+            this.rotate1.setDuration(Duration.millis(5000));
+            this.rotate2.stop();
+            this.rotate2.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate1.stop();
+            Duration x=this.rotate1.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate1.setDuration(Duration.millis(y));
+            this.rotate2.stop();
+            Duration x1=this.rotate2.getDuration();
+            Double y1=x1.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate2.setDuration(Duration.millis(y1));
+        }
+        isRight=false;
+        isLeft=true;
+        this.rotate(this.ring,-1);
+    }
+
+    @Override
+    public void rotateStop() {
+        isLeft=false;
+        isRight=false;
+        this.rotate1.stop();
+        this.rotate1.setDuration(Duration.millis(5000));
+        this.rotate2.stop();
+        this.rotate2.setDuration(Duration.millis(5000));
+    }
     public Group getGroup1(){
         return this.ring1;
     }

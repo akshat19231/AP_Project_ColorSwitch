@@ -34,6 +34,8 @@ public class Game implements Comparable<Game> , Serializable {
     private LinkedList<gameElements> ar;
     public LinkedList <gameElements> obsQ;
     private App app;
+    private int gravity;
+    private Boolean mode;
 
     public Game(int idx){
         this.GameId=idx;
@@ -41,6 +43,8 @@ public class Game implements Comparable<Game> , Serializable {
         this.score=0;
         this.ar=new LinkedList<gameElements>();
         this.obsQ=new LinkedList<gameElements>();
+        this.gravity=2000;
+        this.mode=false;
     }
     public void setGameId(){
         this.GameId=1;
@@ -117,9 +121,28 @@ public class Game implements Comparable<Game> , Serializable {
     public Player getPlayer(){
         return this.player;
     }
+    public LinkedList<gameElements> getArr(){
+        return this.obsQ;
+    }
     public void levelUp(){
         this.score++;
         this.level++;
+    }
+    public Boolean getMode(){
+        return this.mode;
+    }
+    public void toggleMode(){
+        if(this.mode){
+            this.mode=false;
+        }else{
+            this.mode=true;
+        }
+    }
+    public void setGravity(int g){
+        this.gravity=g;
+    }
+    public int getGravity(){
+        return this.gravity;
     }
     public void removeQ(){
         this.obsQ.remove(0);
@@ -145,7 +168,7 @@ public class Game implements Comparable<Game> , Serializable {
     public int update(double pos){
         Random random = new Random();
         int index = random.nextInt(6);
-//        index=0;
+//        index=3;
         if(index==0){
             CircleObs crO=new CircleObs(0,pos,0,0,0,0,1);
             crO.makeObs(75);
@@ -192,7 +215,7 @@ public class Game implements Comparable<Game> , Serializable {
         double offset=0;
         for(int i=0;i<3;i++){
             int index = random.nextInt(6);
-//            index=0;
+//            index=3;
             double starY;
             double wheelY;
             if(index==0){

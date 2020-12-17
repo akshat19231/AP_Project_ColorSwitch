@@ -30,16 +30,16 @@ public abstract class gameElements implements Serializable {
     public abstract void refresh();
     public abstract void setUp();
     public abstract double getPosY();
-    public void setTopy(double y){
+    public void setTopY(double y){
         this.topy=y;
     }
-    public double getTopy(){
+    public double getTopY(){
         return this.topy;
     }
-    public void setBottomy(double y){
+    public void setBottomY(double y){
         this.bottomy=y;
     }
-    public double getBottomy(){
+    public double getBottomY(){
         return this.bottomy;
     }
     public void setPosy(double y){

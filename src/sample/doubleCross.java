@@ -25,6 +25,8 @@ public class doubleCross extends Obstacles {
     private transient Group cross1;
     private double y1,y2,y3,y4;
     private boolean collided;
+    private transient RotateTransition rotate1;
+    private transient RotateTransition rotate2;
 
     public doubleCross(double x, double y, int a, int b, int c, int d, int type) {
         super(x, y, a, b, c, d, type);
@@ -42,6 +44,18 @@ public class doubleCross extends Obstacles {
         this.y4=433-this.getY();
         this.cross=new Group();
         this.cross1=new Group();
+        rotate1 = new RotateTransition();
+        rotate1.setNode(this.cross);
+        rotate1.setAxis(Rotate.Z_AXIS);
+        rotate1.setCycleCount(Animation.INDEFINITE);
+        rotate1.setInterpolator(Interpolator.LINEAR);
+        rotate1.setDuration(Duration.millis(5000));
+        rotate2 = new RotateTransition();
+        rotate2.setNode(this.cross1);
+        rotate2.setAxis(Rotate.Z_AXIS);
+        rotate2.setCycleCount(Animation.INDEFINITE);
+        rotate2.setInterpolator(Interpolator.LINEAR);
+        rotate2.setDuration(Duration.millis(5000));
 
     }
 
@@ -60,6 +74,8 @@ public class doubleCross extends Obstacles {
         this.l41.setLayoutX(this.l41.getLayoutX()+112*2);
         cross.getChildren().addAll(l1,l2,l3,l4);
         cross1.getChildren().addAll(l11,l21,l31,l41);
+        this.setTopY(this.l1.getLayoutY());
+        this.setBottomY(this.l1.getLayoutY());
     }
     public void setObs(){
         this.l1=new Line();
@@ -134,14 +150,12 @@ public class doubleCross extends Obstacles {
         this.rotate(this.cross1, -1);
     }
     public void rotate(Group g, int mul){
-        RotateTransition rotate = new RotateTransition();
-        rotate.setAxis(Rotate.Z_AXIS);
-        rotate.setByAngle(360*mul);
-        rotate.setCycleCount(Animation.INDEFINITE);
-        rotate.setInterpolator(Interpolator.LINEAR);
-        rotate.setDuration(Duration.millis(5000));
-        rotate.setNode(g);
-        rotate.play();
+        this.rotate1.stop();
+        this.rotate1.setByAngle(360*mul);
+        rotate1.play();
+        this.rotate2.stop();
+        this.rotate2.setByAngle(360*mul*(-1));
+        rotate2.play();
     }
     @Override
     public void refresh() {
@@ -219,8 +233,62 @@ public class doubleCross extends Obstacles {
         this.y2=this.l2.getLayoutY();
         this.y3=this.l3.getLayoutY();
         this.y4=this.l4.getLayoutY();
+        this.setTopY(this.getTopY()+i);
+        this.setBottomY(this.getBottomY()+i);
+    }
+    @Override
+    public void rotateRight() {
+        if(isLeft){
+            this.rotate1.stop();
+            this.rotate1.setDuration(Duration.millis(5000));
+            this.rotate2.stop();
+            this.rotate2.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate1.stop();
+            Duration x=this.rotate1.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate1.setDuration(Duration.millis(y));
+            this.rotate2.stop();
+            Duration x1=this.rotate2.getDuration();
+            Double y1=x1.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate2.setDuration(Duration.millis(y1));
+        }
+        isLeft=false;
+        isRight=true;
+        this.rotate(this.cross,1);
     }
 
+    @Override
+    public void rotateLeft() {
+        if(isRight){
+            this.rotate1.stop();
+            this.rotate1.setDuration(Duration.millis(5000));
+            this.rotate2.stop();
+            this.rotate2.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate1.stop();
+            Duration x=this.rotate1.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate1.setDuration(Duration.millis(y));
+            this.rotate2.stop();
+            Duration x1=this.rotate2.getDuration();
+            Double y1=x1.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate2.setDuration(Duration.millis(y1));
+        }
+        isRight=false;
+        isLeft=true;
+        this.rotate(this.cross,-1);
+    }
+
+    @Override
+    public void rotateStop() {
+        isLeft=false;
+        isRight=false;
+        this.rotate1.stop();
+        this.rotate1.setDuration(Duration.millis(5000));
+        this.rotate2.stop();
+        this.rotate2.setDuration(Duration.millis(5000));
+    }
     @Override
     public void print() {
 

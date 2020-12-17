@@ -29,6 +29,7 @@ public class squareObs extends Obstacles{
     private double y1,y2,y3,y4;
     private double translationalY1;
     private double translationalY2;
+    private transient RotateTransition rotate;
 
     public squareObs(double x, double y, int a, int b, int c, int d, int type, int size1, int size2, double offset, double offset1) {
 
@@ -46,7 +47,12 @@ public class squareObs extends Obstacles{
         this.y2=324-this.offset1;
         this.y3=328-this.offset1;
         this.y4=329-this.offset1;
-
+        rotate = new RotateTransition();
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setDuration(Duration.millis(5000));
+        rotate.setNode(this.rect);
     }
 
     @Override
@@ -62,6 +68,8 @@ public class squareObs extends Obstacles{
         this.y4=this.line4.getLayoutY();
         this.translationalY1+=y;
         this.translationalY2+=y;
+        this.setTopY(this.getTopY()+y);
+        this.setBottomY(this.getBottomY()+y);
     }
     public void print(){
         System.out.println(this.line1.getLayoutY());
@@ -77,6 +85,8 @@ public class squareObs extends Obstacles{
         this.translationalY1=this.line1.getLayoutY();
         this.translationalY2=this.line2.getLayoutY();
         rect.getChildren().addAll(line1,line2,line3,line4);
+        this.setTopY(this.line1.getLayoutY() - 35);
+        this.setBottomY(this.line2.getLayoutY() + 35);
     }
     public void setObs(){
         this.line1=new Line();
@@ -172,7 +182,45 @@ public class squareObs extends Obstacles{
         }
         return false;
     }
+    @Override
+    public void rotateRight() {
+        if(isLeft){
+            this.rotate.stop();
+            this.rotate.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate.stop();
+            Duration x=this.rotate.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate.setDuration(Duration.millis(y));
+        }
+        isLeft=false;
+        isRight=true;
+        this.rotate(this.rect,1);
+    }
 
+    @Override
+    public void rotateLeft() {
+        if(isRight){
+            this.rotate.stop();
+            this.rotate.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate.stop();
+            Duration x=this.rotate.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate.setDuration(Duration.millis(y));
+        }
+        isRight=false;
+        isLeft=true;
+        this.rotate(this.rect,-1);
+    }
+
+    @Override
+    public void rotateStop() {
+        isLeft=false;
+        isRight=false;
+        this.rotate.stop();
+        this.rotate.setDuration(Duration.millis(5000));
+    }
     public Group getGroup(){
         return this.rect;
     }
@@ -192,13 +240,8 @@ public class squareObs extends Obstacles{
         this.rotate(this.rect, 1);
     }
     public void rotate(Group g, int mul){
-        RotateTransition rotate = new RotateTransition();
-        rotate.setAxis(Rotate.Z_AXIS);
-        rotate.setByAngle(360*mul);
-        rotate.setCycleCount(Animation.INDEFINITE);
-        rotate.setInterpolator(Interpolator.LINEAR);
-        rotate.setDuration(Duration.millis(5000));
-        rotate.setNode(g);
+        this.rotate.stop();
+        this.rotate.setByAngle(360*mul);
         rotate.play();
     }
 }

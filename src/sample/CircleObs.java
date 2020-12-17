@@ -7,6 +7,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class CircleObs extends Obstacles {
     private boolean collided;
     private int radius;
     private double keep_track;
+    private transient RotateTransition rotate;
 
     public CircleObs(double x, double y, int a, int b, int c, int d, int type) {
 
@@ -32,8 +34,12 @@ public class CircleObs extends Obstacles {
         this.centre=275-this.getY();
         this.ring= new Group();
         this.keep_track=0-this.getY();
-
-
+        rotate = new RotateTransition();
+        rotate.setNode(this.ring);
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setDuration(Duration.millis(5000));
     }
 
     public double getCentre() {
@@ -46,6 +52,8 @@ public class CircleObs extends Obstacles {
         this.arc4.setLayoutY(this.arc4.getLayoutY() + y);
         this.centre+=y;
         this.keep_track=this.arc1.getLayoutY();
+        this.setTopY(this.getTopY()+y);
+        this.setBottomY(this.getBottomY()+y);
     }
 
     public void makeObs(int r){
@@ -55,6 +63,8 @@ public class CircleObs extends Obstacles {
         getArc(r,arc3, 180, "#440580");
         getArc(r,arc4, 270, "#00c8ff");
         ring.getChildren().addAll(arc1,arc2,arc3,arc4);
+        this.setTopY(this.centre-this.radius);
+        this.setBottomY(this.centre+this.radius);
     }
 
     public void setObs(int r){
@@ -159,17 +169,62 @@ public class CircleObs extends Obstacles {
 
     @Override
     public void rotateOn() {
-        this.rotate(this.arc1, 1);
-        this.rotate(this.arc2, 1);
-        this.rotate(this.arc3, 1);
-        this.rotate(this.arc4, 1);
+//        this.rotate(this.arc1, 1);
+//        this.rotate(this.arc2, 1);
+//        this.rotate(this.arc3, 1);
+//        this.rotate(this.arc4, 1);
+        this.rotate(this.ring,1);
     }
-    public void rotate(Arc arc, int multi){
-        Timeline animation = new Timeline(
-                new KeyFrame(Duration.ZERO, new KeyValue(arc.startAngleProperty(), arc.getStartAngle(), Interpolator.LINEAR)),
-                new KeyFrame(Duration.seconds(5), new KeyValue(arc.startAngleProperty(), arc.getStartAngle() - 360*multi, Interpolator.LINEAR))
-        );
-        animation.setCycleCount(Animation.INDEFINITE);
-        animation.play();
+
+    @Override
+    public void rotateRight() {
+        if(isLeft){
+            this.rotate.stop();
+            this.rotate.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate.stop();
+            Duration x=this.rotate.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate.setDuration(Duration.millis(y));
+        }
+        isLeft=false;
+        isRight=true;
+        this.rotate(this.ring,1);
+    }
+
+    @Override
+    public void rotateLeft() {
+        if(isRight){
+            this.rotate.stop();
+            this.rotate.setDuration(Duration.millis(5000));
+        }else{
+            this.rotate.stop();
+            Duration x=this.rotate.getDuration();
+            Double y=x.toMillis()==1250? 1250: x.toMillis()-1250;
+            this.rotate.setDuration(Duration.millis(y));
+        }
+        isRight=false;
+        isLeft=true;
+        this.rotate(this.ring,-1);
+    }
+
+    @Override
+    public void rotateStop() {
+        isLeft=false;
+        isRight=false;
+        this.rotate.stop();
+        this.rotate.setDuration(Duration.millis(5000));
+    }
+
+    public void rotate(Group g, int multi){
+//        Timeline animation = new Timeline(
+//                new KeyFrame(Duration.ZERO, new KeyValue(arc.startAngleProperty(), arc.getStartAngle(), Interpolator.LINEAR)),
+//                new KeyFrame(Duration.seconds(5), new KeyValue(arc.startAngleProperty(), arc.getStartAngle() - 360*multi, Interpolator.LINEAR))
+//        );
+//        animation.setCycleCount(Animation.INDEFINITE);
+//        animation.play();
+        //this.rotate.stop();
+        this.rotate.setByAngle(360*multi);
+        rotate.play();
     }
 }
