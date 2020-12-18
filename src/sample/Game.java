@@ -178,9 +178,8 @@ public class Game implements Comparable<Game> , Serializable {
         }else{
             base_line=0; top_line=7;
         }
-
         int index = ThreadLocalRandom.current().nextInt(base_line, 7);
-        index=3;
+//        index=3;
         if(index==0){
             CircleObs crO=new CircleObs(0,pos,0,0,0,0,1);
             if(this.score>5 && this.score<=7)
