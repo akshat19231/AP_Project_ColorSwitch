@@ -1,4 +1,5 @@
-![heading](C:\Users\user\Pictures\heading.png)
+<p align="center">
+  <img src="https://github.com/akshat19231/AP_Project_ColorSwitch/blob/master/src/assets/heading.png">
 
 <hr>
 
@@ -7,7 +8,7 @@
 
 :video_game: Link to Gameplay!
 
-## <img src="C:\Users\user\Desktop\Work\AP\2019048_2019231_Deadline3\src\assets\rings_preview_rev_1.png" alt="rings_preview_rev_1" style="zoom:10%;" align="left"/> Contents:
+## <img src="https://github.com/akshat19231/AP_Project_ColorSwitch/blob/master/src/assets/rings_preview_rev_1.png" alt="rings_preview_rev_1"  width="30px" align="left"/> Contents:
 
 1) About
 
@@ -19,7 +20,7 @@
 
 <hr>
 
-## <img src="C:\Users\user\Desktop\Work\AP\2019048_2019231_Deadline3\src\assets\rings_preview_rev_1.png" alt="rings_preview_rev_1" style="zoom:10%;" align="left"/> About:
+## <img src="https://github.com/akshat19231/AP_Project_ColorSwitch/blob/master/src/assets/rings_preview_rev_1.png"  width="30px" align="left"/> About:
 
 ● The technology/language behind the project is JavaFX, a subsidiary of the famous language Java, which is  mainly used for making such games and GUIs (Graphical User Interfaces).  
 
@@ -27,7 +28,7 @@
 
 <hr>
 
-## <img src="C:\Users\user\Desktop\Work\AP\2019048_2019231_Deadline3\src\assets\rings_preview_rev_1.png" alt="rings_preview_rev_1" style="zoom:10%;" align="left"/> How to Run?
+## <img src="https://github.com/akshat19231/AP_Project_ColorSwitch/blob/master/src/assets/rings_preview_rev_1.png" alt="rings_preview_rev_1"  width="30px" align="left"/> How to Run?
 
 * Clone the project into your desired directory by opening command line and entering ```git clone https://github.com/akshat19231/AP_Project_ColorSwitch```
 
@@ -45,10 +46,10 @@
 
 <hr>
 
-## <img src="C:\Users\user\Desktop\Work\AP\2019048_2019231_Deadline3\src\assets\rings_preview_rev_1.png" alt="rings_preview_rev_1" style="zoom:10%;" align="left"/>Snapshots
+## <img src="https://github.com/akshat19231/AP_Project_ColorSwitch/blob/master/src/assets/rings_preview_rev_1.png" alt="rings_preview_rev_1"  width="30px" align="left"/>Snapshots
 
 <hr>
 
-## <img src="C:\Users\user\Desktop\Work\AP\2019048_2019231_Deadline3\src\assets\rings_preview_rev_1.png" alt="rings_preview_rev_1" style="zoom:10%;" align="left"/>Features + Bonus
+## <img src="https://github.com/akshat19231/AP_Project_ColorSwitch/blob/master/src/assets/rings_preview_rev_1.png" alt="rings_preview_rev_1" width="30px" align="left"/>Features + Bonus
 
 
