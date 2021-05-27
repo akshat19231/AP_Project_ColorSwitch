@@ -24,7 +24,7 @@
 
 ● The technology/language behind the project is JavaFX, a subsidiary of the famous language Java, which is  mainly used for making such games and GUIs (Graphical User Interfaces).  
 
-● As the player progresses, the difficulty of the game increases, that is, the rotation speed of the obstacles  increase and the radius in case of circles decreases. 
+● A single player game where, as the player progresses, the difficulty of the game increases, that is, the rotation speed of the obstacles  increase and the radius in case of circles decreases. 
 
 <hr>
 
